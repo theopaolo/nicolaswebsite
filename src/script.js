@@ -266,7 +266,7 @@ window.addEventListener('click', (event) => {
 })
 
 
-imgboxbtn = document.querySelector(".boxbtn")
+let imgboxbtn = document.querySelector(".boxbtn")
 
 imgboxbtn.addEventListener('click', ()=>{
   console.log("btnclicked", imgcreated);
@@ -278,8 +278,6 @@ imgboxbtn.addEventListener('click', ()=>{
     }, 1000);
   }
 })
-
-
 
 let imgbox = null
 let imgcreated = false
