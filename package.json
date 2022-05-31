@@ -1,0 +1,19 @@
+{
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build"
+  },
+  "alias": {
+    "highway": "./node_modules/@dogstudio/highway/build/highway.min.js"
+  },
+  "devDependencies": {
+    "lil-gui": "^0.16.1",
+    "parcel": "^2.6.0",
+    "sharp": "^0.29.3"
+  },
+  "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
+    "three": "^0.141.0"
+  }
+}
