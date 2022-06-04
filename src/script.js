@@ -188,7 +188,23 @@ function vidSphere(elArr){
   let imgLght = elArr.length
 
   for(let vid of elArr){
-    vid.play()
+    var playPromise = vid.play();
+
+    if (playPromise !== undefined) {
+      playPromise.then(_ => {
+        // Automatic playback started!
+        // Show playing UI.
+        // We can now safely pause video...
+        vid.pause();
+        console.log(vid);
+      })
+      .catch(error => {
+        console.log(error);
+        // Auto-play was prevented
+        // Show paused UI.
+      });
+    }
+
     let vidTexture = new THREE.VideoTexture(vid)
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: vidTexture })
