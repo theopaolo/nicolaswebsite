@@ -182,6 +182,26 @@ function imgSphere(elArr){
 
 imgSphere(myImages)
 
+function coreSphere(elArr){
+  let imgLght = elArr.length
+  let i = 0
+  for(let image of elArr){
+    // Load images as texture
+    let imgText = textureLoader.load(image)
+    imgText.generateMipmaps = false
+
+    // Create planeMaterial and map images texture
+    let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
+    planeMaterial.side = THREE.DoubleSide
+    let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
+    i += 1
+    // Create sphere using finonacci
+    fiboSphere(imgLght, i, planeMesh, 8)
+  }
+  scene.add(imggroup)
+}
+coreSphere(myImages)
+
 function vidSphere(elArr){
   let y = 0
   let imgLght = elArr.length
@@ -225,10 +245,6 @@ window.addEventListener('resize', () =>
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
-    // Update EffectComposer
-    effectComposer.setSize(sizes.width, sizes.height)
-    effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 })
 
 /**
