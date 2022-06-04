@@ -392,14 +392,12 @@ const tick = () =>
         currentIntersect = intersects[0]
         console.log('mouse enter')
         document.body.style.cursor = "zoom-in";
-
     }
     else
     {
         if(currentIntersect)
         console.log('mouse leave')
         document.body.style.cursor = "default";
-
         currentIntersect = null
     }
 
