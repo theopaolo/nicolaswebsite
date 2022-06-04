@@ -282,8 +282,7 @@ let imgcreated = false
 
 function createImg(url) {
   console.log(imgcreated);
-  if(!imgcreated){
-
+  if(imgcreated === false){
     let newimg = document.createElement('img');
     newimg.src = url;
     newimg.classList.add("imagebox")
@@ -294,17 +293,17 @@ function createImg(url) {
       .to(".lightbox", { opacity: 1, duration: 0.5, })
       .from(".imagebox", { opacity: 0, duration: 0, })
   } else {
-    imgcreated = false
     clickouteraseimg()
   }
 }
 
 function clickouteraseimg() {
-  if(!imgcreated){
+  if(imgcreated === true){
     tl.to(".lightbox", { opacity: 0, duration: 1, })
     setTimeout(() => {
       imgbox.remove()
-          console.log("erase img");
+      console.log("erase img");
+      imgcreated = false
     }, 1000);
   }
 }
