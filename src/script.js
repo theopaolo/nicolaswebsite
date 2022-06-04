@@ -189,7 +189,6 @@ function vidSphere(elArr){
 
   for(let vid of elArr){
     var playPromise = vid.play();
-
     if (playPromise !== undefined) {
       playPromise.then(_ => {
         // Automatic playback started!
@@ -391,10 +390,16 @@ const tick = () =>
     {
         if(!currentIntersect)
         currentIntersect = intersects[0]
+        console.log('mouse enter')
+        document.body.style.cursor = "zoom-in";
+
     }
     else
     {
         if(currentIntersect)
+        console.log('mouse leave')
+        document.body.style.cursor = "default";
+
         currentIntersect = null
     }
 
