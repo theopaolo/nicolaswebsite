@@ -153,7 +153,6 @@ function fiboSphere(imgLght, iter, mesh, size) {
   imggroup.add(mesh);
 }
 
-
 function imgSphere(elArr){
   let imgLght = elArr.length
   let i = 0
@@ -179,7 +178,7 @@ function imgSphere(elArr){
 
 // gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
 // gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
-
+// gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
 
 imgSphere(myImages)
 
@@ -365,7 +364,7 @@ let currentIntersect = null
 
 const tick = () =>
 {
-    imggroup.rotation.y += 0.001;
+    imggroup.rotation.y += 0.0002;
 
     // Cas a ray
     raycaster.setFromCamera(mouse, camera)
