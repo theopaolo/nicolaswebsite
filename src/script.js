@@ -183,26 +183,26 @@ function imgSphere(elArr){
 
 imgSphere(myImages)
 
-// function vidSphere(elArr){
-//   let y = 0
-//   let imgLght = elArr.length
+function vidSphere(elArr){
+  let y = 0
+  let imgLght = elArr.length
 
-//   for(let vid of elArr){
-//     vid.play()
-//     let vidTexture = new THREE.VideoTexture(vid)
-//     // Create planeMaterial and map images texture
-//     let planeMaterial = new THREE.MeshBasicMaterial({ map: vidTexture })
-//     planeMaterial.side = THREE.DoubleSide
-//     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
+  for(let vid of elArr){
+    vid.play()
+    let vidTexture = new THREE.VideoTexture(vid)
+    // Create planeMaterial and map images texture
+    let planeMaterial = new THREE.MeshBasicMaterial({ map: vidTexture })
+    planeMaterial.side = THREE.DoubleSide
+    let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
 
-//     y += 1
+    y += 1
 
-//     // Create sphere using finonacci
-//     fiboSphere(imgLght, y, planeMesh, 35)
-//   }
-// }
+    // Create sphere using finonacci
+    fiboSphere(imgLght, y, planeMesh, 35)
+  }
+}
 
-// vidSphere(myVideos)
+vidSphere(myVideos)
 
 
 /**
@@ -248,8 +248,6 @@ window.addEventListener('mousemove', (event) => {
 })
 let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
-
-
 
 window.addEventListener('click', (event) => {
   if(currentIntersect) {
