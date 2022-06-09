@@ -393,7 +393,7 @@ let currentIntersect = null
 
 const tick = () =>
 {
-    imggroup.rotation.y += 0.0002;
+    imggroup.rotation.y -= 0.0002;
 
     // Cas a ray
     raycaster.setFromCamera(mouse, camera)
