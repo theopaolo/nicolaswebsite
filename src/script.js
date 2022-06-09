@@ -200,7 +200,7 @@ function coreSphere(elArr){
   }
   scene.add(imggroup)
 }
-
+coreSphere(myImages)
 
 function vidSphere(elArr){
   let y = 0
