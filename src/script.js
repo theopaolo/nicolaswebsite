@@ -205,7 +205,7 @@ function coreSphere(elArr){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.side = THREE.BackSide
+    planeMaterial.side = THREE.FrontSide
 
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
     i += 1
