@@ -143,6 +143,19 @@ let coreImgs = [
   new URL('static/sans+titre-8.jpg?as=webp',import.meta.url),
   new URL('static/sans+titre-9.jpg?as=webp',import.meta.url),
   new URL('static/sans+titre-10.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-34.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-35.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-36.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-37.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-38.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-39.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-41.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-42.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-43.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-44.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-45.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-46.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-47.jpg?as=webp',import.meta.url),
 ]
 
 /**
