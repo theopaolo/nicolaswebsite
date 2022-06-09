@@ -205,15 +205,17 @@ function coreSphere(elArr){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
+    planeMaterial.side = THREE.BackSide
+
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
     i += 1
     // Create sphere using finonacci
-    fiboSphere(imgLght, i, planeMesh, 8)
+    fiboSphere(imgLght, i, planeMesh, 4)
   }
   scene.add(imggroup)
 }
 
-coreSphere(myImages)
+coreSphere(coreImgs)
 
 function vidSphere(elArr){
   let y = 0
@@ -393,7 +395,7 @@ let currentIntersect = null
 
 const tick = () =>
 {
-    imggroup.rotation.y -= 0.0002;
+    imggroup.rotation.y += 0.0002;
 
     // Cas a ray
     raycaster.setFromCamera(mouse, camera)
