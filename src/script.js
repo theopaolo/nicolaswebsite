@@ -194,7 +194,7 @@ function imgSphere(elArr){
 // gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
 
 imgSphere(myImages)
-
+let corePlaneGeometry = new THREE.PlaneGeometry(9, 4)
 function coreSphere(elArr){
   let imgLght = elArr.length
   let i = 0
@@ -205,12 +205,12 @@ function coreSphere(elArr){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.side = THREE.FrontSide
+    planeMaterial.side = THREE.DoubleSide
 
-    let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
+    let planeMesh  = new THREE.Mesh(corePlaneGeometry, planeMaterial);
     i += 1
     // Create sphere using finonacci
-    fiboSphere(imgLght, i, planeMesh, 4)
+    fiboSphere(imgLght, i, planeMesh, 1)
   }
   scene.add(imggroup)
 }
