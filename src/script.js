@@ -132,6 +132,19 @@ let myImages = [
   new URL('static/sans+titre-47.jpg?as=webp',import.meta.url),
 ]
 
+let coreImgs = [
+  new URL('static/sans+titre-2.jpg?as=webp', import.meta.url),
+  new URL('static/sans+titre-1.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-3.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-4.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-5.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-6.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-7.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-8.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-9.jpg?as=webp',import.meta.url),
+  new URL('static/sans+titre-10.jpg?as=webp',import.meta.url),
+]
+
 /**
  * Create Objects
  */
@@ -192,7 +205,6 @@ function coreSphere(elArr){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.side = THREE.DoubleSide
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
     i += 1
     // Create sphere using finonacci
@@ -200,6 +212,7 @@ function coreSphere(elArr){
   }
   scene.add(imggroup)
 }
+
 coreSphere(myImages)
 
 function vidSphere(elArr){
