@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./style.css">
+  <title>Nicolas Herman - Series 1</title>
+</head>
+
+<body>
+
+  <main data-router-wrapper>
+    <section data-router-view="series" id="series">
+      <nav>
+        <ul class="absolute top-50 flex">
+          <li><a href="./serie1.html" data-router-disabled style="margin-left: 2rem">séries</a></li>
+          <li> <a href="./index.html" data-router-disabled>expérience</a> </li>
+        </ul>
+
+        <ul class="absolute top-50 right-2">
+          <li><a href="./about.html">à propos</a> </li>
+        </ul>
+      </nav>
+      <section class="gallery">
+        <div class="next-prev">
+          <button class="prev" onclick="plusSlides(-1)"></button>
+          <button class="next" onclick="plusSlides(1)"></button>
+        </div>
+        <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
+        <section class="slides intro-text">
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est libero id animi reiciendis omnis? Ab asperiores
+            officiis qui inventore, illo voluptatibus, deleniti ut porro quos repellendus veniam, quasi dolore fugit?</p>
+        </section>
+
+        <section class="slides serie-grid 6-column-grid">
+          <div class="column" style="--span:6">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/33009f4961-1655310844/sans-titre-4.jpg"
+                  alt="">
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="slides serie-grid 6-column-grid">
+          <div class="column" style="--span:3">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/4d22f8344b-1655311601/sans-titre-19.jpg"
+                  alt="">
+
+              </figure>
+            </div>
+          </div>
+          <div class="column" style="--span:3">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/3b242f339f-1655311601/sans-titre-25.jpg"
+                  alt="">
+
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="slides serie-grid 6-column-grid">
+          <div class="column" style="--span:3">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/8bf82f8752-1655311601/sans-titre-22.jpg"
+                  alt="">
+              </figure>
+            </div>
+          </div>
+          <div class="column" style="--span:3">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/f2581246ce-1655311601/sans-titre-24.jpg"
+                  alt="">
+
+              </figure>
+            </div>
+          </div>
+        </section>
+
+        <section class="slides serie-grid 6-column-grid">
+          <div class="column" style="--span:6">
+            <div class="blocks">
+              <figure data-ratio="auto">
+                <img
+                  src="https://headlessnh.test/media/pages/series/une-premiere-serie/337949e7d9-1655310937/sans-titre-26.jpg"
+                  alt="">
+              </figure>
+            </div>
+          </div>
+        </section>
+
+      </section>
+
+    </section>
+
+  </main>
+
+  <script>
+    let next = document.querySelector(".next")
+    let prev = document.querySelector(".prev")
+    let allimgcount = document.querySelector(".allcount")
+    let currentimgcount = document.querySelector(".currentcount")
+
+    let slides = document.querySelectorAll(".slides");
+    let slideCount = slides.length
+
+    let slideIndex = 1;
+    showSlides(slideIndex);
+
+    // Next/previous controls
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+
+    // Thumbnail image controls
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+
+    allimgcount.innerHTML = slideCount
+
+    function showSlides(n) {
+      let i;
+      if (n > slideCount) {slideIndex = 1}
+      if (n < 1) {slideIndex = slideCount}
+      for (i = 0; i < slideCount; i++) {
+        slides[i].style.display = "none";
+      }
+
+      slides[slideIndex-1].style.display = "flex";
+      currentimgcount.innerHTML = slideIndex
+    }
+
+  </script>
+
+</body>
+
+</html>

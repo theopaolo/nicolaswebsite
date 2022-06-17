@@ -4,17 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./normalize.css">
+
   <link rel="stylesheet" href="./style.css">
-  <title>A propos</title>
+  <title>Nicolas Herman - A propos</title>
 </head>
 <body>
 
 <main data-router-wrapper>
   <section data-router-view="about" id="about">
     <div class="about-grid">
-      <button><a href="index.html">FERMER</a></button>
+
+      <button><a href="index.html" class="close" aria-label="close"></a></button>
+
       <div class="bio">
-        <p>L’image occulte ou la condition morcelée</p>
+        <p class=" mt-4">L’image occulte ou la condition morcelée</p>
 
         <p>L’œuvre de Nicolas Hermann développe une narration complexe de paysages, de détails et de situations perçues dans un espace-temps indéfini. La lumière possède une étrangeté plus vive que celle d’un crépuscule ou d’une aube. Elle est en même temps furtive et évidente, vibrante et irradiante. Procédant par montage, Nicolas Hermann compose ses ensembles photographiques à la manière d’un film, créant des passages symboliques entre différentes images. Nicolas Hermann développe une représentation cosmogonique en évacuant les éléments de contextualisation. Catalyseurs de la pulsation du monde, ces constellations d’images provoquent la réminiscence.</p>
 
@@ -31,6 +35,8 @@
         <p>Par son travail photographique, Nicolas Hermann affirme la difficulté de donner à l’image les attributs de la vérité. Il rappelle au contraire que la photographie et le film sont avant tout, de manière primordiale des œuvres de fiction. L’image, nécessairement occulte ne parle du présent qu’en fragment. Elle est l’expression de notre condition morcelée. </p>
 
         <p>Théo-Mario Coppola, mars 2019</p>
+
+        <div class="section-footer"><span class="arrow-down"></span></div>
       </div>
 
       <div class="contact flex align-center">
@@ -50,7 +56,7 @@
       </div>
       <div class="empty"></div>
       <div class="parcour">
-        <h2>Expositions</h2>
+        <h2 class=" mt-4">Expositions</h2>
 
         <h3>2021</h3>
         <p>«Light, space and time», avec le collectif X-Art, galerie le 59 Rivoli, Paris, France, 02.12.21 au 12.12.21</p>
@@ -129,6 +135,9 @@
         <h3>2011</h3>
         <p>La photographie analogique, Hergo, Paris, France</p>
         <p>La chambre noire, Hergo, Paris, France</p>
+
+        <div class="section-footer"><span class="arrow-down"></span></div>
+
       </div>
     </div>
   </section>

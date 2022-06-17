@@ -4,25 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="script.js" type="module"></script>
+    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Nicolas Herman Portfolio</title>
 </head>
 <body>
 
-
   <div class="container">
     <h1>Nicolas Hermann</h1>
+    <nav>
+      <ul class="absolute top-50 flex">
+        <li><a href="./serie1.html" data-router-disabled>séries</a></li>
+        <li> <button>expérience</button> </li>
+      </ul>
 
-
-
-    <ul class="absolute top-50 flex">
-      <li>séries</li>
-      <li> <button>expérience</button> </li>
-    </ul>
-
-    <ul class="absolute top-50 right-2">
-      <li><a href="./about.html" data-turbo-action="advance">à propos</a> </li>
-    </ul>
+      <ul class="absolute top-50 right-2">
+        <li><a href="./about.html">à propos</a> </li>
+      </ul>
+    </nav>
 
     <div class="lightbox">
       <button class="boxbtn">fermer</button>
@@ -34,6 +33,7 @@
       </div>
       <span>sound on/off</span>
     </div>
+
     <audio loop>
       <source src="static/OlivierMessiaenLaviergeetlenfant.mp3" type="audio/mpeg">
     </audio>
@@ -88,8 +88,9 @@
   <canvas class="webgl"></canvas>
 
   <div class="loading-bar"></div>
+
   <main data-router-wrapper>
-    <section data-router-view="home">
+    <section data-router-view="home" id="home">
     </section>
   </main>
 

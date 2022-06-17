@@ -1,6 +1,7 @@
 {
   "source": "src/index.html",
   "scripts": {
+    "watch": "parcel watch",
     "start": "parcel",
     "build": "parcel build"
   },
@@ -10,10 +11,12 @@
   "devDependencies": {
     "lil-gui": "^0.16.1",
     "parcel": "^2.6.0",
+    "process": "^0.11.10",
     "sharp": "^0.29.3"
   },
   "dependencies": {
     "@dogstudio/highway": "^2.2.1",
+    "axios": "^0.27.2",
     "three": "^0.141.0"
   }
 }
