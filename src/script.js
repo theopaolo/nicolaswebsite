@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
 const gsap = window.gsap;
 import * as dat from 'lil-gui'
-// const gui = new dat.GUI()
+const gui = new dat.GUI()
 import Highway from 'highway';
 
 // Import Transitions
@@ -202,9 +202,9 @@ function imgSphere(elArr){
   imggroup.rotation.z = 0.0835;
 }
 
-// gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
-// gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
-// gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
+gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
+gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
+gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
 
 imgSphere(myImages)
 let corePlaneGeometry = new THREE.PlaneGeometry(9, 4)
@@ -227,8 +227,6 @@ function coreSphere(elArr){
   }
   scene.add(imggroup)
 }
-
-coreSphere(coreImgs)
 
 function vidSphere(elArr){
   let y = 0
@@ -273,6 +271,7 @@ window.addEventListener('resize', () =>
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
 })
 
 /**
@@ -359,7 +358,7 @@ var fov = 45;
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
 camera.position.set(80,80,80); // Set position like this
 scene.add(camera)
-
+scene.background = new THREE.Color(0x171717);
 /**
  * Controls
  */
