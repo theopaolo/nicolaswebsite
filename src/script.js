@@ -358,7 +358,7 @@ var fov = 45;
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
 camera.position.set(80,80,80); // Set position like this
 scene.add(camera)
-scene.background = new THREE.Color(0x171717);
+scene.background = new THREE.Color(0x101010);
 /**
  * Controls
  */
