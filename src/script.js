@@ -46,7 +46,6 @@ const overlayMaterial = new THREE.ShaderMaterial({
   fragmentShader:
     `
       uniform float uAlpha;
-
       void main()
       {
         gl_FragColor = vec4(0.0, 0.0, 0.0, uAlpha);
@@ -75,8 +74,10 @@ const loadingManager = new THREE.LoadingManager(
       loadingBarElement.style.transform = ''
     })
   },
-  //Progress
-  (itemUrl, itemsLoaded, itemsTotal) =>
+/**
+ * Progress
+ */
+  (itemsLoaded, itemsTotal) =>
   {
     const progressRatio = itemsLoaded / itemsTotal;
     loadingBarElement.style.transform = `scaleX( ${progressRatio} )`
@@ -85,83 +86,61 @@ const loadingManager = new THREE.LoadingManager(
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 
-let myImages = [
-  new URL('static/sans+titre-2.jpg?as=webp', import.meta.url),
-  new URL('static/sans+titre-1.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-3.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-4.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-5.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-6.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-7.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-8.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-9.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-10.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-11.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-12.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-13.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-14.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-15.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-16.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-17.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-19.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-20.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-21.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-22.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-24.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-25.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-26.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-27.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-28.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-29.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-30.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-31.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-32.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-33.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-34.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-35.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-36.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-37.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-38.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-39.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-41.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-42.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-43.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-44.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-45.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-46.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-47.jpg?as=webp',import.meta.url),
+let imghorizon = [
+  new URL('static/horizontales/sans+titre-2.jpg', import.meta.url),
+  new URL('static/horizontales/sans+titre-1.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-3.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-4.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-5.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-6.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-7.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-8.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-9.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-10.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-11.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-12.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-13.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-14.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-15.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-16.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-17.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-19.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-20.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-21.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-22.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-24.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-25.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-26.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-27.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-28.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-29.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-30.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-31.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-32.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-33.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-34.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-35.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-36.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-37.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-38.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-39.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-41.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-42.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-43.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-44.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-45.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-46.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-47.jpg',import.meta.url),
 ]
 
-let coreImgs = [
-  new URL('static/sans+titre-2.jpg?as=webp', import.meta.url),
-  new URL('static/sans+titre-1.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-3.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-4.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-5.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-6.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-7.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-8.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-9.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-10.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-34.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-35.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-36.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-37.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-38.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-39.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-41.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-42.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-43.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-44.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-45.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-46.jpg?as=webp',import.meta.url),
-  new URL('static/sans+titre-47.jpg?as=webp',import.meta.url),
-]
+
 
 /**
  * Create Objects
  */
-let planeGeometry = new THREE.PlaneGeometry(16, 9);
+let planeGeometry = new THREE.PlaneGeometry(3, 2);
+let planeGeoVerti = new THREE.PlaneGeometry(16, 9);
+
 let phi = 0
 let theta = 0
 let goldNum = 1.618033988749895
@@ -176,13 +155,16 @@ function fiboSphere(imgLght, iter, mesh, size) {
 
   mesh.position.setFromSpherical(positionSphere);
   mesh.lookAt(mesh.position.clone().setLength(3));
+
+  // add mesh to a THREE.Group to be able to rotate and move the group
   imggroup.add(mesh);
 }
 
-function imgSphere(elArr){
-  let imgLght = elArr.length
+function imgSphere(imgHorizon, imgVerti){
+  let imgLght = imgHorizon.length
   let i = 0
-  for(let image of elArr){
+
+  for(let image of imgHorizon){
     // Load images as texture
     let imgText = textureLoader.load(image)
     imgText.generateMipmaps = false
@@ -191,43 +173,51 @@ function imgSphere(elArr){
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
     planeMaterial.side = THREE.DoubleSide
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
-    i += 1
+
 
     // Create sphere using finonacci
-    fiboSphere(imgLght, i, planeMesh, 50)
+    i += 1
+    fiboSphere(imgLght, i, planeMesh, 10)
+
+    // Add planes to imgObjects array for the rayCaster
     imgObjects.push(planeMesh)
   }
-  scene.add(imggroup)
-  imggroup.rotation.x = -0.100;
-  imggroup.rotation.z = 0.0835;
-}
 
-gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
-gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
-gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
-
-imgSphere(myImages)
-let corePlaneGeometry = new THREE.PlaneGeometry(9, 4)
-function coreSphere(elArr){
-  let imgLght = elArr.length
-  let i = 0
-  for(let image of elArr){
-    // Load images as texture
-    let imgText = textureLoader.load(image)
-    imgText.generateMipmaps = false
-
-    // Create planeMaterial and map images texture
-    let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.side = THREE.DoubleSide
-
-    let planeMesh  = new THREE.Mesh(corePlaneGeometry, planeMaterial);
-    i += 1
-    // Create sphere using finonacci
-    fiboSphere(imgLght, i, planeMesh, 1)
-  }
   scene.add(imggroup)
 }
 
+// Creage a sphere of image the the array of Horizontales imgs
+imgSphere(imghorizon)
+
+// gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
+// gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
+// gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
+
+
+// let corePlaneGeometry = new THREE.PlaneGeometry(9, 4)
+// function coreSphere(elArr){
+//   let imgLght = elArr.length
+//   let i = 0
+//   for(let image of elArr){
+//     // Load images as texture
+//     let imgText = textureLoader.load(image)
+//     imgText.generateMipmaps = false
+
+//     // Create planeMaterial and map images texture
+//     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
+//     planeMaterial.side = THREE.DoubleSide
+
+//     let planeMesh  = new THREE.Mesh(corePlaneGeometry, planeMaterial);
+//     i += 1
+//     // Create sphere using finonacci
+//     fiboSphere(imgLght, i, planeMesh, 1)
+//   }
+//   scene.add(imggroup)
+// }
+
+/*
+* Video Sphere
+*/
 function vidSphere(elArr){
   let y = 0
   let imgLght = elArr.length
@@ -242,11 +232,10 @@ function vidSphere(elArr){
 
     y += 1
 
-    // Create sphere using finonacci
-    fiboSphere(imgLght, y, planeMesh, 35)
+    // Create sphere using fibonacci
+    fiboSphere(imgLght, y, planeMesh, 6)
   }
 }
-
 vidSphere(myVideos)
 
 
@@ -276,18 +265,23 @@ window.addEventListener('resize', () =>
 
 /**
  * Raycaster
- */
+*/
 const raycaster = new THREE.Raycaster();
 
 /**
  * Mouse
- */
+*/
 const mouse = new THREE.Vector2()
 
+
+/**
+* LIGHTBOX
+**/
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.clientX / sizes.width * 2 - 1;
   mouse.y = - (event.clientY / sizes.height * 2 - 1);
 })
+
 let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
 
@@ -305,38 +299,43 @@ window.addEventListener('click', (event) => {
   }
 })
 
-
 let imgboxbtn = document.querySelector(".boxbtn")
 
+if(imgboxbtn) {
 imgboxbtn.addEventListener('click', ()=>{
   console.log("btnclicked", imgcreated);
   if(imgcreated){
     tl.to(".lightbox", { opacity: 0, duration: 1, })
     setTimeout(() => {
       imgbox.remove()
-          console.log("erase img");
+      console.log("erase img");
     }, 1000);
   }
 })
+}
 
 let imgbox = null
 let imgcreated = false
 
 function createImg(url) {
-  console.log(imgcreated);
+
   if(imgcreated === false){
     let newimg = document.createElement('img');
     newimg.src = url;
-    newimg.classList.add("imagebox")
+    newimg.classList.add("imagebox", "img-active")
     lightbox.appendChild(newimg);
     imgbox = document.querySelector(".imagebox")
     imgcreated = true
+
+    // image transition
     tl
       .to(".lightbox", { opacity: 1, duration: 0.5, })
       .from(".imagebox", { opacity: 0, duration: 0, })
+
   } else {
     clickouteraseimg()
   }
+
 }
 
 function clickouteraseimg() {
@@ -351,14 +350,20 @@ function clickouteraseimg() {
 }
 
 /**
- * Camera
- */
-// Base camera
+  Camera
+  Base camera
+**/
 var fov = 45;
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
-camera.position.set(80,80,80); // Set position like this
+camera.position.set(30,0,0);
+
+gui.add(camera.position , 'x', - 100, 100, 1)
+gui.add(camera.position , 'z', - 100, 100, 1)
+gui.add(camera.position , 'y', - 100, 100, 1)
+
 scene.add(camera)
 scene.background = new THREE.Color(0x101010);
+
 /**
  * Controls
  */
@@ -373,7 +378,7 @@ scene.background = new THREE.Color(0x101010);
 // controls.update()
 
 /**
- * TrackBall
+ * TrackBall Controls
  */
   const trackballcontrols = new TrackballControls(camera, canvas)
 
