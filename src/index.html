@@ -15,7 +15,7 @@
     <nav>
       <ul class="absolute top-50 flex">
         <li><a href="./serie1.html" data-router-disabled>séries</a></li>
-        <li> <button>expérience</button> </li>
+        <li> <button class="expbtn">expérience</button> </li>
       </ul>
 
       <ul class="absolute top-50 right-2">
@@ -99,12 +99,11 @@
     let playbtn = document.querySelector('.soundbtn')
     let audioElment = document.querySelector('audio')
     let audioPlaying = false;
+
     audioElment.pause();
     playbtn.addEventListener("click", playPauseAudio)
 
     function playPauseAudio(){
-      playbtn.classList.add("active")
-
       if(audioPlaying)
       {
         audioElment.pause()

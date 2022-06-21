@@ -2,7 +2,7 @@ import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
 const gsap = window.gsap;
 import * as dat from 'lil-gui'
-const gui = new dat.GUI()
+// const gui = new dat.GUI()
 import Highway from 'highway';
 
 // Import Transitions
@@ -133,6 +133,18 @@ let imghorizon = [
   new URL('static/horizontales/sans+titre-47.jpg',import.meta.url),
 ]
 
+let imgverticale = [
+  new URL('static/verticales/File1.jpg',import.meta.url),
+  new URL('static/verticales/File2.jpg',import.meta.url),
+  new URL('static/verticales/File3.jpg',import.meta.url),
+  new URL('static/verticales/File4.jpg',import.meta.url),
+  new URL('static/verticales/File5.jpg',import.meta.url),
+  new URL('static/verticales/File6.jpg',import.meta.url),
+  new URL('static/verticales/File7.jpg',import.meta.url),
+  new URL('static/verticales/File8.jpg',import.meta.url),
+  new URL('static/verticales/File9.jpg',import.meta.url),
+  new URL('static/verticales/File10.jpg',import.meta.url),
+]
 
 
 /**
@@ -187,7 +199,7 @@ function imgSphere(imgHorizon, imgVerti){
 }
 
 // Creage a sphere of image the the array of Horizontales imgs
-imgSphere(imghorizon)
+imgSphere(imghorizon, imgverticale)
 
 // gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
 // gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
@@ -357,9 +369,9 @@ var fov = 45;
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
 camera.position.set(30,0,0);
 
-gui.add(camera.position , 'x', - 100, 100, 1)
-gui.add(camera.position , 'z', - 100, 100, 1)
-gui.add(camera.position , 'y', - 100, 100, 1)
+// gui.add(camera.position , 'x', - 100, 100, 1)
+// gui.add(camera.position , 'z', - 100, 100, 1)
+// gui.add(camera.position , 'y', - 100, 100, 1)
 
 scene.add(camera)
 scene.background = new THREE.Color(0x101010);
@@ -409,6 +421,21 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 let currentIntersect = null
+let expbtn = document.querySelector('.expbtn')
+
+
+expbtn.addEventListener("click", resetcamera)
+
+function resetcamera(){
+
+  gsap.to(camera.rotation, {
+    x: 0,
+    y: 0,
+    z: 0,
+    duration: 1
+  })
+  console.log("totation");
+}
 
 const tick = () =>
 {
