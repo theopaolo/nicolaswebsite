@@ -428,11 +428,14 @@ expbtn.addEventListener("click", resetcamera)
 
 function resetcamera(){
 
-  gsap.to(camera.rotation, {
-    x: 0,
+  gsap.to(camera.position, {
+    x: 30,
     y: 0,
     z: 0,
-    duration: 1
+    duration: 1,
+    onUpdate: function(){
+       trackballcontrols.reset()
+    }
   })
   console.log("totation");
 }
