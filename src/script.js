@@ -108,6 +108,7 @@ let imghorizon = [
   new URL('static/horizontales/sans+titre-20.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-21.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-22.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-22.png',import.meta.url),
   new URL('static/horizontales/sans+titre-24.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-25.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-26.jpg',import.meta.url),
@@ -183,6 +184,7 @@ function imgSphere(imgHorizon, imgVerti){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
+    planeMaterial.transparent =  true
     planeMaterial.side = THREE.DoubleSide
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
 
@@ -374,7 +376,7 @@ camera.position.set(30,0,0);
 // gui.add(camera.position , 'y', - 100, 100, 1)
 
 scene.add(camera)
-scene.background = new THREE.Color(0x101010);
+scene.background = new THREE.Color(0x0d0d0d);
 
 /**
  * Controls

@@ -13,7 +13,9 @@
 
   <main data-router-wrapper>
     <section data-router-view="series" id="series">
-      <nav>
+      <span class="name">Nicolas Herman</span>
+
+      <nav class="mob-hide">
         <ul class="absolute top-50 flex">
           <li><a href="./serie1.html" data-router-disabled style="margin-left: 2rem">séries</a></li>
           <li> <a href="./index.html" data-router-disabled>expérience</a> </li>
@@ -23,10 +25,28 @@
           <li><a href="./about.html">à propos</a> </li>
         </ul>
       </nav>
+
+      <button class="nav-action">+</button>
+
+      <nav class="offscreen-nav">
+        <span class="mb-2 mb-auto ">Nicolas Herman</span>
+        <a class="mb-8"href="./index.html">expérience</a>
+
+        <div class="flex column mb-auto">
+          <span class="mb-3">séries</span>
+          <a class="mb-1" href="serie1.html">Laniakea</a>
+          <a class="mb-1" href="#lookout.html">Look out</a>
+          <a class="mb-1" href="#mark.html">Mark</a>
+          <a class="mb-1" href="#salvia.html">Salvia divinorum</a>
+        </div>
+
+        <a href="./about.html">à propos</a>
+      </nav>
+
       <section class="gallery">
         <div class="next-prev">
-          <a class="prev" onclick="plusSlides(-1)"></a>
-          <a class="next" onclick="plusSlides(1)"></a>
+          <a class="prev" ></a>
+          <a class="next" ></a>
         </div>
         <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
 
@@ -115,69 +135,7 @@
 
   </main>
 
-  <script>
-    let next = document.querySelector(".next")
-    let prev = document.querySelector(".prev")
-    let allimgcount = document.querySelector(".allcount")
-    let currentimgcount = document.querySelector(".currentcount")
-
-    let slides = document.querySelectorAll(".slides");
-    let slideCount = slides.length
-
-    let slideIndex = 1;
-    showSlides(slideIndex);
-
-    // Next/previous keys controls
-    window.addEventListener("keydown", function(event) {
-      if (event.defaultPrevented) {
-        return; // Do nothing if event already handled
-      }
-
-      switch(event.code) {
-
-        case "ArrowLeft":
-          // Handle "turn left"
-          plusSlides(-1)
-          break;
-
-        case "ArrowRight":
-          // Handle "turn right"
-          plusSlides(1)
-          break;
-      }
-
-      // Consume the event so it doesn't get handled twice
-      event.preventDefault();
-    }, true);
-
-    // Next/previous controls
-    function plusSlides(n) {
-      showSlides(slideIndex += n);
-    }
-
-    // Thumbnail image controls
-    function currentSlide(n) {
-      showSlides(slideIndex = n);
-    }
-
-    allimgcount.innerHTML = slideCount
-
-    function showSlides(n) {
-      let i;
-
-      if (n > slideCount) {slideIndex = 1}
-
-      if (n < 1) {slideIndex = slideCount}
-
-      for (i = 0; i < slideCount; i++) {
-        slides[i].style.display = "none";
-      }
-
-      slides[slideIndex-1].style.display = "flex";
-      currentimgcount.innerHTML = slideIndex
-    }
-
-  </script>
+  <script type="module" src="./series.js"> </script>
 
 </body>
 
