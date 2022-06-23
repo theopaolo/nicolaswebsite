@@ -364,9 +364,15 @@ window.addEventListener('dblclick', (event) => {
       createImg(imgurl)
     }
    }
+  }
+})
+
+window.addEventListener('click', (event) => {
+  if(currentIntersect) {
+    console.log("clicked");
   } else {
-    console.log('clickaway');
     clickouteraseimg()
+    console.log("should close img");
   }
 })
 
