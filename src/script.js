@@ -9,12 +9,35 @@ import Highway from 'highway';
 import Fade from './fade.js';
 import { Raycaster } from 'three';
 
+import AboutRenderer from './aboutrenderer.js';
+import SeriesRenderer from './seriesrender.js';
+
 // Call Highway.Core once.
 const H = new Highway.Core({
   transitions: {
     default: Fade
+  },
+  renderers: {
+    'about': AboutRenderer,
+    'series' : SeriesRenderer,
   }
 });
+
+
+// Navigation script
+let navbtn = document.querySelector(".nav-action")
+let offnav = document.querySelector(".offscreen-nav")
+
+navbtn.addEventListener('click', togglenav)
+
+function togglenav()  {
+  this.classList.toggle('nav-active')
+  offnav.classList.toggle('nav-visible')
+
+  if(offnav.classList.contains('nav-visible')){
+    gsap.to(offnav, {x: 0, duration: 1})
+  }
+}
 
 /**
  * Base
@@ -145,6 +168,11 @@ let imgverticale = [
   new URL('static/verticales/File8.jpg',import.meta.url),
   new URL('static/verticales/File9.jpg',import.meta.url),
   new URL('static/verticales/File10.jpg',import.meta.url),
+  new URL('static/verticales/File11.jpg',import.meta.url),
+  new URL('static/verticales/File12.jpg',import.meta.url),
+  new URL('static/verticales/File13.jpg',import.meta.url),
+  new URL('static/verticales/File14.jpg',import.meta.url),
+  new URL('static/verticales/File15.jpg',import.meta.url),
 ]
 
 
@@ -152,7 +180,7 @@ let imgverticale = [
  * Create Objects
  */
 let planeGeometry = new THREE.PlaneGeometry(3, 2);
-let planeGeoVerti = new THREE.PlaneGeometry(16, 9);
+let planeGeoVerti = new THREE.PlaneGeometry(3, 4);
 
 let phi = 0
 let theta = 0
@@ -173,7 +201,7 @@ function fiboSphere(imgLght, iter, mesh, size) {
   imggroup.add(mesh);
 }
 
-function imgSphere(imgHorizon, imgVerti){
+function imgSphere(imgHorizon){
   let imgLght = imgHorizon.length
   let i = 0
 
@@ -184,7 +212,7 @@ function imgSphere(imgHorizon, imgVerti){
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.transparent =  true
+    planeMaterial.transparent =  false
     planeMaterial.side = THREE.DoubleSide
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
 
@@ -201,7 +229,36 @@ function imgSphere(imgHorizon, imgVerti){
 }
 
 // Creage a sphere of image the the array of Horizontales imgs
-imgSphere(imghorizon, imgverticale)
+imgSphere(imghorizon)
+
+
+function vertiSphere(imgVerti){
+  let imgLght = imgVerti.length
+  let i = 0
+
+  for(let image of imgVerti){
+    // Load images as texture
+    let imgText = textureLoader.load(image)
+    imgText.generateMipmaps = false
+
+    // Create planeMaterial and map images texture
+    let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
+    planeMaterial.transparent =  false
+    planeMaterial.side = THREE.DoubleSide
+    let planeMesh  = new THREE.Mesh(planeGeoVerti, planeMaterial);
+
+    // Create sphere using finonacci
+    i += 1
+    fiboSphere(imgLght, i, planeMesh, 12)
+
+    // Add planes to imgObjects array for the rayCaster
+    imgObjects.push(planeMesh)
+  }
+
+  scene.add(imggroup)
+}
+vertiSphere(imgverticale)
+
 
 // gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
 // gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)

@@ -12,27 +12,29 @@
 <body>
 
 <main data-router-wrapper>
-  <button class="nav-action">+</button>
 
-  <nav class="offscreen-nav">
-    <span class="mb-2 mb-auto ">Nicolas Herman</span>
-    <a class="mb-8"href="./index.html">expérience</a>
-
-    <div class="flex column mb-auto">
-      <span class="mb-3">séries</span>
-      <a class="mb-1" href="serie1.html">Laniakea</a>
-      <a class="mb-1" href="#lookout.html">Look out</a>
-      <a class="mb-1" href="#mark.html">Mark</a>
-      <a class="mb-1" href="#salvia.html">Salvia divinorum</a>
-    </div>
-
-    <a href="./about.html">à propos</a>
-  </nav>
 
   <section data-router-view="about" id="about">
+    <button class="nav-action visible">+</button>
+    <span class="name zindextop">Nicolas Herman</span>
+
+    <nav class="offscreen-nav">
+      <span class="mb-2 mb-auto "></span>
+      <a class="mb-8"href="./index.html">expérience</a>
+
+      <div class="flex column mb-auto">
+        <span class="mb-3">séries</span>
+        <a class="mb-1" href="serie1.html">Laniakea</a>
+        <a class="mb-1" href="#lookout.html">Look out</a>
+        <a class="mb-1" href="#mark.html">Mark</a>
+        <a class="mb-1" href="#salvia.html">Salvia divinorum</a>
+      </div>
+
+      <a href="./about.html">à propos</a>
+    </nav>
     <div class="contact flex justify-center">
       <section>
-        <p class="mb-1">CONTACT</p>
+        <p class="mb-1 mt-2">CONTACT</p>
 
         <div class="mb-1">
           <a class="block" href="">CONTACT@NICOLASHERMANN.COM</a>
@@ -63,7 +65,10 @@
 
   </section>
 </main>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
 <script src="./about.js" type="module" ></script>
+
 </body>
 </html>

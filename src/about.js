@@ -1,11 +1,8 @@
-const gsap = window.gsap;
+console.log('aboutscript');
 
+const gsap = window.gsap;
 let navbtn = document.querySelector(".nav-action")
 let offnav = document.querySelector(".offscreen-nav")
-
-let bio = document.querySelector(".bio")
-let parcour = document.querySelector(".parcour")
-let enter = true
 
 navbtn.addEventListener('click', togglenav)
 
@@ -16,8 +13,11 @@ function togglenav()  {
   if(offnav.classList.contains('nav-visible')){
     gsap.to(offnav, {x: 0, duration: 1})
   }
-
 }
+
+let bio = document.querySelector(".bio")
+let parcour = document.querySelector(".parcour")
+let enter = true
 
 bio.addEventListener("mouseenter", ()=> {
   if(enter) {

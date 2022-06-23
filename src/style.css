@@ -33,10 +33,11 @@ a {
   color: inherit;
 }
 
-h1 {
+.container h1 {
   align-self: center;
   font-size: 1rem;
   font-weight: 400;
+  position: absolute;
 }
 
 .home nav{
@@ -45,6 +46,8 @@ h1 {
   display: flex;
   width: 100%;
   justify-content: space-between;
+  z-index: 9999;
+  mix-blend-mode: difference;
 }
 
 li {list-style: none;}
@@ -57,22 +60,20 @@ button {
 }
 
 /* HOME PAGE */
-.container{
+.container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: calc(100vh - 4rem);
   position: relative;
-  padding: 2rem;
   text-transform: uppercase;
-}
-
-.container > * {
-  z-index: 999;
 }
 
 .container li:nth-child(2) {
   margin-left: 1rem;
+}
+
+.container nav, h1 {
+  z-index: 999;
 }
 
 .soundbtn:hover, h1:hover, li:hover, button:hover {
@@ -90,10 +91,12 @@ button {
 
 /* Button animation*/
 .soundbtn {
+  z-index: 999;
   display: flex;
-  width: fit-content;
-  width: max-content;
   align-items: center;
+  position: absolute;
+  bottom: 4rem;
+  left: 2rem;
 }
 
 .wave {
@@ -161,6 +164,7 @@ button {
 
 /* IMAGE BOX */
 .lightbox {
+  z-index: 99;
   align-self: center;
   opacity: 0;
   display: flex;
@@ -410,10 +414,15 @@ button {
 .mb-4  {margin-bottom: 4rem;}
 .mb-8  {margin-bottom: 8rem;}
 
+.mt-2 {margin-top: 2rem;}
 .mt-4 {margin-top: 4rem;}
+
+.ml-2 {margin-left: 2rem;}
 
 .mb-auto {margin-bottom: auto;}
 .mt-auto {margin-top: auto;}
+
+.zindextop {z-index:999999}
 
 .slides {
   height: 100vh;
@@ -528,6 +537,10 @@ button {
     margin-bottom: 1rem;
   }
 
+  .bio, .parcour {
+    padding-top: 4rem;
+  }
+
   .bio::-webkit-scrollbar,
   .parcour::-webkit-scrollbar {
     display: none;
@@ -607,4 +620,8 @@ button {
   left: 50%;
   transform: translateX(-50%);
   top: 1rem;
+}
+
+.visible {
+  display: block;
 }
