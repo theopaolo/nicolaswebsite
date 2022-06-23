@@ -356,7 +356,7 @@ window.addEventListener('mousemove', (event) => {
 let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
 
-window.addEventListener('click', (event) => {
+window.addEventListener('dblclick', (event) => {
   if(currentIntersect) {
    for(let i = 0; i < imgObjects.length; i++){
     if(currentIntersect.object === imgObjects[i]) {
@@ -481,8 +481,6 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 const clock = new THREE.Clock()
 let currentIntersect = null
 let expbtn = document.querySelector('.expbtn')
-
-
 expbtn.addEventListener("click", resetcamera)
 
 function resetcamera(){
