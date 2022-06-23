@@ -355,8 +355,9 @@ window.addEventListener('mousemove', (event) => {
 
 let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
-
+let imgOpen = false
 window.addEventListener('dblclick', (event) => {
+
   if(currentIntersect) {
    for(let i = 0; i < imgObjects.length; i++){
     if(currentIntersect.object === imgObjects[i]) {
@@ -364,6 +365,7 @@ window.addEventListener('dblclick', (event) => {
       createImg(imgurl)
     }
    }
+   imgOpen = true
   }
 })
 

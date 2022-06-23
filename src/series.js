@@ -56,7 +56,7 @@ function showSlides(n) {
     slides[i].style.display = "none";
   }
 
-  slides[slideIndex-1].style.display = "flex";
+  slides[slideIndex-1].style.display = "grid";
   currentimgcount.innerHTML = slideIndex
 }
 
