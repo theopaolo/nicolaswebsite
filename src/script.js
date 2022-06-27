@@ -23,7 +23,6 @@ const H = new Highway.Core({
   }
 });
 
-
 // Navigation script
 let navbtn = document.querySelector(".nav-action")
 let offnav = document.querySelector(".offscreen-nav")
@@ -472,6 +471,11 @@ scene.background = new THREE.Color(0x0d0d0d);
 
   trackballcontrols.update()
 
+  if(window.innerWidth < 600) {
+    console.log("pagewidht", innerWidth);
+    trackballcontrols.rotateSpeed = 0.1;
+    trackballcontrols.zoomSpeed = 0.1;
+  }
 /**
  * Renderer
  */
