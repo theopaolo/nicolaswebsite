@@ -143,17 +143,7 @@ let imghorizon = [
   new URL('static/horizontales/sans+titre-33.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-34.jpg',import.meta.url),
   new URL('static/horizontales/sans+titre-35.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-36.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-37.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-38.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-39.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-41.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-42.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-43.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-44.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-45.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-46.jpg',import.meta.url),
-  new URL('static/horizontales/sans+titre-47.jpg',import.meta.url),
+  new URL('static/horizontales/sans+titre-36.jpg',import.meta.url)
 ]
 
 let imgverticale = [
