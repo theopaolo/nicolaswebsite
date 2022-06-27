@@ -15,7 +15,15 @@
 
     <nav class="desk-nav mob-hide">
       <ul class="ml-2 absolute top-50 flex">
-        <li><a href="./serie1.html" data-router-disabled>séries</a></li>
+        <li class="dropdown">
+          <a href="#">séries</a>
+          <div class="dropdown-content">
+            <a href="lookout.html" data-router-disabled>Look out</a>
+            <a href="mark.html"  data-router-disabled>Mark</a>
+            <a href="salviadivinorum.html" data-router-disabled>Salvia Divinorum</a>
+            <a href="laniakea.html" data-router-disabled>Laniakea</a>
+          </div>
+        </li>
         <li> <button class="expbtn">expérience</button> </li>
       </ul>
 
@@ -71,21 +79,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/Pare-Brise.mp4" type='video/mp4' >
   </video>
-  <!-- <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/Storm.mp4" type='video/mp4' >
-  </video>
-  <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/Spectre eau.mp4" type='video/mp4' >
-  </video>
-  <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/Rosesauvent.mp4" type='video/mp4' >
-  </video>
-  <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/Riviere.mp4" type='video/mp4' >
-  </video>
-  <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/PavesSeine.mp4" type='video/mp4' >
-  </video> -->
+
   <canvas class="webgl"></canvas>
 
   <div class="loading-bar"></div>
@@ -100,10 +94,10 @@
 
         <div class="flex column mb-auto">
           <span class="mb-3">séries</span>
-          <a class="mb-1" href="serie1.html">Laniakea</a>
-          <a class="mb-1" href="#lookout.html">Look out</a>
-          <a class="mb-1" href="#mark.html">Mark</a>
-          <a class="mb-1" href="#salvia.html">Salvia divinorum</a>
+          <a class="mb-1"  data-router-disabled href="lookout.html">Look out</a>
+          <a class="mb-1"  data-router-disabled href="mark.html">Mark</a>
+          <a class="mb-1"  data-router-disabled href="salviadivinorum.html">Salvia divinorum</a>
+          <a class="mb-1"  data-router-disabled href="laniakea.html">Laniakea</a>
         </div>
 
         <a href="./about.html">à propos</a>

@@ -56,7 +56,14 @@ function showSlides(n) {
     slides[i].style.display = "none";
   }
 
-  slides[slideIndex-1].style.display = "grid";
+  if(slides[slideIndex-1].classList.contains('center')) {
+    slides[slideIndex-1].style.display = "flex";
+  } else {
+    slides[slideIndex-1].style.display = "grid";
+  }
+
+  console.log(slides[slideIndex-1]);
+
   currentimgcount.innerHTML = slideIndex
 }
 
