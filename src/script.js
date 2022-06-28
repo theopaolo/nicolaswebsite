@@ -482,9 +482,10 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
  */
 const clock = new THREE.Clock()
 let currentIntersect = null
-let expbtn = document.querySelector('.expbtn')
-expbtn.addEventListener("click", resetcamera)
-
+let expbtn = document.querySelectorAll('.expbtn')
+for(let i = 0; i < expbtn.length; i++){
+  expbtn[i].addEventListener("click", resetcamera)
+}
 function resetcamera(){
 
   gsap.to(camera.position, {

@@ -36,7 +36,7 @@
       <!-- <button class="boxbtn">fermer</button> -->
     </div>
 
-    <div class="soundbtn">
+    <div class="soundbtn absolute-center" style="padding: unset; bottom: 2rem;">
       <div class="wave">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
@@ -86,13 +86,14 @@
 
   <main data-router-wrapper>
     <section data-router-view="home" id="home">
+      <button class="expbtn absolute-center mob-show" style="padding: unset;bottom: 6rem;">expérience</button>
+
       <button class="nav-action">+</button>
 
       <nav class="offscreen-nav">
-        <span class="mb-2 mb-auto ">Nicolas Herman</span>
-        <a class="mb-8 mt-2"href="./index.html">expérience</a>
+        <span class="mb-8">Nicolas Herman</span>
 
-        <div class="flex column mb-auto">
+        <div class="flex column mb-auto mt-2">
           <span class="mb-3">séries</span>
           <a class="mb-1"  data-router-disabled href="lookout.html">Look out</a>
           <a class="mb-1"  data-router-disabled href="mark.html">Mark</a>
@@ -100,7 +101,7 @@
           <a class="mb-1"  data-router-disabled href="laniakea.html">Laniakea</a>
         </div>
 
-        <a href="./about.html">à propos</a>
+        <a  class="mb-4" href="./about.html">à propos</a>
       </nav>
     </section>
   </main>

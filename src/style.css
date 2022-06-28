@@ -97,6 +97,15 @@ button {
   transition-delay: .3s all ease-in-out;
 }
 
+.nav-grid {
+  display: grid;
+  grid-template-columns: 1fr 4fr 1fr;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+  align-content: center;
+ }
+
 /* HOME PAGE */
 .container {
   display: flex;
@@ -440,6 +449,22 @@ button {
    grid-column: span var(--span);
  }
 
+ .namecount {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
+  height: 87vh;
+  position: absolute;
+  width: 100%;
+  align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  text-transform: uppercase;
+  text-shadow: 0 0 2px grey;
+  mix-blend-mode: difference;
+ }
+
 /* CLASS STYLES */
 .flex {display: flex;}
 .column { flex-direction: column;}
@@ -489,7 +514,7 @@ section figure {
 }
 
 .column {
-  height: 90vh;
+  height: 84vh;
 }
 
 .slides {
@@ -558,13 +583,6 @@ section figure {
 
 .prev:hover {
   cursor: w-resize;
-}
-
-.counter {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 @media screen and (min-width: 745px){
@@ -683,12 +701,19 @@ section figure {
   transition: all .3s ease-in-out;
 }
 
+.mob-show {
+  display: none;
+}
+
 @media screen and (max-width: 744px) {
   .mob-hide {
     display: none;
   }
   .intro-text {
     margin-top: 4rem;
+  }
+  .mob-show {
+    display: block;
   }
 }
 
