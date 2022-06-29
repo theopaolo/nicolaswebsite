@@ -33,13 +33,6 @@ a {
   color: inherit;
 }
 
-.container h1 {
-  align-self: center;
-  font-size: 1rem;
-  font-weight: 400;
-  position: absolute;
-}
-
 .home nav{
   align-self: center;
   justify-self: center;
@@ -48,6 +41,14 @@ a {
   justify-content: space-between;
   z-index: 9999;
   mix-blend-mode: difference;
+}
+
+.exp h1 {
+  align-self: center;
+  font-size: 1rem;
+  top: 4rem;
+  font-weight: 400;
+  position: absolute;
 }
 
 li {list-style: none;}
@@ -97,6 +98,15 @@ button {
   transition-delay: .3s all ease-in-out;
 }
 
+.desk-nav {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  mix-blend-mode: difference;
+  z-index: 9999;
+}
+
 .nav-grid {
   display: grid;
   grid-template-columns: 1fr 4.5fr 1fr;
@@ -105,6 +115,14 @@ button {
   justify-items: center;
   align-content: center;
  }
+
+.laniakea .slides {
+  padding: unset;
+}
+
+.laniakea section .column{
+  height: 100vh;
+}
 
 /* HOME PAGE */
 .container {
@@ -431,13 +449,6 @@ button {
   width: 100vw;
 }
 
-#series nav {
-  position: absolute;
-  top: 50%;
-  z-index: 9999;
-  width: 100%;
-}
-
 #series nav ul li {
   text-transform: uppercase;
 }
@@ -480,6 +491,8 @@ button {
 .row { flex-direction: row;}
 
 .justify-center {justify-content: center;}
+.self-end {justify-self: end;}
+.self-start {justify-self: start;}
 .align-center {align-items: center;}
 
 .absolute {position:absolute;}
@@ -515,7 +528,7 @@ button {
 }
 
 .scroll{
-  overflow: scroll !important;
+  overflow: auto !important;
 }
 
 section figure {
@@ -594,6 +607,60 @@ section figure {
   cursor: w-resize;
 }
 
+.nav-action {
+  color: var(--light-color);
+  mix-blend-mode: difference;
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 2rem;
+  z-index: 999999;
+  transition: all .3s ease-in-out;
+}
+
+.nav-active {
+  transform: rotate(45deg);
+}
+
+.offscreen-nav {
+  top: 0 !important;
+  background: var(--dark-color);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-transform: uppercase;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  display: none;
+  transition: all .3s ease-in-out;
+}
+
+.nav-visible{
+  display: flex;
+  transition: all .3s ease-in-out;
+}
+
+.mob-show {
+  display: none;
+}
+
+.name {
+  text-transform: uppercase;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 1rem;
+}
+
+.visible {
+  display: block;
+}
+
 @media screen and (min-width: 745px){
 
   .about-grid {
@@ -665,52 +732,6 @@ section figure {
     display: none;
   }
 
-  .slides {
-    padding: 0 14rem;
-  }
-}
-
-
-.nav-action {
-  color: var(--light-color);
-  mix-blend-mode: difference;
-  position: fixed;
-  top: 1rem;
-  left: 1rem;
-  font-size: 2rem;
-  z-index: 999999;
-  transition: all .3s ease-in-out;
-}
-
-.nav-active {
-  transform: rotate(45deg);
-}
-
-.offscreen-nav {
-  top: 0 !important;
-  background: var(--dark-color);
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  z-index: 99999;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  text-transform: uppercase;
-  justify-content: center;
-  padding: 2rem 1rem;
-  box-sizing: border-box;
-  display: none;
-  transition: all .3s ease-in-out;
-}
-
-.nav-visible{
-  display: flex;
-  transition: all .3s ease-in-out;
-}
-
-.mob-show {
-  display: none;
 }
 
 @media screen and (max-width: 744px) {
@@ -725,14 +746,3 @@ section figure {
   }
 }
 
-.name {
-  text-transform: uppercase;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 1rem;
-}
-
-.visible {
-  display: block;
-}

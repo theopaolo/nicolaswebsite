@@ -13,22 +13,23 @@
 
   <main data-router-wrapper>
     <section data-router-view="series" id="series">
-      <span class="name">Nicolas Herman</span>
 
-      <nav class="mob-hide">
-        <ul class="ml-2 absolute top-50 flex">
+      <nav class="mob-hide nav-grid desk-nav">
+        <ul class="flex" style="justify-self: end;">
           <li class="dropdown">
-            <a href="#">séries</a>
+            <a href="#" >séries</a>
             <div class="dropdown-content dark-drop">
-              <a href="mark.html">Mark</a>
+              <a href="lookout.html">Look out</a>
               <a href="salviadivinorum.html">Salvia Divinorum</a>
               <a href="laniakea.html">Laniakea</a>
+              <a href="mark.html">Mark</a>
+              <a href="distorition.html">Distortion</a>
             </div>
           </li>
           <li> <a href="./index.html" data-router-disabled>expérience</a> </li>
         </ul>
-
-        <ul class="absolute top-50 right-2">
+        <span></span>
+        <ul style="justify-self: baseline;">
           <li><a href="./about.html">à propos</a> </li>
         </ul>
       </nav>
@@ -55,7 +56,11 @@
           <a class="prev" ></a>
           <a class="next" ></a>
         </div>
-        <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
+
+        <div class="namecount">
+          <span>Nicolas Herman</span>
+          <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
+        </div>
 
         <section class="slides intro-text bg-light">
           <div>
@@ -70,28 +75,7 @@
         <section class="slides bg-light center serie-grid">
           <div class="column serie-center">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_1.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_2.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_3.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_4.jpg" alt="">
+                <img src="./static/Lookout/Lookout_1.jpg" alt="Lookout série">
               </figure>
           </div>
         </section>
@@ -99,7 +83,7 @@
         <section class="slides bg-light center serie-grid">
           <div class="column serie-center">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_5.jpg" alt="">
+                <img src="./static/Lookout/Lookout_2.jpg" alt="Lookout série">
               </figure>
           </div>
         </section>
@@ -107,145 +91,169 @@
         <section class="slides bg-light center serie-grid">
           <div class="column serie-center">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_6.jpg" alt="">
+                <img src="./static/Lookout/Lookout_3.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img src="./static/Lookout/Lookout_4.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img src="./static/Lookout/Lookout_5.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img src="./static/Lookout/Lookout_6.jpg" alt="Lookout série">
               </figure>
           </div>
         </section>
 
         <section class="slides bg-light serie-grid">
-          <div class="column">
+          <div class="column  self-end">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_7.jpg" alt="">
+                <img src="./static/Lookout/Lookout_7.jpg" alt="Lookout série">
               </figure>
           </div>
         </section>
 
         <section class="slides bg-light serie-grid">
-          <div class="column">
+          <div class="column  self-end">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_7.jpg"  alt="">
+                <img src="./static/Lookout/Lookout_7.jpg"  alt="Lookout série">
               </figure>
           </div>
-          <div class="column">
+          <div class="column  self-start">
               <figure data-ratio="auto">
-                <img src="./static/Lookout/Lookout_8.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light serie-grid">
-          <div class="column grid-col-2 ">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_8.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_9.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_10.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_11.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_12.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_13.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_14.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_15.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_16.jpg" alt="">
-              </figure>
-          </div>
-        </section>
-
-        <section class="slides bg-light center serie-grid">
-          <div class="column serie-center">
-              <figure data-ratio="auto">
-                <img  src="./static/Lookout/Lookout_17.jpg" alt="">
+                <img src="./static/Lookout/Lookout_8.jpg" alt="Lookout série">
               </figure>
           </div>
         </section>
 
         <section class="slides bg-light serie-grid">
-          <div class="column">
+          <div class="column grid-col-2  self-start">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_8.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_9.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_10.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_11.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_12.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_13.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_14.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center ">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_15.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_16.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light center serie-grid">
+          <div class="column serie-center">
+              <figure data-ratio="auto">
+                <img loading="lazy" src="./static/Lookout/Lookout_17.jpg" alt="Lookout série">
+              </figure>
+          </div>
+        </section>
+
+        <section class="slides bg-light serie-grid">
+          <div class="column  self-end">
             <figure data-ratio="auto">
-              <img  src="./static/Lookout/Lookout_18.jpg" alt="">
+              <img loading="lazy" src="./static/Lookout/Lookout_18.jpg" alt="Lookout série">
             </figure>
           </div>
         </section>
 
         <section class="slides bg-light serie-grid">
-          <div class="column">
+          <div class="column self-end">
             <figure data-ratio="auto">
-              <img  src="./static/Lookout/Lookout_18.jpg" alt="">
+              <img loading="lazy" src="./static/Lookout/Lookout_18.jpg" alt="Lookout série">
             </figure>
           </div>
-          <div class="colum">
+          <div class="column self-start">
             <figure data-ratio="auto">
-              <img  src="./static/Lookout/Lookout_19.jpg" alt="">
+              <img loading="lazy" src="./static/Lookout/Lookout_19.jpg" alt="Lookout série">
             </figure>
           </div>
         </section>
 
         <section class="slides bg-light serie-grid">
-          <div class="colum grid-col-2">
+          <div class="column grid-col-2  self-start ">
             <figure data-ratio="auto">
-              <img  src="./static/Lookout/Lookout_19.jpg" alt="">
+              <img loading="lazy" src="./static/Lookout/Lookout_19.jpg" alt="Lookout série">
             </figure>
           </div>
         </section>
 
         <section class="slides bg-light center serie-grid">
-          <div class="colum serie-center">
+          <div class="column serie-center">
             <figure data-ratio="auto">
-              <img  src="./static/Lookout/Lookout_20.jpg" alt="">
+              <img loading="lazy" src="./static/Lookout/Lookout_20.jpg" alt="Lookout série">
             </figure>
           </div>
         </section>
@@ -255,7 +263,7 @@
 
   </main>
 
-  <script type="module" src="./series.js"> </script>
+  <script type="module" src="./scripts/series.js"> </script>
 
 </body>
 

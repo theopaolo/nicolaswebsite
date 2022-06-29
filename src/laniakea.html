@@ -13,22 +13,23 @@
 
   <main data-router-wrapper>
     <section data-router-view="series" id="series">
-      <span class="name">Nicolas Herman</span>
 
-      <nav class="mob-hide">
-        <ul class="ml-2 absolute top-50 flex">
+      <nav class="mob-hide nav-grid desk-nav">
+        <ul class="flex" style="justify-self: end;">
           <li class="dropdown">
             <a href="#" >séries</a>
-            <div class="dropdown-content darl-drop">
+            <div class="dropdown-content dark-drop">
               <a href="lookout.html">Look out</a>
-              <a href="mark.html">Mark</a>
               <a href="salviadivinorum.html">Salvia Divinorum</a>
+              <a href="laniakea.html">Laniakea</a>
+              <a href="mark.html">Mark</a>
+              <a href="distorition.html">Distortion</a>
             </div>
           </li>
           <li> <a href="./index.html" data-router-disabled>expérience</a> </li>
         </ul>
-
-        <ul class="absolute top-50 right-2">
+        <span></span>
+        <ul style="justify-self: baseline;">
           <li><a href="./about.html">à propos</a> </li>
         </ul>
       </nav>
@@ -42,19 +43,26 @@
         <div class="flex column mb-auto">
           <span class="mb-3">séries</span>
           <a class="mb-1" href="lookout.html">Look out</a>
-          <a class="mb-1" href="mark.html">Mark</a>
           <a class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
+          <a class="mb-1" href="laniakea.html">Laniakea</a>
+          <a class="mb-1" href="mark.html">Mark</a>
+          <a class="mb-1" href="distorition.html">Distortion</a>
         </div>
 
         <a href="./about.html">à propos</a>
       </nav>
 
-      <section class="gallery">
+      <section class="gallery laniakea">
+
         <div class="next-prev">
           <a class="prev" ></a>
           <a class="next" ></a>
         </div>
-        <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
+
+        <div class="namecount">
+          <span>Nicolas Herman</span>
+          <div class="counter"> <span class="currentcount"></span>/<span class="allcount"></span> </div>
+        </div>
 
         <section class="slides intro-text bg-dark">
           <div>
@@ -224,7 +232,7 @@
 
   </main>
 
-  <script type="module" src="./series.js"> </script>
+  <script type="module" src="./scripts/series.js"> </script>
 
 </body>
 

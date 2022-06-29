@@ -3,52 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="script.js" type="module"></script>
+    <script src="./scripts/script.js" type="module"></script>
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Nicolas Herman</title>
 </head>
 <body>
 
-  <div class="container">
+  <div class="container exp">
     <h1>Nicolas Hermann</h1>
 
-    <nav class="desk-nav mob-hide">
-      <ul class="ml-2 absolute top-50 flex">
+    <nav class="mob-hide nav-grid desk-nav">
+      <ul class="flex" style="justify-self: end;">
         <li class="dropdown">
-          <a href="#">séries</a>
-          <div class="dropdown-content">
-            <a href="lookout.html" data-router-disabled>Look out</a>
-            <a href="mark.html"  data-router-disabled>Mark</a>
-            <a href="salviadivinorum.html" data-router-disabled>Salvia Divinorum</a>
-            <a href="laniakea.html" data-router-disabled>Laniakea</a>
+          <a href="#" >séries</a>
+          <div class="dropdown-content dark-drop">
+            <a data-router-disabled href="lookout.html">Look out</a>
+            <a data-router-disabled href="mark.html">Mark</a>
+            <a data-router-disabled href="salviadivinorum.html">Salvia Divinorum</a>
+            <a data-router-disabled href="laniakea.html">Laniakea</a>
           </div>
         </li>
-        <li> <button class="expbtn">expérience</button> </li>
+        <li> <a href="./index.html" data-router-disabled>expérience</a> </li>
       </ul>
-
-      <ul class="absolute top-50 right-2">
+      <span></span>
+      <ul style="justify-self: baseline;">
         <li><a href="./about.html">à propos</a> </li>
       </ul>
     </nav>
 
-    <div class="lightbox">
-      <!-- <button class="boxbtn">fermer</button> -->
-    </div>
-
-    <div class="soundbtn absolute-center" style="padding: unset; bottom: 2rem;">
+    <div class="soundbtn absolute-center" style="padding: unset; bottom:3rem;">
       <div class="wave">
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
       <span>sound on/off</span>
     </div>
 
+    <div class="lightbox">
+      <!-- <button class="boxbtn">fermer</button> -->
+    </div>
+
     <audio loop>
       <source src="static/OlivierMessiaenLaviergeetlenfant.mp3" type="audio/mpeg">
     </audio>
-
   </div>
 
+<section class="videos">
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline autoplay="true"  style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/Aquarium.mp4" type='video/mp4' >
   </video>
@@ -79,6 +79,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/Pare-Brise.mp4" type='video/mp4' >
   </video>
+</section>
 
   <canvas class="webgl"></canvas>
 
@@ -86,22 +87,25 @@
 
   <main data-router-wrapper>
     <section data-router-view="home" id="home">
-      <button class="expbtn absolute-center mob-show" style="padding: unset;bottom: 6rem;">expérience</button>
+      <button class="expbtn absolute-center mob-show" style="padding: unset;bottom: 6rem;">
+        expérience
+      </button>
 
       <button class="nav-action">+</button>
 
       <nav class="offscreen-nav">
         <span class="mb-8">Nicolas Herman</span>
 
-        <div class="flex column mb-auto mt-2">
+        <div class="flex column mb-auto">
           <span class="mb-3">séries</span>
-          <a class="mb-1"  data-router-disabled href="lookout.html">Look out</a>
-          <a class="mb-1"  data-router-disabled href="mark.html">Mark</a>
-          <a class="mb-1"  data-router-disabled href="salviadivinorum.html">Salvia divinorum</a>
-          <a class="mb-1"  data-router-disabled href="laniakea.html">Laniakea</a>
+          <a data-router-disabled class="mb-1" href="lookout.html">Look out</a>
+          <a data-router-disabled class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
+          <a data-router-disabled class="mb-1" href="laniakea.html">Laniakea</a>
+          <a data-router-disabled class="mb-1" href="mark.html">Mark</a>
+          <a data-router-disabled class="mb-1" href="distorition.html">Distortion</a>
         </div>
 
-        <a  class="mb-4" href="./about.html">à propos</a>
+        <a class="mb-4" href="./about.html">à propos</a>
       </nav>
     </section>
   </main>
