@@ -212,6 +212,9 @@ function imgSphere(imgHorizon){
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
     planeMaterial.transparent =  false
     planeMaterial.side = THREE.DoubleSide
+    imgText.wrapS = THREE.RepeatWrapping;
+    imgText.repeat.x = - 1;
+
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
 
     // Create sphere using finonacci
@@ -237,6 +240,8 @@ function vertiSphere(imgVerti){
     // Load images as texture
     let imgText = textureLoader.load(image)
     imgText.generateMipmaps = false
+    imgText.wrapS = THREE.RepeatWrapping;
+    imgText.repeat.x = - 1;
 
     // Create planeMaterial and map images texture
     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
@@ -460,20 +465,21 @@ scene.background = new THREE.Color(0x0d0d0d);
 
   trackballcontrols.staticMoving = false
   trackballcontrols.dynamicDampingFactor = 0.05;
+  trackballcontrols.rotateSpeed = 0.3;
+
   trackballcontrols.noPan = true
-  trackballcontrols.rotateSpeed = 0.1;
+
   trackballcontrols.zoomSpeed = 0.5;
 
-  trackballcontrols.maxDistance = 200
+  trackballcontrols.maxDistance = 100
   trackballcontrols.minDistance = 0
 
   trackballcontrols.update()
 
-  if(window.innerWidth < 600) {
-    console.log("pagewidht", innerWidth);
-    trackballcontrols.rotateSpeed = 0.1;
-    trackballcontrols.zoomSpeed = 0.1;
-  }
+  // if(window.innerWidth < 600) {
+  //   trackballcontrols.rotateSpeed = 0.1;
+  //   trackballcontrols.zoomSpeed = 0.1;
+  // }
 /**
  * Renderer
  */
@@ -491,22 +497,24 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 const clock = new THREE.Clock()
 let currentIntersect = null
 let expbtn = document.querySelectorAll('.expbtn')
-for(let i = 0; i < expbtn.length; i++){
-  expbtn[i].addEventListener("click", resetcamera)
-}
-function resetcamera(){
 
-  gsap.to(camera.position, {
-    x: 30,
-    y: 0,
-    z: 0,
-    duration: 1,
-    onUpdate: function(){
-       trackballcontrols.reset()
-    }
-  })
-  console.log("totation");
-}
+// for(let i = 0; i < expbtn.length; i++){
+//   expbtn[i].addEventListener("click", resetcamera)
+// }
+
+// function resetcamera(){
+
+//   gsap.to(camera.position, {
+//     x: 30,
+//     y: 0,
+//     z: 0,
+//     duration: 1,
+//     onUpdate: function(){
+//        trackballcontrols.reset()
+//     }
+//   })
+//   console.log("rotation");
+// }
 
 const tick = () =>
 {
