@@ -214,7 +214,6 @@ function imgSphere(imgHorizon){
     planeMaterial.side = THREE.DoubleSide
     let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
 
-
     // Create sphere using finonacci
     i += 1
     fiboSphere(imgLght, i, planeMesh, 10)

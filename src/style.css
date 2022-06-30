@@ -302,7 +302,7 @@ button {
 }
 
 .bio {
-  text-shadow: 0px 0px 10px var(--dark-color);
+  text-shadow: 0px 0px 8px var(--dark-color);
   background-color: var(--light-color);
 }
 
@@ -658,7 +658,7 @@ section figure {
 }
 
 .visible {
-  display: block;
+  display: block !important;
 }
 
 @media screen and (min-width: 745px){
