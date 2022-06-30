@@ -461,7 +461,7 @@ scene.background = new THREE.Color(0x0d0d0d);
   trackballcontrols.staticMoving = false
   trackballcontrols.dynamicDampingFactor = 0.05;
   trackballcontrols.noPan = true
-  trackballcontrols.rotateSpeed = 0.3;
+  trackballcontrols.rotateSpeed = 0.1;
   trackballcontrols.zoomSpeed = 0.5;
 
   trackballcontrols.maxDistance = 200
