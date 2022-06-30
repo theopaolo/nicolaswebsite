@@ -474,7 +474,7 @@ button {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  height: 86.5vh;
+  height: 85.8vh;
   position: absolute;
   width: 100%;
   align-items: center;
@@ -702,7 +702,7 @@ section figure {
   }
 
   .bio, .parcour {
-    padding-top: 4rem;
+    padding: 3rem;
   }
 
   .bio::-webkit-scrollbar,
