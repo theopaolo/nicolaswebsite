@@ -48,8 +48,10 @@ a {
   font-size: 1rem;
   top: 4rem;
   font-weight: 400;
-  position: absolute;
+  mix-blend-mode: difference;
+  text-shadow: 0 0 2px #a1a1a1;;
 }
+
 
 li {list-style: none;}
 
@@ -156,18 +158,21 @@ button {
 
 /* Button animation*/
 .soundbtn {
-  z-index: 999;
   display: flex;
   align-items: center;
   position: absolute;
   bottom: 6rem;
   left: 2rem;
+  text-shadow: 0 0 2px #a1a1a1;
+  mix-blend-mode: difference;
 }
 
 .wave {
   display: flex;
   align-items: center;
   height: 30px;
+  text-shadow: 0 0 2px #a1a1a1;
+  mix-blend-mode: difference;
 }
 
 .wave span {
@@ -176,7 +181,6 @@ button {
   display: block;
   background-color: var(--main-color);
   width: 1px;
-  z-index: 999;
   transform: scaleY(1);
 }
 
@@ -242,7 +246,9 @@ button {
 } */
 
 .lightbox img {
-  height: 100%
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
 }
 
 .img-active:hover {
@@ -487,8 +493,18 @@ button {
 
 /* CLASS STYLES */
 .flex {display: flex;}
-.column { flex-direction: column;}
+.dir-column { flex-direction: column;}
 .row { flex-direction: row;}
+
+.f-1 {
+  flex: 1
+}
+.f-2 {
+  flex: 2
+}
+.f-3 {
+  flex: 3
+}
 
 .justify-center {justify-content: center;}
 .self-end {justify-self: end;}
@@ -517,6 +533,11 @@ button {
 .mt-auto {margin-top: auto;}
 
 .zindextop {z-index:999999}
+
+.z-index-3 {z-index:999999}
+.z-index-2 {z-index:9999}
+.z-index-1 {z-index:99}
+
 
 .grid-col-2 {  grid-column: 2; }
 
@@ -607,12 +628,13 @@ section figure {
   cursor: w-resize;
 }
 
-.nav-action {
+.nav-action, .btn-close {
   color: var(--light-color);
   mix-blend-mode: difference;
   position: fixed;
-  top: 1rem;
-  left: 1rem;
+  top: 0rem;
+  left: 0rem;
+  padding: 1rem;
   font-size: 2rem;
   z-index: 999999;
   transition: all .3s ease-in-out;
@@ -638,6 +660,12 @@ section figure {
   box-sizing: border-box;
   display: none;
   transition: all .3s ease-in-out;
+  padding-top: 4.5rem;
+}
+
+.offscreen-nav > * {
+  text-shadow: 0 0 2px #a1a1a1;
+  mix-blend-mode: difference;
 }
 
 .nav-visible{
@@ -730,6 +758,12 @@ section figure {
 
   .nav-action{
     display: none;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .nav-grid {
+    grid-template-columns: 1.5fr 3fr 1fr;
   }
 }
 

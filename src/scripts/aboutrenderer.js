@@ -5,7 +5,10 @@ class AboutRenderer extends Highway.Renderer {
     console.log("about renderer enter completed");
     let bio = document.querySelector(".bio")
     let parcour = document.querySelector(".parcour")
-
+    let btnclose = document.querySelector(".btn-close")
+    btnclose.addEventListener("click", ()=> {
+      window.history.back()
+    })
     bio.addEventListener("mouseenter", ()=> {
       if(bio.classList.contains("darkbg")) {
         bio.classList.remove('darkbg')

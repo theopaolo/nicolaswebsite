@@ -1,6 +1,11 @@
 let bio = document.querySelector(".bio")
 let parcour = document.querySelector(".parcour")
 
+let btnclose = document.querySelector(".btn-close")
+btnclose.addEventListener("click", ()=> {
+  window.history.back()
+})
+
 bio.addEventListener("mouseenter", ()=> {
   if(bio.classList.contains("darkbg")) {
     bio.classList.remove('darkbg')
@@ -32,6 +37,7 @@ parcour.addEventListener("mouseenter", ()=> {
     bio.classList.remove("blight-shadow")
   }
 })
+
 
 
 // parcour.addEventListener("mouseenter", ()=> {
