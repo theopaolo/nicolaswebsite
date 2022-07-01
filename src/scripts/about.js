@@ -38,12 +38,17 @@ parcour.addEventListener("mouseenter", ()=> {
   }
 })
 
+let navbtn = document.querySelector(".nav-action")
+let offnav = document.querySelector(".offscreen-nav")
 
+navbtn.addEventListener('click', togglenav)
 
-// parcour.addEventListener("mouseenter", ()=> {
-//   if(enter == false) {
-//     parcour.classList.add('darkbg')
-//     bio.classList.remove("darkbg")
-//     enter = false
-//   }
-// })
+function togglenav()  {
+  this.classList.toggle('nav-active')
+  offnav.classList.toggle('nav-visible')
+
+  if(offnav.classList.contains('nav-visible')){
+    gsap.to(offnav, {x: 0, duration: 1})
+  }
+
+}

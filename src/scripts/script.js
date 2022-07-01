@@ -51,14 +51,14 @@ const scene = new THREE.Scene()
  * Overlay
  */
 const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1)
-
 const overlayMaterial = new THREE.ShaderMaterial({
   transparent: true,
   uniforms:
   {
     uAlpha: { value: 1}
   },
-  vertexShader: `
+  vertexShader:
+  `
     void main()
     {
       gl_Position = vec4(position, 1.0);
@@ -77,7 +77,6 @@ const overlayMaterial = new THREE.ShaderMaterial({
 
 const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
 scene.add(overlay)
-
 /**
  * Loader
  */
@@ -498,23 +497,23 @@ const clock = new THREE.Clock()
 let currentIntersect = null
 let expbtn = document.querySelectorAll('.expbtn')
 
-// for(let i = 0; i < expbtn.length; i++){
-//   expbtn[i].addEventListener("click", resetcamera)
-// }
+for(let i = 0; i < expbtn.length; i++){
+  expbtn[i].addEventListener("click", resetcamera)
+}
 
-// function resetcamera(){
+function resetcamera(){
 
-//   gsap.to(camera.position, {
-//     x: 30,
-//     y: 0,
-//     z: 0,
-//     duration: 1,
-//     onUpdate: function(){
-//        trackballcontrols.reset()
-//     }
-//   })
-//   console.log("rotation");
-// }
+  gsap.to(camera.position, {
+    x: 30,
+    y: 0,
+    z: 0,
+    duration: 1,
+    onUpdate: function(){
+       trackballcontrols.reset()
+    }
+  })
+  console.log("rotation");
+}
 
 const tick = () =>
 {

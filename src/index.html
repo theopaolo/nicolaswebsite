@@ -14,7 +14,7 @@
 
     <div class="namecount z-index-1">
       <h1>Nicolas Herman</h1>
-      <div class="flex align-center">
+      <div class="soundbtn">
         <div class="wave">
           <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
@@ -34,7 +34,9 @@
             <a data-router-disabled href="distorition.html">Distorition</a>
           </div>
         </li>
-        <li> <a href="./index.html" data-router-disabled>reset expérience</a> </li>
+        <li>
+          <button class="expbtn">  reset expérience </button>
+        </li>
       </ul>
       <span></span>
       <ul style="justify-self: baseline;">
@@ -112,6 +114,7 @@
   </main>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
+
   <script>
     let playbtn = document.querySelector('.soundbtn')
     let audioElment = document.querySelector('audio')

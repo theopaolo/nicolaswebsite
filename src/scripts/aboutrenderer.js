@@ -58,8 +58,6 @@ class AboutRenderer extends Highway.Renderer {
       }
     }
 
-    console.log('about renderer');
-
   }
 }
 
