@@ -357,8 +357,8 @@ window.addEventListener('mousemove', (event) => {
 let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
 let imgOpen = false
-window.addEventListener('dblclick', (event) => {
 
+window.addEventListener('dblclick', (event) => {
   if(currentIntersect) {
    for(let i = 0; i < imgObjects.length; i++){
     if(currentIntersect.object === imgObjects[i]) {
@@ -374,25 +374,11 @@ window.addEventListener('click', (event) => {
   if(currentIntersect) {
     console.log("clicked");
   } else {
-    clickouteraseimg()
+    removeImage()
     console.log("should close img");
   }
 })
 
-let imgboxbtn = document.querySelector(".boxbtn")
-
-if(imgboxbtn) {
-imgboxbtn.addEventListener('click', ()=>{
-  console.log("btnclicked", imgcreated);
-  if(imgcreated){
-    tl.to(".lightbox", { opacity: 0, duration: 1, })
-    setTimeout(() => {
-      imgbox.remove()
-      console.log("erase img");
-    }, 1000);
-  }
-})
-}
 
 let imgbox = null
 let imgcreated = false
@@ -412,19 +398,23 @@ function createImg(url) {
       .to(".lightbox", { opacity: 1, duration: 0.5, })
       .from(".imagebox", { opacity: 0, duration: 0, })
 
-  } else {
-    clickouteraseimg()
-  }
+    imgbox.addEventListener('click', (event) => {
+        removeImage()
+      })
+    } else {
+      removeImage()
+    }
 
 }
 
-function clickouteraseimg() {
+function removeImage() {
   if(imgcreated === true){
     tl.to(".lightbox", { opacity: 0, duration: 1, })
     setTimeout(() => {
       imgbox.remove()
       console.log("erase img");
       imgcreated = false
+      imgOpen = false
     }, 1000);
   }
 }
@@ -515,6 +505,26 @@ function resetcamera(){
   console.log("rotation");
 }
 
+const plusicon = `
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
+  <defs>
+    <clipPath id="clip-Plan_de_travail_2">
+      <rect width="14" height="14"/>
+    </clipPath>
+  </defs>
+  <g id="Plan_de_travail_2" data-name="Plan de travail – 2" clip-path="url(#clip-Plan_de_travail_2)">
+    <line id="Ligne_2" data-name="Ligne 2" x2="10" transform="translate(2 7)" fill="none" stroke="#000" stroke-width="1.5"/>
+    <line id="Ligne_3" data-name="Ligne 3" x2="10" transform="translate(7 2) rotate(90)" fill="none" stroke="#000" stroke-width="1.5"/>
+  </g>
+</svg>
+`;
+const plusblob = new Blob([plusicon], {type: 'image/svg+xml'});
+const iconplus = URL.createObjectURL(plusblob);
+
+const minusicon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg>`;
+const minusblob = new Blob([minusicon], {type: 'image/svg+xml'});
+const iconminus = URL.createObjectURL(minusblob);
+
 const tick = () =>
 {
     imggroup.rotation.y -= 0.0002;
@@ -527,13 +537,11 @@ const tick = () =>
     {
         if(!currentIntersect)
         currentIntersect = intersects[0]
-        console.log('mouse enter')
-        document.body.style.cursor = "zoom-in";
+        document.body.style.cursor = "url(" + iconplus + "), auto";
     }
     else
     {
         if(currentIntersect)
-        console.log('mouse leave')
         document.body.style.cursor = "default";
         currentIntersect = null
     }

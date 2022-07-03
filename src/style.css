@@ -249,7 +249,7 @@ button {
 }
 
 .img-active:hover {
-  cursor:zoom-out;
+  cursor: url(./static/icons/minus.svg), auto;
 }
 
 /* LOADING BAR */
@@ -329,6 +329,14 @@ button {
 
 .light-shadow {
   text-shadow: 0px 0px 2px var(--light-color);
+}
+
+.light-shadow-4 {
+  text-shadow: 0 0 4px var(--light-color);
+}
+
+.dark-shadow-2 {
+  text-shadow: 0px 0px 2px var(--dark-color);
 }
 
 .blight-shadow {
@@ -577,6 +585,11 @@ section figure {
   color: var(--light-color);
 }
 
+.bg-black {
+  background-color: black;
+  color: var(--light-color);
+}
+
 .intro-text {
   text-align: center;
   flex-direction: column !important;
@@ -619,11 +632,11 @@ section figure {
 }
 
 .next:hover {
-  cursor: e-resize;
+  cursor: url(./static/icons/arrowr.svg), auto;
 }
 
 .prev:hover {
-  cursor: w-resize;
+  cursor: url(./static/icons/arrowl.svg), auto;
 }
 
 .nav-action, .btn-close {
