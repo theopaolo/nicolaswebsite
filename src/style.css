@@ -80,7 +80,7 @@ button {
 }
 
 .dropdown-content a{
-  padding: .5rem 0;
+  padding: .5rem 0 !important;
   color: grey;
   transition: .3s all;
 }
