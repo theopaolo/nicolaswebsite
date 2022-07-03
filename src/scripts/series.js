@@ -2,13 +2,14 @@ let next = document.querySelector(".next")
 let prev = document.querySelector(".prev")
 let allimgcount = document.querySelector(".allcount")
 let currentimgcount = document.querySelector(".currentcount")
-
-let slides = document.querySelectorAll(".slides");
+let namecount = document.querySelector(".namecount")
+let slides = document.querySelectorAll(".slides")
 let slideCount = slides.length
-
-let slideIndex = 1;
+let slideIndex = 1
 
 showSlides(slideIndex);
+
+console.log("session val", sessionStorage.getItem('enter'));
 
 // Next/previous keys controls
 window.addEventListener("keydown", function(event) {
@@ -43,7 +44,7 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-allimgcount.innerHTML = slideCount
+allimgcount.innerHTML = slideCount -1
 
 function showSlides(n) {
   let i;
@@ -61,10 +62,14 @@ function showSlides(n) {
   } else {
     slides[slideIndex-1].style.display = "grid";
   }
+  currentimgcount.innerHTML = slideIndex -1
 
-  console.log(slides[slideIndex-1]);
+  if( slideIndex -1 >= 1) {
+    namecount.style.opacity = 1
+  } else {
+    namecount.style.opacity = 0
+  }
 
-  currentimgcount.innerHTML = slideIndex
 }
 
 prev.addEventListener('click', ()=>{
@@ -74,6 +79,9 @@ prev.addEventListener('click', ()=>{
 next.addEventListener('click', ()=>{
   showSlides(slideIndex += 1)
 })
+
+
+
 
 const gsap = window.gsap;
 

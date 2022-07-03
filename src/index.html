@@ -36,7 +36,7 @@
           </div>
         </li>
         <li>
-          <button class="expbtn">  reset expérience </button>
+          <button class="expbtn"> expérience </button>
         </li>
       </ul>
       <span></span>
@@ -112,14 +112,14 @@
   <main data-router-wrapper>
     <section data-router-view="home" id="home">
       <button class="expbtn absolute-center mob-show" style="padding: unset; bottom:6rem;">
-       reset expérience
+      expérience
       </button>
 
       <button class="nav-action">+</button>
 
       <nav class="offscreen-nav">
-        <span class="f-1">Nicolas Herman</span>
-        <div class="flex f-3 dir-column">
+        <span class="mb-2 f-1">Nicolas Herman</span>
+        <div class="flex f-3 dir-column mb-3">
           <span class="mb-3">séries</span>
           <a data-router-disabled class="mb-1" href="lookout.html">Look out</a>
           <a data-router-disabled class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
@@ -127,7 +127,7 @@
           <a data-router-disabled class="mb-1" href="mark.html">Mark</a>
           <a data-router-disabled class="mb-1" href="distorition.html">Distortion</a>
         </div>
-        <a class="mb-4 f-1" href="./about.html">à propos</a>
+        <a class="f-1" href="./about.html">à propos</a>
       </nav>
     </section>
   </main>
@@ -157,9 +157,20 @@
       }
     }
 
+    sessionStorage.clear();
+    let introp = document.querySelector('.introduction')
+    let enter = false;
+
     document.querySelector(".btnintro").addEventListener("click", () =>
       gsap.to(".introduction", {opacity: 0, display:"none", duration: 1}),
+      sessionStorage.setItem("enter", true)
     );
+
+    if(sessionStorage.getItem("enter") == "true"){
+      console.log(sessionStorage.getItem("enter"));
+      introp.classList.add("d-none");
+    }
+
   </script>
 
 </body>
