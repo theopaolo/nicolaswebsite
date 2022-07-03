@@ -2,13 +2,18 @@ import Highway from 'highway';
 
 class AboutRenderer extends Highway.Renderer {
   onEnterCompleted() {
+
     console.log("about renderer enter completed");
     let bio = document.querySelector(".bio")
     let parcour = document.querySelector(".parcour")
+
     let btnclose = document.querySelector(".btn-close")
+
     btnclose.addEventListener("click", ()=> {
+      console.log('go back');
       window.history.back()
     })
+
     bio.addEventListener("mouseenter", ()=> {
       if(bio.classList.contains("darkbg")) {
         bio.classList.remove('darkbg')

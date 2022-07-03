@@ -588,6 +588,10 @@ button {
   overflow: hidden !important;
 }
 
+.d-none {
+  display: none;
+}
+
 /* END CLASS */
 section figure {
   height: 100%;

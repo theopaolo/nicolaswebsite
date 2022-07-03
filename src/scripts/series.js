@@ -9,7 +9,7 @@ let slideIndex = 1
 
 showSlides(slideIndex);
 
-console.log("session val", sessionStorage.getItem('enter'));
+console.log("sessions item value serie", sessionStorage.getItem("entersite"));
 
 // Next/previous keys controls
 window.addEventListener("keydown", function(event) {
@@ -64,12 +64,13 @@ function showSlides(n) {
   }
   currentimgcount.innerHTML = slideIndex -1
 
-  if( slideIndex -1 >= 1) {
-    namecount.style.opacity = 1
-  } else {
-    namecount.style.opacity = 0
+  if( window.innerWidth < 768 ) {
+    if( slideIndex -1 >= 1) {
+      namecount.style.opacity = 1
+    } else {
+      namecount.style.opacity = 0
+    }
   }
-
 }
 
 prev.addEventListener('click', ()=>{
@@ -79,9 +80,6 @@ prev.addEventListener('click', ()=>{
 next.addEventListener('click', ()=>{
   showSlides(slideIndex += 1)
 })
-
-
-
 
 const gsap = window.gsap;
 
