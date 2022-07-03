@@ -85,6 +85,9 @@ navbtn.addEventListener('click', togglenav)
 function togglenav()  {
   this.classList.toggle('nav-active')
   offnav.classList.toggle('nav-visible')
+  document.body.classList.toggle('no-scroll')
+  document.documentElement.classList.toggle('no-scroll')
+
 
   if(offnav.classList.contains('nav-visible')){
     gsap.to(offnav, {x: 0, duration: 1})

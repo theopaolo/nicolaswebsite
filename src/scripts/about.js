@@ -40,15 +40,15 @@ parcour.addEventListener("mouseenter", ()=> {
 
 let navbtn = document.querySelector(".nav-action")
 let offnav = document.querySelector(".offscreen-nav")
-
+let aboutcontent = document.getElementById("about")
 navbtn.addEventListener('click', togglenav)
 
 function togglenav()  {
   this.classList.toggle('nav-active')
   offnav.classList.toggle('nav-visible')
+  aboutcontent.classList.toggle('no-scroll')
 
   if(offnav.classList.contains('nav-visible')){
     gsap.to(offnav, {x: 0, duration: 1})
   }
-
 }

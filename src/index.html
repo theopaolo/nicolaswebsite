@@ -7,19 +7,20 @@
     <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Nicolas Herman</title>
+    <meta name="description" content="Nicolas Hermann est un artiste visuel qui utilise la photographie, la vidéo et le son pour investir sa relation au monde et à autrui. En favorisant l’installation, l’expérimentation et les collaborations, il place la transversalité au coeur de sa pratique pour multiplier les moyens d’expressions et d’expériences.">
 </head>
 <body>
 
   <div class="container exp">
 
     <div class="namecount z-index-1">
-      <h1>Nicolas Herman</h1>
+      <h1 class="z-index-3">Nicolas Herman</h1>
       <div class="soundbtn">
         <div class="wave">
           <span></span><span></span><span></span><span></span><span></span><span></span>
         </div>
         <span>sound on/off</span>
-    </div>
+      </div>
     </div>
 
     <nav class="mob-hide nav-grid desk-nav">
@@ -89,7 +90,25 @@
   <canvas class="webgl"></canvas>
 
   <div class="loading-bar"></div>
-
+  <div class="introduction grid bg-dark absolute z-index-2">
+    <div class="f-1">
+      <img src="static/laniakea/Laniakea03.jpg" alt="Home image">
+    </div>
+    <div class="f-1">
+      <p>
+        EN — WELCOME ON NICOLAS HERMAN’S PORTFOLIO, <br>
+        WE ARE PLEASE TO LET YOU IN. <br>
+        EXPLORE THE SPHERE, AND LET YOUR MIND TELL A STORY.
+      </p>
+      <ul>
+        <li>- DOUBLE CLICK + TO SEE THINGS MORE CLOSELY.</li>
+        <li>- ZOOM AND DEZOOM TO TRAVEL THROUGHT PICTURES</li>
+        <li>- CLICK ON RESET TO RESTART YOUR EXPERIENCE.</li>
+        <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
+      </ul>
+      <button class="btnintro">→ enter</button>
+    </div>
+  </div>
   <main data-router-wrapper>
     <section data-router-view="home" id="home">
       <button class="expbtn absolute-center mob-show" style="padding: unset; bottom:6rem;">
@@ -137,6 +156,10 @@
         console.log("ispaused",audioElment.paused);
       }
     }
+
+    document.querySelector(".btnintro").addEventListener("click", () =>
+      gsap.to(".introduction", {opacity: 0, display:"none", duration: 1}),
+    );
   </script>
 
 </body>
