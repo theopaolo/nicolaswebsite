@@ -523,7 +523,6 @@ button {
   text-shadow: 0 0 2px grey;
   mix-blend-mode: difference;
   pointer-events: none;
-  opacity: 0;
  }
 
 /* CLASS STYLES */
@@ -692,7 +691,7 @@ section figure {
   left: 0rem;
   padding: 1rem;
   font-size: 2rem;
-  z-index: 999999;
+  z-index: 9999;
   transition: all .3s ease-in-out;
 }
 
@@ -839,6 +838,16 @@ section figure {
 
   .mob-show {
     display: block;
+  }
+
+  .introduction {
+    flex-direction: column-reverse;
+    z-index: 99999;
+  }
+
+  .introduction :first-child {
+    height: auto;
+    padding-top: 4rem;
   }
 }
 

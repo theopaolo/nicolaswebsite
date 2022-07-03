@@ -158,8 +158,9 @@
     }
 
     sessionStorage.clear();
-    let introp = document.querySelector('.introduction')
     let enter = false;
+    let introp = document.querySelector('.introduction')
+
 
     document.querySelector(".btnintro").addEventListener("click", () =>
       gsap.to(".introduction", {opacity: 0, display:"none", duration: 1}),
