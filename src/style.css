@@ -131,6 +131,7 @@ button {
 
 .laniakea section .column{
   height: 100vh;
+  width: 100%;
 }
 
 /* HOME PAGE */
@@ -150,7 +151,7 @@ button {
   z-index: 999;
 }
 
-.soundbtn:hover, h1:hover, li:hover, button:hover, a:hover {
+h1:hover, li:hover, button:hover, a:hover {
   cursor: pointer;
   color: var(--light-color);
   text-shadow: 0 0 2px white;
@@ -202,11 +203,6 @@ button {
 @keyframes line{
   0%{height: 10px;transform: scaleY(1); }
   100%{height: 18px;transform: scaleY(1.05);}
-}
-
-.wave:hover span{
-  cursor: pointer;
-  background-color: var(--light-color);
 }
 
 .wave span:nth-child(1) {
