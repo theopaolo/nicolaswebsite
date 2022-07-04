@@ -595,6 +595,7 @@ section figure {
 
 .column {
   height: 83vh;
+  width: 100%;
 }
 
 .slides {
