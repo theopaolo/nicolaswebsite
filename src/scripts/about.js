@@ -2,10 +2,14 @@ let bio = document.querySelector(".bio")
 let parcour = document.querySelector(".parcour")
 
 let btnclose = document.querySelector(".btn-close")
-btnclose.addEventListener("click", ()=> {
-  window.history.back()
-})
-
+btnclose.addEventListener("click", aboutAction)
+function aboutAction() {
+  if (document.referrer == "") {
+    window.location.href = "index.html";
+  } else {
+    window.history.back()
+  }
+}
 bio.addEventListener("mouseenter", ()=> {
   if(bio.classList.contains("darkbg")) {
     bio.classList.remove('darkbg')
