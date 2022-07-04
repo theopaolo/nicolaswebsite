@@ -425,7 +425,7 @@ function removeImage() {
 **/
 var fov = 45;
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
-camera.position.set(30,0,0);
+camera.position.set(38,0,0);
 
 // gui.add(camera.position , 'x', - 100, 100, 1)
 // gui.add(camera.position , 'z', - 100, 100, 1)
@@ -454,7 +454,7 @@ scene.background = new THREE.Color(0x0d0d0d);
 
   trackballcontrols.staticMoving = false
   trackballcontrols.dynamicDampingFactor = 0.05;
-  trackballcontrols.rotateSpeed = 0.3;
+  trackballcontrols.rotateSpeed = 0.2;
 
   trackballcontrols.noPan = true
 

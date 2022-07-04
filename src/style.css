@@ -617,6 +617,10 @@ section figure {
   color: var(--light-color);
 }
 
+.bg-dark .desk-nav, .bg-dark .namecount {
+  color: grey;
+}
+
 .bg-black {
   background-color: black;
   color: var(--light-color);

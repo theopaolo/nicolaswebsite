@@ -9,6 +9,8 @@
     "highway": "./node_modules/@dogstudio/highway/build/highway.min.js"
   },
   "devDependencies": {
+    "@parcel/packager-raw-url": "^2.6.0",
+    "@parcel/transformer-webmanifest": "^2.6.0",
     "lil-gui": "^0.16.1",
     "parcel": "^2.6.0",
     "process": "^0.11.10",
