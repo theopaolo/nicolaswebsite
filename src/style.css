@@ -253,7 +253,7 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 
 .img-active:hover {
-  cursor: url(./static/icons/minus.svg), auto;
+  cursor: url(./static/icons/cursormin.svg), auto;
 }
 
 /* LOADING BAR */
@@ -500,8 +500,8 @@ h1:hover, li:hover, button:hover, a:hover {
   margin-bottom: 1rem;
  }
 
- .column{
-   grid-column: span var(--span);
+ .serie-grid .column {
+  width: auto;
  }
 
  .namecount {
@@ -596,6 +596,7 @@ section figure {
 .column {
   height: 83vh;
   width: 100%;
+  grid-column: span var(--span);
 }
 
 .slides {
@@ -681,11 +682,11 @@ section figure {
 }
 
 .next:hover {
-  cursor: url(./static/icons/arrowr.svg), auto;
+  cursor: url(./static/icons/cursornext.svg), auto;
 }
 
 .prev:hover {
-  cursor: url(./static/icons/arrowl.svg), auto;
+  cursor: url(./static/icons/cursorprev.svg), auto;
 }
 
 .nav-action, .btn-close {
