@@ -855,6 +855,10 @@ section figure {
     height: auto;
     padding-top: 4rem;
   }
+
+  .serie-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
 }
 
 @media screen and (max-height: 600px) {

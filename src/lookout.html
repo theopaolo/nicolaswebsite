@@ -136,7 +136,7 @@
           </div>
         </section>
 
-        <section class="slides bg-light serie-grid">
+        <section class="slides bg-light serie-grid two-img">
           <div class="column  self-end">
               <figure data-ratio="auto">
                 <img src="./static/Lookout/Lookout_7.jpg"  alt="Lookout série">
@@ -237,7 +237,7 @@
           </div>
         </section>
 
-        <section class="slides bg-light serie-grid">
+        <section class="slides bg-light serie-grid two-img">
           <div class="column self-end">
             <figure data-ratio="auto">
               <img loading="lazy" src="./static/Lookout/Lookout_18.jpg" alt="Lookout série">
@@ -273,6 +273,16 @@
 
   <script type="module" src="./scripts/series.js"> </script>
 
+  <script>
+    let twoimgs = document.querySelectorAll(".two-img")
+
+    if(window.innerWidth < 768) {
+      twoimgs.forEach( function(el) {
+        el.parentNode.removeChild(el);
+      })
+    }
+
+  </script>
 </body>
 
 </html>
