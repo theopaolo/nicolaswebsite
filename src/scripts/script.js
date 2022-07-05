@@ -508,22 +508,20 @@ function resetcamera(){
 const plusicon = `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
   <defs>
-    <clipPath id="clip-Plan_de_travail_2">
+    <clipPath id="clip-Curseur_">
       <rect width="14" height="14"/>
     </clipPath>
   </defs>
-  <g id="Plan_de_travail_2" data-name="Plan de travail – 2" clip-path="url(#clip-Plan_de_travail_2)">
-    <line id="Ligne_2" data-name="Ligne 2" x2="10" transform="translate(2 7)" fill="none" stroke="#000" stroke-width="1.5"/>
-    <line id="Ligne_3" data-name="Ligne 3" x2="10" transform="translate(7 2) rotate(90)" fill="none" stroke="#000" stroke-width="1.5"/>
+  <g id="Curseur_" data-name="Curseur +" clip-path="url(#clip-Curseur_)">
+    <g id="Union_1" data-name="Union 1" transform="translate(-19470 -18693)">
+      <path d="M 19478.001953125 18705.25 L 19477.751953125 18705.25 L 19476.25 18705.25 L 19476 18705.25 L 19476 18705 L 19476 18701.001953125 L 19472.001953125 18701.001953125 L 19471.751953125 18701.001953125 L 19471.751953125 18700.751953125 L 19471.751953125 18699.25 L 19471.751953125 18699 L 19472.001953125 18699 L 19476 18699 L 19476 18695.001953125 L 19476 18694.751953125 L 19476.25 18694.751953125 L 19477.751953125 18694.751953125 L 19478.001953125 18694.751953125 L 19478.001953125 18695.001953125 L 19478.001953125 18699 L 19482 18699 L 19482.25 18699 L 19482.25 18699.25 L 19482.25 18700.751953125 L 19482.25 18701.001953125 L 19482 18701.001953125 L 19478.001953125 18701.001953125 L 19478.001953125 18705 L 19478.001953125 18705.25 Z" stroke="none"/>
+      <path d="M 19477.751953125 18705 L 19477.751953125 18700.751953125 L 19482 18700.751953125 L 19482 18699.25 L 19477.751953125 18699.25 L 19477.751953125 18695.001953125 L 19476.25 18695.001953125 L 19476.25 18699.25 L 19472.001953125 18699.25 L 19472.001953125 18700.751953125 L 19476.25 18700.751953125 L 19476.25 18705 L 19477.751953125 18705 M 19478.251953125 18705.5 L 19475.75 18705.5 L 19475.75 18701.251953125 L 19471.501953125 18701.251953125 L 19471.501953125 18698.75 L 19475.75 18698.75 L 19475.75 18694.501953125 L 19478.251953125 18694.501953125 L 19478.251953125 18698.75 L 19482.5 18698.75 L 19482.5 18701.251953125 L 19478.251953125 18701.251953125 L 19478.251953125 18705.5 Z" stroke="none" fill="#fff"/>
+    </g>
   </g>
 </svg>
 `;
 const plusblob = new Blob([plusicon], {type: 'image/svg+xml'});
 const iconplus = URL.createObjectURL(plusblob);
-
-const minusicon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 10h24v4h-24z"/></svg>`;
-const minusblob = new Blob([minusicon], {type: 'image/svg+xml'});
-const iconminus = URL.createObjectURL(minusblob);
 
 const tick = () =>
 {
