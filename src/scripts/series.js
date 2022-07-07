@@ -1,3 +1,5 @@
+import 'lazysizes';
+
 let next = document.querySelector(".next")
 let prev = document.querySelector(".prev")
 let allimgcount = document.querySelector(".allcount")

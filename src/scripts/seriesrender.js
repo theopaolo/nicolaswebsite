@@ -1,9 +1,9 @@
 import Highway from 'highway';
-
+import 'lazysizes';
 class SeriesRenderer extends Highway.Renderer {
   onEnterCompleted() {
-    console.log('series renderer');
 
+    console.log('series renderer');
     let next = document.querySelector(".next")
     let prev = document.querySelector(".prev")
     let allimgcount = document.querySelector(".allcount")
