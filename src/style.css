@@ -336,11 +336,13 @@ h1:hover, li:hover, button:hover, a:hover {
 .bio p {
   font-size: 2.5rem;
 }
-.parcour p {
+.parcour p, .parcour ul li, .parcour a {
   font-size: 16px;
-  margin-bottom: 4rem;
+  line-height: 18px;
 }
-
+.parcour li a{
+  text-shadow: inherit;
+}
 .parcour {
   background-color: var(--light-color);
 }
