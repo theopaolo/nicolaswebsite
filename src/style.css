@@ -304,9 +304,6 @@ h1:hover, li:hover, button:hover, a:hover {
   border-bottom: 1px solid white;
 }
 
-.introduction :first-child {
-  height: 100%;
-}
 /* ABOUT PAGE */
 #about {
   position: absolute;
@@ -547,6 +544,8 @@ h1:hover, li:hover, button:hover, a:hover {
 .right-2 {right: 2rem;}
 .block {display: block;}
 .d-nonde {display: none;}
+.w-full {width: 100%;}
+.h-full {height: 100%;}
 
 .mb-05 {margin-bottom: .5rem;}
 .mb-1  {margin-bottom: 1rem;}
@@ -827,7 +826,22 @@ section figure {
     height: 100%;
     box-sizing: border-box;
     padding-top: 0rem;
-}
+  }
+
+  .langs {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 0;
+  }
+
+  .en {
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -889,3 +903,4 @@ section figure {
   width: 100% !important;
   height: 100%;
 }
+

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -97,27 +98,55 @@
   <canvas class="webgl"></canvas>
 
   <div class="loading-bar"></div>
+
   <div class="introduction grid bg-dark absolute z-index-2">
-    <div class="f-1">
+
+    <div class="w-full h-full">
       <img src="static/laniakea/Laniakea03.jpg" alt="Home image">
     </div>
-    <div class="f-1">
-      <p>
-        EN — WELCOME ON NICOLAS HERMAN’S PORTFOLIO, <br>
-        WE ARE PLEASE TO LET YOU IN. <br>
-        EXPLORE THE SPHERE, AND LET YOUR MIND TELL A STORY.
-      </p>
-      <ul>
-        <li>- DOUBLE CLICK + TO SEE THINGS MORE CLOSELY.</li>
-        <li>- ZOOM AND DEZOOM TO TRAVEL THROUGHT PICTURES</li>
-        <li>- CLICK ON RESET TO RESTART YOUR EXPERIENCE.</li>
-        <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
-      </ul>
-      <br>
-      <p>ENGLISH COMING SOON</p>
-      <button class="btnintro">→ enter</button>
-    </div>
+
+    <section class="langs">
+      <div class="en f-1 flex align-center h-full bg-dark justify-center">
+        <div>
+          <p>
+            EN — WELCOME ON NICOLAS HERMAN’S PORTFOLIO, <br>
+            WE ARE PLEASE TO LET YOU IN. <br>
+            EXPLORE THE SPHERE, AND LET YOUR MIND TELL A STORY.
+          </p>
+          <ul>
+            <li>- DOUBLE CLICK + TO SEE THINGS MORE CLOSELY.</li>
+            <li>- ZOOM AND DEZOOM TO TRAVEL THROUGHT PICTURES</li>
+            <li>- CLICK ON RESET TO RESTART YOUR EXPERIENCE.</li>
+            <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
+          </ul>
+          <br>
+          <p>ENGLISH COMING SOON</p>
+          <button class="btnintro">→ enter</button>
+        </div>
+      </div>
+      <div class="fr f-1 flex align-center h-full bg-dark justify-center">
+        <div>
+          <p>
+            FR — WELCOME ON NICOLAS HERMAN’S PORTFOLIO, <br>
+            WE ARE PLEASE TO LET YOU IN. <br>
+            EXPLORE THE SPHERE, AND LET YOUR MIND TELL A STORY.
+          </p>
+          <ul>
+            <li>- DOUBLE CLICK + TO SEE THINGS MORE CLOSELY.</li>
+            <li>- ZOOM AND DEZOOM TO TRAVEL THROUGHT PICTURES</li>
+            <li>- CLICK ON RESET TO RESTART YOUR EXPERIENCE.</li>
+            <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
+          </ul>
+          <br>
+          <p>ENGLISH COMING SOON</p>
+          <button class="btnintro">→ enter</button>
+        </div>
+      </div>
+
+    </section>
+
   </div>
+
   <main data-router-wrapper>
     <section data-router-view="home" id="home">
       <button class="expbtn absolute-center mob-show" style="padding: unset; bottom:6rem;">
@@ -176,7 +205,33 @@
       })
     }
 
-    document.querySelector('.btnintro').addEventListener('click', introClick );
+   let btnintro = document.querySelectorAll('.btnintro');
+
+    btnintro.forEach(function(btn){
+      btn.addEventListener("click", introClick)
+    })
+
+    let langfr =  document.querySelector('.fr')
+    let langen =  document.querySelector('.en')
+
+
+    langfr.addEventListener('mouseleave', function(event){
+      gsap.to(".fr", {
+        opacity: 0, duration: 0
+      })
+      gsap.to(".en", {
+        opacity: 1, duration: 0
+      })
+    });
+
+    langen.addEventListener('mouseleave', function(event){
+      gsap.to(".fr", {
+        opacity: 1, duration: 0
+      })
+      gsap.to(".en", {
+        opacity: 0, duration: 0
+      })
+    });
 
     function introClick( ) {
       localStorage.setItem("entersite", true)
