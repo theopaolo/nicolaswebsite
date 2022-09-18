@@ -47,30 +47,8 @@ function initScripts() {
 }
 
 initScripts();
-
 swup.on('contentReplaced', initScripts);
-
-// const gui = new dat.GUI()
-// import Highway from 'highway';
-
-// Import Transitions
-// import Fade from './fade.js';
 import { DstColorFactor, Raycaster } from 'three';
-
-// import AboutRenderer from './aboutrenderer.js';
-// import SeriesRenderer from './seriesrender.js';
-
-// Call Highway.Core once.
-// const H = new Highway.Core({
-//   transitions: {
-//     default: Fade
-//   },
-//   renderers: {
-//     'about': AboutRenderer,
-//     'series' : SeriesRenderer,
-//   }
-// });
-
 
 /**
  * Base
@@ -137,7 +115,6 @@ const loadingManager = new THREE.LoadingManager(
   let percent = document.querySelector(".loadpercent")
   percent.innerHTML = Math.round(progressRatio * 100) + "%"
 })
-
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 
@@ -496,7 +473,7 @@ scene.background = new THREE.Color(0x0d0d0d);
 
   trackballcontrols.staticMoving = false
   trackballcontrols.dynamicDampingFactor = 0.05;
-  trackballcontrols.rotateSpeed = 0.2;
+  trackballcontrols.rotateSpeed *= - 0.2;
 
   trackballcontrols.noPan = true
 
@@ -535,9 +512,8 @@ for(let i = 0; i < expbtn.length; i++){
 }
 
 function resetcamera(){
-
   gsap.to(camera.position, {
-    x: 30,
+    x:  Math.floor(Math.random() * (30 - 25 + 1) + 25),
     y: 0,
     z: 0,
     duration: 1,
@@ -547,6 +523,8 @@ function resetcamera(){
   })
   console.log("rotation");
 }
+
+
 
 const plusicon = `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">

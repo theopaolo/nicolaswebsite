@@ -392,7 +392,9 @@ h1:hover, li:hover, button:hover, a:hover {
   font-size: 12px;
   line-height: 1.1em;
   text-transform: uppercase;
+  padding: 2rem 0 1rem 0;
 }
+
 .contact a {
   font-size: 12px;
 }
@@ -514,8 +516,8 @@ h1:hover, li:hover, button:hover, a:hover {
 
  .serie-grid .column {
   width: auto;
-  width: 95vw;
  }
+
 
  .namecount {
   display: flex;
@@ -614,7 +616,7 @@ section figure {
 }
 
 .column {
-  height: 83vh;
+  height: 80vh;
   width: 100%;
 }
 
@@ -670,9 +672,8 @@ section figure {
 .intro-text h2 {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
 }
 
 .intro-text p{
