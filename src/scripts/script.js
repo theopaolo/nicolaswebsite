@@ -513,13 +513,10 @@ for(let i = 0; i < expbtn.length; i++){
 
 function resetcamera(){
   gsap.to(camera.position, {
-    x:  Math.floor(Math.random() * (30 - 25 + 1) + 25),
-    y: 0,
-    z: 0,
-    duration: 1,
-    onUpdate: function(){
-       trackballcontrols.reset()
-    }
+    x: Math.floor(Math.random() * (35 - 10)) + 10,
+    y: Math.floor(Math.random() * (35 - 10)) + 10,
+    z:  Math.floor(Math.random() * (35 - 10)) + 10,
+    duration: 1
   })
   console.log("rotation");
 }
