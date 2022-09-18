@@ -1,42 +1,76 @@
 import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
 const gsap = window.gsap;
-import * as dat from 'lil-gui'
-// const gui = new dat.GUI()
-import Highway from 'highway';
 
-// Import Transitions
-import Fade from './fade.js';
-import { Raycaster } from 'three';
+import Swup from 'swup';
+const swup = new Swup();
 
-import AboutRenderer from './aboutrenderer.js';
-import SeriesRenderer from './seriesrender.js';
+const raycaster = new THREE.Raycaster();
 
-// Call Highway.Core once.
-const H = new Highway.Core({
-  transitions: {
-    default: Fade
-  },
-  renderers: {
-    'about': AboutRenderer,
-    'series' : SeriesRenderer,
-  }
-});
+function initScripts() {
+  if (document.querySelector('.bio')) {
+    let bio = document.querySelector(".bio")
+    let parcour = document.querySelector(".parcour")
 
-// Navigation script
-let navbtn = document.querySelector(".nav-action")
-let offnav = document.querySelector(".offscreen-nav")
+    bio.addEventListener("mouseenter", ()=> {
+      if(bio.classList.contains("darkbg")) {
+        bio.classList.remove('darkbg')
+        // bio.classList.remove("blight-shadow")
 
-navbtn.addEventListener('click', togglenav)
+        parcour.classList.add("darkbg")
+        // parcour.classList.add("light-shadow")
+      } else {
+        bio.classList.add('darkbg')
+        // bio.classList.add('blight-shadow')
 
-function togglenav()  {
-  this.classList.toggle('nav-active')
-  offnav.classList.toggle('nav-visible')
+        parcour.classList.remove("darkbg")
+        // parcour.classList.remove("light-shadow")
+      }
+    })
 
-  if(offnav.classList.contains('nav-visible')){
-    gsap.to(offnav, {x: 0, duration: 1})
+    parcour.addEventListener("mouseenter", ()=> {
+      if(parcour.classList.contains("darkbg")) {
+        parcour.classList.remove("darkbg")
+        // parcour.classList.remove("light-shadow")
+
+        bio.classList.add('darkbg')
+        // bio.classList.add('blight-shadow')
+      } else {
+        parcour.classList.add("darkbg")
+        // parcour.classList.add("light-shadow")
+
+        bio.classList.remove('darkbg')
+        // bio.classList.remove("blight-shadow")
+      }
+    })
   }
 }
+
+initScripts();
+
+swup.on('contentReplaced', initScripts);
+
+// const gui = new dat.GUI()
+// import Highway from 'highway';
+
+// Import Transitions
+// import Fade from './fade.js';
+import { DstColorFactor, Raycaster } from 'three';
+
+// import AboutRenderer from './aboutrenderer.js';
+// import SeriesRenderer from './seriesrender.js';
+
+// Call Highway.Core once.
+// const H = new Highway.Core({
+//   transitions: {
+//     default: Fade
+//   },
+//   renderers: {
+//     'about': AboutRenderer,
+//     'series' : SeriesRenderer,
+//   }
+// });
+
 
 /**
  * Base
@@ -95,77 +129,75 @@ const loadingManager = new THREE.LoadingManager(
       loadingBarElement.style.transform = ''
     })
   },
-/**
- * Progress
- */
-  (itemsLoaded, itemsTotal) =>
-  {
-    const progressRatio = itemsLoaded / itemsTotal;
-    loadingBarElement.style.transform = `scaleX( ${progressRatio} )`
-  }
-)
+
+// Progress
+(url, itemsLoaded, itemsTotal) => {
+  const progressRatio = itemsLoaded / itemsTotal;
+  loadingBarElement.style.transform = `scaleX( ${progressRatio} )`
+})
+
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 
 let imghorizon = [
-  new URL('../static/webhorizontales/2.jpg', import.meta.url),
-  new URL('../static/webhorizontales/1.jpg',import.meta.url),
-  new URL('../static/webhorizontales/3.jpg',import.meta.url),
-  new URL('../static/webhorizontales/4.jpg',import.meta.url),
-  new URL('../static/webhorizontales/5.jpg',import.meta.url),
-  new URL('../static/webhorizontales/6.jpg',import.meta.url),
-  new URL('../static/webhorizontales/7.jpg',import.meta.url),
-  new URL('../static/webhorizontales/8.jpg',import.meta.url),
-  new URL('../static/webhorizontales/9.jpg',import.meta.url),
-  new URL('../static/webhorizontales/10.jpg',import.meta.url),
-  new URL('../static/webhorizontales/11.jpg',import.meta.url),
-  new URL('../static/webhorizontales/12.jpg',import.meta.url),
-  new URL('../static/webhorizontales/13.jpg',import.meta.url),
-  new URL('../static/webhorizontales/14.jpg',import.meta.url),
-  new URL('../static/webhorizontales/15.jpg',import.meta.url),
-  new URL('../static/webhorizontales/16.jpg',import.meta.url),
-  new URL('../static/webhorizontales/17.jpg',import.meta.url),
-  new URL('../static/webhorizontales/19.jpg',import.meta.url),
-  new URL('../static/webhorizontales/20.jpg',import.meta.url),
-  new URL('../static/webhorizontales/21.jpg',import.meta.url),
-  new URL('../static/webhorizontales/22.jpg',import.meta.url),
-  new URL('../static/webhorizontales/24.jpg',import.meta.url),
-  new URL('../static/webhorizontales/25.jpg',import.meta.url),
-  new URL('../static/webhorizontales/26.jpg',import.meta.url),
-  new URL('../static/webhorizontales/27.jpg',import.meta.url),
-  new URL('../static/webhorizontales/28.jpg',import.meta.url),
-  new URL('../static/webhorizontales/29.jpg',import.meta.url),
-  new URL('../static/webhorizontales/30.jpg',import.meta.url),
-  new URL('../static/webhorizontales/31.jpg',import.meta.url),
-  new URL('../static/webhorizontales/32.jpg',import.meta.url),
-  new URL('../static/webhorizontales/33.jpg',import.meta.url),
-  new URL('../static/webhorizontales/34.jpg',import.meta.url),
-  new URL('../static/webhorizontales/35.jpg',import.meta.url),
-  new URL('../static/webhorizontales/36.jpg',import.meta.url),
-  new URL('../static/webhorizontales/37.jpg',import.meta.url),
-  new URL('../static/webhorizontales/38.jpg',import.meta.url),
-  new URL('../static/webhorizontales/39.jpg',import.meta.url),
-  new URL('../static/webhorizontales/41.jpg',import.meta.url),
-  new URL('../static/webhorizontales/42.jpg',import.meta.url),
-  new URL('../static/webhorizontales/43.jpg',import.meta.url),
+  new URL('../static/webhorizontales/2.jpg?as=webp&width=750', import.meta.url),
+  new URL('../static/webhorizontales/1.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/3.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/4.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/5.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/6.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/7.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/8.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/9.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/10.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/11.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/12.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/13.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/14.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/15.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/16.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/17.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/19.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/20.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/21.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/22.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/24.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/25.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/26.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/27.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/28.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/29.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/30.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/31.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/32.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/33.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/34.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/35.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/36.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/37.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/38.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/39.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/41.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/42.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/43.jpg?as=webp&width=750',import.meta.url),
   ]
 
 let imgverticale = [
-  new URL('../static/webverticales/1.jpg',import.meta.url),
-  new URL('../static/webverticales/2.jpg',import.meta.url),
-  new URL('../static/webverticales/3.jpg',import.meta.url),
-  new URL('../static/webverticales/4.jpg',import.meta.url),
-  new URL('../static/webverticales/5.jpg',import.meta.url),
-  new URL('../static/webverticales/6.jpg',import.meta.url),
-  new URL('../static/webverticales/7.jpg',import.meta.url),
-  new URL('../static/webverticales/8.jpg',import.meta.url),
-  new URL('../static/webverticales/9.jpg',import.meta.url),
-  new URL('../static/webverticales/10.jpg',import.meta.url),
-  new URL('../static/webverticales/11.jpg',import.meta.url),
-  new URL('../static/webverticales/12.jpg',import.meta.url),
-  new URL('../static/webverticales/13.jpg',import.meta.url),
-  new URL('../static/webverticales/14.jpg',import.meta.url),
-  new URL('../static/webverticales/15.jpg',import.meta.url),
+  new URL('../static/webverticales/1.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/2.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/3.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/4.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/5.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/6.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/7.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/8.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/9.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/10.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/11.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/12.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/13.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/14.jpg?as=webp&width=650',import.meta.url),
+  new URL('../static/webverticales/15.jpg?as=webp&width=650',import.meta.url),
 ]
 
 
@@ -195,7 +227,7 @@ function fiboSphere(imgLght, iter, mesh, size) {
 }
 
 function imgSphere(imgHorizon){
-  let imgLght = imgHorizon.length
+  let imgLght = imgHorizon.length + 1
   let i = 0
 
   for(let image of imgHorizon){
@@ -228,7 +260,7 @@ imgSphere(imghorizon)
 
 
 function vertiSphere(imgVerti){
-  let imgLght = imgVerti.length
+  let imgLght = imgVerti.length + 1
   let i = 0
 
   for(let image of imgVerti){
@@ -255,33 +287,6 @@ function vertiSphere(imgVerti){
   scene.add(imggroup)
 }
 vertiSphere(imgverticale)
-
-
-// gui.add(imggroup.rotation , 'x', - 5, 5, 0.01)
-// gui.add(imggroup.rotation , 'z', - 5, 5, 0.01)
-// gui.add(imggroup.rotation , 'y', - 5, 5, 0.01)
-
-
-// let corePlaneGeometry = new THREE.PlaneGeometry(9, 4)
-// function coreSphere(elArr){
-//   let imgLght = elArr.length
-//   let i = 0
-//   for(let image of elArr){
-//     // Load images as texture
-//     let imgText = textureLoader.load(image)
-//     imgText.generateMipmaps = false
-
-//     // Create planeMaterial and map images texture
-//     let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-//     planeMaterial.side = THREE.DoubleSide
-
-//     let planeMesh  = new THREE.Mesh(corePlaneGeometry, planeMaterial);
-//     i += 1
-//     // Create sphere using finonacci
-//     fiboSphere(imgLght, i, planeMesh, 1)
-//   }
-//   scene.add(imggroup)
-// }
 
 /*
 * Video Sphere
@@ -328,13 +333,13 @@ window.addEventListener('resize', () =>
     // Update renderer
     renderer.setSize(sizes.width, sizes.height)
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-
+    fovDistances()
 })
 
 /**
  * Raycaster
 */
-const raycaster = new THREE.Raycaster();
+// const raycaster = new THREE.Raycaster();
 
 /**
  * Mouse
@@ -354,7 +359,37 @@ let tl = gsap.timeline();
 let lightbox = document.querySelector('.lightbox')
 let imgOpen = false
 
-window.addEventListener('dblclick', (event) => {
+// Handle the lightbox
+canvas.addEventListener("touchstart", tapHandler);
+let tapedTwice = false;
+
+function tapHandler(event) {
+  if(!tapedTwice) {
+      tapedTwice = true;
+      setTimeout( function() { tapedTwice = false; }, 300 );
+      return false;
+  }
+  event.preventDefault();
+  //action on double tap goes below
+  if(currentIntersect) {
+    for(let i = 0; i < imgObjects.length; i++){
+     if(currentIntersect.object === imgObjects[i]) {
+       let imgurl = imgObjects[i].material.map.source.data.currentSrc
+       createImg(imgurl)
+     }
+    }
+    imgOpen = true
+   }
+   if(currentIntersect) {
+    console.log("taped twice");
+    } else {
+      removeImage()
+      console.log("tap should close img");
+    }
+}
+
+
+canvas.addEventListener('dblclick', (event) => {
   if(currentIntersect) {
    for(let i = 0; i < imgObjects.length; i++){
     if(currentIntersect.object === imgObjects[i]) {
@@ -366,14 +401,17 @@ window.addEventListener('dblclick', (event) => {
   }
 })
 
-window.addEventListener('click', (event) => {
-  if(currentIntersect) {
-    console.log("clicked");
-  } else {
-    removeImage()
-    console.log("should close img");
-  }
-})
+// Broken, need to fix when click outside of image
+//canvas.addEventListener('click', (event) => {
+//   if(! "ontouchstart" in document.documentElement) {
+//   if(currentIntersect) {
+//     console.log("clicked");
+//   } else {
+//     removeImage()
+//     console.log("should close img");
+//   }
+//   }
+// })
 
 
 let imgbox = null
@@ -405,6 +443,7 @@ function createImg(url) {
 
 function removeImage() {
   if(imgcreated === true){
+    currentIntersect = null
     tl.to(".lightbox", { opacity: 0, duration: 1, })
     setTimeout(() => {
       imgbox.remove()
@@ -419,13 +458,18 @@ function removeImage() {
   Camera
   Base camera
 **/
-var fov = 45;
+let fov = 45;
+
+function fovDistances() {
+  if(window.innerWidth < 768){
+    fov = 75;
+  } else {
+    fov = 45;
+  }
+} fovDistances()
+
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
 camera.position.set(38,0,0);
-
-// gui.add(camera.position , 'x', - 100, 100, 1)
-// gui.add(camera.position , 'z', - 100, 100, 1)
-// gui.add(camera.position , 'y', - 100, 100, 1)
 
 scene.add(camera)
 scene.background = new THREE.Color(0x0d0d0d);
@@ -460,6 +504,7 @@ scene.background = new THREE.Color(0x0d0d0d);
   trackballcontrols.minDistance = 0
 
   trackballcontrols.update()
+  console.log(trackballcontrols.checkDistances());
 
   // if(window.innerWidth < 600) {
   //   trackballcontrols.rotateSpeed = 0.1;

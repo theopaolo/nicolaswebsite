@@ -1,5 +1,3 @@
-import 'lazysizes';
-
 let next = document.querySelector(".next")
 let prev = document.querySelector(".prev")
 let allimgcount = document.querySelector(".allcount")
@@ -8,10 +6,10 @@ let namecount = document.querySelector(".namecount")
 let slides = document.querySelectorAll(".slides")
 let slideCount = slides.length
 let slideIndex = 1
+const gsap = window.gsap;
+import 'lazysizes';
 
 showSlides(slideIndex);
-
-console.log("sessions item value serie", sessionStorage.getItem("entersite"));
 
 // Next/previous keys controls
 window.addEventListener("keydown", function(event) {
@@ -46,15 +44,12 @@ function currentSlide(n) {
   showSlides(slideIndex = n);
 }
 
-allimgcount.innerHTML = slideCount -1
+allimgcount.innerHTML = slideCount
 
 function showSlides(n) {
   let i;
-
   if (n > slideCount) {slideIndex = 1}
-
   if (n < 1) {slideIndex = slideCount}
-
   for (i = 0; i < slideCount; i++) {
     slides[i].style.display = "none";
   }
@@ -64,41 +59,25 @@ function showSlides(n) {
   } else {
     slides[slideIndex-1].style.display = "grid";
   }
-  currentimgcount.innerHTML = slideIndex -1
-
-  if( window.innerWidth < 768 ) {
-    if( slideIndex -1 >= 1) {
-      namecount.style.opacity = 1
-    } else {
-      namecount.style.opacity = 0
-    }
-  }
+  currentimgcount.innerHTML = slideIndex
 }
 
 prev.addEventListener('click', ()=>{
   showSlides(slideIndex += -1)
+  nameCountHeight()
 })
 
 next.addEventListener('click', ()=>{
   showSlides(slideIndex += 1)
+  nameCountHeight()
 })
 
-const gsap = window.gsap;
-
-let navbtn = document.querySelector(".nav-action")
-let offnav = document.querySelector(".offscreen-nav")
-
-navbtn.addEventListener('click', togglenav)
-
-function togglenav()  {
-  this.classList.toggle('nav-active')
-  offnav.classList.toggle('nav-visible')
-  document.body.classList.toggle('no-scroll')
-  document.documentElement.classList.toggle('no-scroll')
-
-
-  if(offnav.classList.contains('nav-visible')){
-    gsap.to(offnav, {x: 0, duration: 1})
+function nameCountHeight() {
+  if(window.innerWidth < 768){
+    if(slideIndex > 1) {
+      document.querySelector(".namecount").style.height = "85vh"
+    } else {
+      document.querySelector(".namecount").style.height = "100%"
+    }
   }
-
 }

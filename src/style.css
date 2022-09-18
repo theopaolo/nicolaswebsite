@@ -49,7 +49,9 @@ a {
   top: 4rem;
   font-weight: 400;
   mix-blend-mode: difference;
-  text-shadow: 0 0 2px #a1a1a1;;
+  text-shadow: 0 0 2px #a1a1a1;
+  cursor: pointer;
+  pointer-events: bounding-box;
 }
 
 
@@ -260,6 +262,7 @@ h1:hover, li:hover, button:hover, a:hover {
 .loading-bar
 {
   position:absolute;
+  top: 49%;
   width: 100%;
   height: 4px;
   background: #ffffff;
@@ -329,7 +332,7 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 
 .bio {
-  text-shadow: 0px 0px 10px #666666;
+  /* text-shadow: 0px 0px 10px #666666; */
   background-color: var(--light-color);
 }
 
@@ -338,7 +341,7 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 .parcour p, .parcour ul li, .parcour a {
   font-size: 16px;
-  line-height: 18px;
+  line-height: 20px;
 }
 .parcour li a{
   text-shadow: inherit;
@@ -353,7 +356,7 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 
 .lighter-shadow {
-  text-shadow: 0 0 3px #666;
+  text-shadow: unset;
 }
 
 .light-shadow {
@@ -379,9 +382,12 @@ h1:hover, li:hover, button:hover, a:hover {
 .contact {
   color: var(--light-color);
   mix-blend-mode: difference;
-  font-size: 1em;
+  font-size: 12px;
   line-height: 1.1em;
   text-transform: uppercase;
+}
+.contact a {
+  font-size: 12px;
 }
 
 .section-footer {
@@ -501,6 +507,7 @@ h1:hover, li:hover, button:hover, a:hover {
 
  .serie-grid .column {
   width: auto;
+  width: 95vw;
  }
 
  .namecount {
@@ -518,7 +525,12 @@ h1:hover, li:hover, button:hover, a:hover {
   text-shadow: 0 0 2px grey;
   mix-blend-mode: difference;
   pointer-events: none;
+  padding: 2rem 0;
  }
+
+.namecount h1 {
+  pointer-events: bounding-box;
+}
 
 /* CLASS STYLES */
 .flex {display: flex;}
@@ -622,19 +634,28 @@ section figure {
   color: grey;
 }
 
+.desk-nav a {
+  -webkit-user-select:none;
+  -webkit-touch-callout:none;
+  user-select:none;
+}
 .bg-black {
   background-color: black;
   color: var(--light-color);
 }
 
+.gallery {
+  position: relative;
+  height: 100%;
+}
+
 .intro-text {
   flex-direction: column !important;
+  height: 100%;
 }
 
 .intro-text div:first-of-type {
   z-index: 9;
-  padding-top: 6rem;
-  height: 100%;
   padding-top: 6rem;
   box-sizing: border-box;
 }
@@ -642,8 +663,9 @@ section figure {
 .intro-text h2 {
   text-transform: uppercase;
   font-weight: 400;
-  font-size: 1.5rem;
+  font-size: 2rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .intro-text p{
@@ -652,6 +674,7 @@ section figure {
   font-size: 16px;
   line-height: 20px;
   text-align: left;
+
 }
 
 .intro-text p:last-of-type{
@@ -668,7 +691,7 @@ section figure {
 .next-prev {
   display: flex;
   flex-direction: row;
-  height: 100%;
+  height: 85.8vh;
   width: 100%;
   position: fixed;
   z-index: 999;
@@ -697,11 +720,15 @@ section figure {
   left: 0rem;
   padding: 1rem;
   font-size: 2rem;
-  z-index: 9999;
+  z-index: 9999999;
   transition: all .3s ease-in-out;
 }
 
 .nav-active {
+  transform: rotate(45deg);
+}
+
+.nav-active .nav-action{
   transform: rotate(45deg);
 }
 
@@ -779,6 +806,7 @@ section figure {
 
   .about-grid .parcour p{
     font-size: 16px;
+    line-height: 20px;
     margin-bottom: 18px;
   }
 
@@ -816,7 +844,10 @@ section figure {
   }
 
   .intro-text, .intro-text p{
-    text-align: center;
+    text-align: justify;
+    text-align-last: center;
+    font-size: 16px;
+    line-height: 20px;
   }
 
   .slides {
@@ -848,7 +879,7 @@ section figure {
 
 @media screen and (max-width: 1200px) {
   .nav-grid {
-    grid-template-columns: 1.5fr 3fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr;
   }
 }
 
@@ -880,14 +911,21 @@ section figure {
   .lighter-shadow {
     text-shadow: unset;
   }
-}
-
-@media screen and (max-height: 600px) {
   .namecount {
-    height: 90vh;
+    height: 100%;
+    padding: 3rem 0;
+    place-content: space-between;
+    text-shadow: unset;
+    position: absolute;
+    top: unset;
+    transform: unset;
+    z-index: 9999;
   }
+  .gallery {
+    height: unset;
+  }
+  .grid-col-2 {  grid-column: 1; }
 }
-
 
 .video-outer {
   position: relative;
@@ -906,3 +944,32 @@ section figure {
   height: 100%;
 }
 
+.transition-fade {
+  transition: 0.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}
+
+/* .transition-slide {
+  opacity: 1;
+  transform: translateX(0);
+  transform-origin: left;
+  transition: all .3s ease-in-out;
+}
+
+html.is-animating .transition-slide {
+  transform: translateX(100%);
+  opacity: 0;
+} */
+
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}

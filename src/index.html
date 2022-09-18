@@ -1,11 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="./scripts/script.js" type="module"></script>
-    <link rel="stylesheet" href="normalize.css">
     <link rel="stylesheet" href="style.css">
     <title>Nicolas Hermann</title>
     <meta name="description" content="Nicolas Hermann est un artiste visuel qui utilise la photographie, la vidéo et le son pour investir sa relation au monde et à autrui. En favorisant l’installation, l’expérimentation et les collaborations, il place la transversalité au coeur de sa pratique pour multiplier les moyens d’expressions et d’expériences.">
@@ -22,7 +20,7 @@
   <div class="container exp">
 
     <div class="namecount z-index-1">
-      <h1 class="z-index-3">Nicolas Hermann</h1>
+      <h1 class="z-index-4"><a href="index.html">Nicolas Hermann</a></h1>
       <div class="soundbtn">
         <div class="wave">
           <span></span><span></span><span></span><span></span><span></span><span></span>
@@ -36,15 +34,12 @@
         <li class="dropdown">
           <a href="#" >séries</a>
           <div class="dropdown-content dark-drop">
-            <a data-router-disabled href="lookout.html">Look out</a>
-            <a data-router-disabled href="salviadivinorum.html">Salvia Divinorum</a>
-            <a data-router-disabled href="laniakea.html">Laniakea</a>
-            <a data-router-disabled href="mark.html">Mark</a>
-            <a data-router-disabled href="distortion.html">Distortion</a>
+            <a href="lookout.html">Look out</a>
+            <a href="salviadivinorum.html">Salvia Divinorum</a>
+            <a href="laniakea.html">Laniakea</a>
+            <a href="mark.html">Mark</a>
+            <a href="distortion.html">Distortion</a>
           </div>
-        </li>
-        <li>
-          <button class="expbtn"> expérience </button>
         </li>
       </ul>
       <span></span>
@@ -62,7 +57,7 @@
     </audio>
   </div>
 
-<section class="videos">
+<!-- <section class="videos">
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/spectreeau.mp4" type='video/mp4' >
   </video>
@@ -93,7 +88,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/saturne.mp4" type='video/mp4' >
   </video>
-</section>
+</section> -->
 
   <canvas class="webgl"></canvas>
 
@@ -120,26 +115,24 @@
             <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
           </ul>
           <br>
-          <p>ENGLISH COMING SOON</p>
           <button class="btnintro">→ enter</button>
         </div>
       </div>
       <div class="fr f-1 flex align-center h-full bg-dark justify-center">
         <div>
           <p>
-            FR — WELCOME ON NICOLAS HERMAN’S PORTFOLIO, <br>
-            WE ARE PLEASE TO LET YOU IN. <br>
+            FR — BIENVENUE SUR LE SITE INTERNET DE NICOLAS HERMANN, <br>
+            NOUS SOMMES HEUREUX DE VOUS LAISSEZ ENTRER DANS CET UNIVERS. <br>
             EXPLORE THE SPHERE, AND LET YOUR MIND TELL A STORY.
           </p>
           <ul>
-            <li>- DOUBLE CLICK + TO SEE THINGS MORE CLOSELY.</li>
-            <li>- ZOOM AND DEZOOM TO TRAVEL THROUGHT PICTURES</li>
-            <li>- CLICK ON RESET TO RESTART YOUR EXPERIENCE.</li>
-            <li>- DISCOVER THE FULL PORTFOLIO ON ‘SÉRIES’</li>
+            <li>- DOUBLE CLIQUEZ POUR OUVRIR LES IMAGES ET LES VOIR EN GRAND</li>
+            <li>- SCROLLER, CLIQUEZ ET DÉPLACER POUR VOYAGER DANS LES IMAGES</li>
+            <li>- RÉINITIALISEZ VOTRE IMMERSION EN CLIQUANT SUR ‘NICOLAS HERMANN’</li>
+            <li>- DÉCOUVREZ SON TRAVAIL PLUS EN PRÉCISION EN CLIQUANT SUR ‘SÉRIES’</li>
           </ul>
           <br>
-          <p>ENGLISH COMING SOON</p>
-          <button class="btnintro">→ enter</button>
+          <button class="btnintro">→ entrer</button>
         </div>
       </div>
 
@@ -147,28 +140,10 @@
 
   </div>
 
-  <main data-router-wrapper>
-    <section data-router-view="home" id="home">
-      <button class="expbtn absolute-center mob-show" style="padding: unset; bottom:6rem;">
-      expérience
-      </button>
-
-      <button class="nav-action">+</button>
-
-      <nav class="offscreen-nav">
-        <span class="mb-2 f-1">Nicolas Hermann</span>
-        <div class="flex f-3 dir-column mb-3">
-          <span class="mb-3">séries</span>
-          <a data-router-disabled class="mb-1" href="lookout.html">Look out</a>
-          <a data-router-disabled class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
-          <a data-router-disabled class="mb-1" href="laniakea.html">Laniakea</a>
-          <a data-router-disabled class="mb-1" href="mark.html">Mark</a>
-          <a data-router-disabled class="mb-1" href="distortion.html">Distortion</a>
-        </div>
-        <a class="mb-3" href="./about.html">à propos</a>
-        <a href="./index.html">expérience</a>
-      </nav>
-
+  <main id="swup" class="transition-fade">
+    <section>
+      <script type="module" src="./components/mobilenav.js" ></script>
+      <mobile-nav></mobile-nav>
     </section>
   </main>
 
@@ -234,16 +209,17 @@
     });
 
     function introClick( ) {
-      localStorage.setItem("entersite", true)
+      sessionStorage.setItem("entersite", true)
       introp.classList.add("d-none");
     }
 
-    if(localStorage.getItem("entersite") == "true"){
+    if(sessionStorage.getItem("entersite") == "true"){
       introp.classList.add("d-none");
     }
 
+    window.addEventListener("beforeunload", () => sessionStorage.clear());
 
   </script>
 
 </body>
-</html>s
+</html>
