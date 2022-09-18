@@ -17,7 +17,7 @@ class MobileNav extends HTMLElement {
 			<a data-router-disabled class="mb-1" href="mark.html">Mark</a>
 			<a data-router-disabled class="mb-1" href="distortion.html">Distortion</a>
 		</div>
-		<a class="mb-3" href="./about.html">à propos</a>
+		<a class="mb-8" href="./about.html">à propos</a>
 	</nav>
 		`;
 	}

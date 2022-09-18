@@ -273,6 +273,13 @@ h1:hover, li:hover, button:hover, a:hover {
   z-index: 999;
 }
 
+.loadpercent {
+  font-size: 9rem;
+  color: white;
+  position: absolute;
+  right: 3rem;
+}
+
 .loading-bar.ended
 {
   transform-origin: top right;
