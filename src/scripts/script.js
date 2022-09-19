@@ -473,7 +473,7 @@ scene.background = new THREE.Color(0x0d0d0d);
 
   trackballcontrols.staticMoving = false
   trackballcontrols.dynamicDampingFactor = 0.05;
-  trackballcontrols.rotateSpeed *= - 0.2;
+  trackballcontrols.rotateSpeed = 0.2;
 
   trackballcontrols.noPan = true
 
@@ -513,9 +513,9 @@ for(let i = 0; i < expbtn.length; i++){
 
 function resetcamera(){
   gsap.to(camera.position, {
-    x: Math.floor(Math.random() * (35 - 10)) + 10,
-    y: Math.floor(Math.random() * (35 - 10)) + 10,
-    z:  Math.floor(Math.random() * (35 - 10)) + 10,
+    x:  Math.floor(Math.random() * (74 - 35 + 1)) + 35,
+    y: 0,
+    z: Math.floor(Math.random() * (75 - 35 + 1)) + 35,
     duration: 1
   })
   console.log("rotation");
