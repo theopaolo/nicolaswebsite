@@ -557,11 +557,12 @@ const tick = () =>
         if(!currentIntersect)
         currentIntersect = intersects[0]
         document.body.style.cursor = "url(" + iconplus + "), auto";
+        console.log("not internsect");
     }
     else
     {
         if(currentIntersect)
-        document.body.style.cursor = "default";
+        document.body.style.cursor = "move";
         currentIntersect = null
     }
 

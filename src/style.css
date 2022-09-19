@@ -15,10 +15,6 @@ canvas {
   display: block;
 }
 
-canvas:hover {
-  cursor: grab;
-}
-
 html,
 body
 {
