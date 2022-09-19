@@ -43,7 +43,6 @@ function plusSlides(n) {
 function currentSlide(n) {
   showSlides(slideIndex = n);
 }
-
 allimgcount.innerHTML = slideCount
 
 function showSlides(n) {
