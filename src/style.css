@@ -674,6 +674,7 @@ section figure {
   font-weight: 400;
   font-size: 1.5rem;
   margin-bottom: 4rem;
+  text-align-last: left !important;
 }
 
 .intro-text p{
@@ -682,7 +683,6 @@ section figure {
   font-size: 16px;
   line-height: 20px;
   text-align: left;
-
 }
 
 .intro-text p:last-of-type{

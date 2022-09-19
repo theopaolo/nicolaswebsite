@@ -451,7 +451,7 @@ function fovDistances() {
 } fovDistances()
 
 const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
-camera.position.set(38,0,0);
+camera.position.set(50,0,0);
 
 scene.add(camera)
 scene.background = new THREE.Color(0x0d0d0d);
