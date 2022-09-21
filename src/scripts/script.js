@@ -561,7 +561,7 @@ const tick = () =>
     else
     {
         if(currentIntersect)
-        document.body.style.cursor = "move";
+        document.body.style.cursor = "grab";
         currentIntersect = null
     }
 
