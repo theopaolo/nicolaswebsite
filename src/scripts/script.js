@@ -48,9 +48,8 @@ function initScripts() {
 
 initScripts();
 swup.on('contentReplaced', initScripts);
+
 import { DstColorFactor, Raycaster } from 'three';
-
-
 
 
 /**
@@ -411,8 +410,8 @@ function createImg(url) {
 
     // image transition
     tl
-      .to(".lightbox", { opacity: 1, duration: 0.5, })
-      .from(".imagebox", { opacity: 0, duration: 0, })
+      .to(".lightbox", { opacity: 1, zIndex:999, duration: 0.5, })
+      .from(".imagebox", { opacity: 0,  zIndex:0, duration: 0, })
 
     imgbox.addEventListener('click', (event) => {
         removeImage()
@@ -426,7 +425,7 @@ function createImg(url) {
 function removeImage() {
   if(imgcreated === true){
     currentIntersect = null
-    tl.to(".lightbox", { opacity: 0, duration: 1, })
+    tl.to(".lightbox", { opacity: 0, duration: 1, zIndex:0, })
     setTimeout(() => {
       imgbox.remove()
       console.log("erase img");
@@ -444,7 +443,7 @@ let fov = 45;
 
 function fovDistances() {
   if(window.innerWidth < 768){
-    fov = 75;
+    fov = 55;
   } else {
     fov = 45;
   }

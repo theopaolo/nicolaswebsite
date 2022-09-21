@@ -173,6 +173,8 @@ h1:hover, li:hover, button:hover, a:hover {
   align-items: center;
   cursor: pointer;
   pointer-events: bounding-box;
+  position: absolute;
+  bottom: 10rem;
 }
 
 .wave {
@@ -236,8 +238,7 @@ h1:hover, li:hover, button:hover, a:hover {
 
 /* IMAGE BOX */
 .lightbox {
-  z-index: 99;
-  align-self: center;
+  z-index: 0;
   opacity: 0;
   display: flex;
   flex-direction: column-reverse;
@@ -392,7 +393,6 @@ h1:hover, li:hover, button:hover, a:hover {
   font-size: 12px;
   line-height: 1.1em;
   text-transform: uppercase;
-  padding: 2rem 0 1rem 0;
 }
 
 .contact a {
@@ -670,9 +670,8 @@ section figure {
 }
 
 .intro-text h2 {
-  text-transform: uppercase;
-  font-weight: 400;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 2rem;
   margin-bottom: 4rem;
   text-align-last: left !important;
 }
@@ -680,13 +679,22 @@ section figure {
 .intro-text p{
   max-width: 764px;
   margin-bottom: 2rem;
-  font-size: 16px;
-  line-height: 20px;
+  font-size: 18px;
+  line-height: 22px;
   text-align: left;
 }
 
 .intro-text p:last-of-type{
   margin-bottom: 0rem;
+}
+
+.text-small {
+  font-size: 13px !important;
+  line-height: 16px !important;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .slides img {
@@ -814,7 +822,7 @@ section figure {
 
   .about-grid .parcour p{
     font-size: 16px;
-    line-height: 20px;
+    line-height: 24px;
     margin-bottom: 18px;
   }
 
@@ -907,9 +915,22 @@ section figure {
 
   .introduction :first-child {
     height: auto;
-    padding-top: 4rem;
   }
 
+  .introduction img {
+    display: none;
+  }
+
+  .langs div {
+    opacity: 1 !important;
+    padding: 1rem .5rem;
+    flex: 1;
+    align-items: flex-start;
+    text-align: left;
+  }
+  .contact {
+    margin-top: 2rem;
+  }
   .serie-grid {
     grid-template-columns: repeat(1, 1fr);
   }

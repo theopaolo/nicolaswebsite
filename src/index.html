@@ -57,7 +57,7 @@
     </audio>
   </div>
 
-<section class="videos">
+<!-- <section class="videos">
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/spectreeau.mp4" type='video/mp4' >
   </video>
@@ -88,7 +88,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/saturne.mp4" type='video/mp4' >
   </video>
-</section>
+</section> -->
 
   <canvas class="webgl"></canvas>
 
@@ -97,11 +97,9 @@
   </div>
 
   <div class="introduction grid bg-dark absolute z-index-2">
-
     <div class="w-full h-full">
       <img src="static/laniakea/Laniakea03.jpg" alt="Home image">
     </div>
-
     <section class="langs">
       <div class="en f-1 flex align-center h-full bg-dark justify-center">
         <div>
@@ -133,7 +131,6 @@
           <button class="btnintro">→ entrer</button>
         </div>
       </div>
-
     </section>
 
   </div>
@@ -170,52 +167,40 @@
       }
     }
 
+    // IntroScripts
     let introp = document.querySelector('.introduction')
+    let btnintro = document.querySelectorAll('.btnintro');
+    let langfr =  document.querySelector('.fr')
+    let langen =  document.querySelector('.en')
 
-    function hideIntro(){
-      gsap.to(".introduction", {
-        opacity: 0, display:"none", duration: 1
-      })
-    }
+    langfr.addEventListener('mouseleave', function(event){
+      gsap.to(".fr", { opacity: 0, duration: 0 })
+      gsap.to(".en", { opacity: 1, duration: 0 })
+    });
 
-   let btnintro = document.querySelectorAll('.btnintro');
+    langen.addEventListener('mouseleave', function(event){
+      gsap.to(".fr", { opacity: 1, duration: 0 })
+      gsap.to(".en", { opacity: 0, duration: 0 })
+    });
 
     btnintro.forEach(function(btn){
       btn.addEventListener("click", introClick)
     })
 
-    let langfr =  document.querySelector('.fr')
-    let langen =  document.querySelector('.en')
-
-
-    langfr.addEventListener('mouseleave', function(event){
-      gsap.to(".fr", {
-        opacity: 0, duration: 0
-      })
-      gsap.to(".en", {
-        opacity: 1, duration: 0
-      })
-    });
-
-    langen.addEventListener('mouseleave', function(event){
-      gsap.to(".fr", {
-        opacity: 1, duration: 0
-      })
-      gsap.to(".en", {
-        opacity: 0, duration: 0
-      })
-    });
+    function hideIntro(){gsap.to(".introduction", {opacity: 0, display:"none", duration: 1})}
 
     function introClick( ) {
       sessionStorage.setItem("entersite", true)
       introp.classList.add("d-none");
+      console.log("intro Click");
     }
 
-    if(sessionStorage.getItem("entersite") == "true"){
-      introp.classList.add("d-none");
-    }
-
-    window.addEventListener("beforeunload", () => sessionStorage.clear());
+    window.addEventListener("DOMContentLoaded", function(){
+      console.log("Dom Loaded");
+      if(sessionStorage.getItem("entersite") == "true"){
+        introp.classList.add("d-none");
+      }
+    })
 
   </script>
 
