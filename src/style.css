@@ -289,7 +289,8 @@ h1:hover, li:hover, button:hover, a:hover {
   transform-origin: top right;
   transition: transform 1.5s ease-in-out;
 }
-.loadpercent£.ended {
+
+.loadpercent.ended {
   opacity: 0;
 }
 
