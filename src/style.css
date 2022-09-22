@@ -575,8 +575,8 @@ h1:hover, li:hover, button:hover, a:hover {
   flex: 3
 }
 
-.credits a {font-size: 10px !important; line-height: 10px;}
-.credits ul li {line-height: 10px;}
+.credits a {font-size: 10px !important; line-height: 10px !important;}
+.credits li {line-height: 10px !important;}
 
 
 .justify-center {justify-content: center;}
