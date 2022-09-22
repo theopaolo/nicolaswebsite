@@ -281,12 +281,16 @@ h1:hover, li:hover, button:hover, a:hover {
   color: white;
   position: absolute;
   right: 3rem;
+  bottom: 2rem;
 }
 
 .loading-bar.ended
 {
   transform-origin: top right;
   transition: transform 1.5s ease-in-out;
+}
+.loadpercent£.ended {
+  opacity: 0;
 }
 
 .active{
@@ -371,22 +375,31 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .light-shadow {
   text-shadow: 0px 0px 2px var(--light-color);
+  text-shadow: unset;
+
 }
 
 .light-shadow-4 {
   text-shadow: 0 0 4px var(--light-color);
+  text-shadow: unset;
 }
 
 .dark-shadow-2 {
   text-shadow: 0px 0px 2px var(--dark-color);
+  text-shadow: unset;
+
 }
 
 .blight-shadow {
   text-shadow: 0px 0px 10px var(--light-color);
+  text-shadow: unset;
+
 }
 
 .dark-shadow {
   text-shadow: 0px 0px 10px #666666;
+  text-shadow: unset;
+
 }
 
 .contact {
@@ -678,7 +691,7 @@ section figure {
   font-weight: 700;
   font-size: 2rem;
   margin-bottom: 4rem;
-  text-align-last: left !important;
+  text-align: left;
   text-transform: uppercase;
 }
 
@@ -867,7 +880,6 @@ section figure {
 
   .intro-text, .intro-text p{
     text-align: justify;
-    text-align-last: center;
     font-size: 16px;
     line-height: 20px;
   }

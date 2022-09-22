@@ -95,6 +95,7 @@ scene.add(overlay)
  * Loader
  */
 const loadingBarElement = document.querySelector('.loading-bar')
+const loadingPercent = document.querySelector(".loadpercent")
 
 /**
  * Texture
@@ -106,6 +107,8 @@ const loadingManager = new THREE.LoadingManager(
     gsap.delayedCall(0.5,()=>{
       gsap.to(overlayMaterial.uniforms.uAlpha,{duration:3, value: 0})
       loadingBarElement.classList.add('ended')
+      loadingPercent.classList.add('ended')
+
       loadingBarElement.style.transform = ''
     })
   },
@@ -114,8 +117,7 @@ const loadingManager = new THREE.LoadingManager(
 (url, itemsLoaded, itemsTotal) => {
   const progressRatio = itemsLoaded / itemsTotal;
   loadingBarElement.style.transform = `scaleX( ${progressRatio} )`
-  let percent = document.querySelector(".loadpercent")
-  percent.innerHTML = Math.round(progressRatio * 100) + "%"
+  loadingPercent.innerHTML = Math.round(progressRatio * 100) + "%"
 })
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
