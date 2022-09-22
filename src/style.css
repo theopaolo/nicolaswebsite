@@ -575,6 +575,10 @@ h1:hover, li:hover, button:hover, a:hover {
   flex: 3
 }
 
+.credits a {font-size: 10px !important; line-height: 10px;}
+.credits ul li {line-height: 10px;}
+
+
 .justify-center {justify-content: center;}
 .self-end {justify-self: end;}
 .self-start {justify-self: start;}
@@ -830,6 +834,11 @@ section figure {
   .about-grid .bio p{
     font-size: 3.25rem;
     line-height: 3.5rem;
+
+  }
+
+  .parcour p {
+    margin-top: -5px;
   }
 
   .about-grid  .contact > *{
