@@ -116,7 +116,7 @@ button {
 
 .nav-grid {
   display: grid;
-  grid-template-columns: 1fr 4.5fr 1fr;
+  grid-template-columns: 1fr 8fr 1fr;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -784,11 +784,10 @@ section figure {
   text-align: center;
   text-transform: uppercase;
   justify-content: center;
-  padding: 2rem 1rem;
+  padding: 3rem 1rem;
   box-sizing: border-box;
   display: none;
   transition: all .3s ease-in-out;
-  padding-top: 4.5rem;
 }
 
 .offscreen-nav > * {
@@ -834,7 +833,6 @@ section figure {
   .about-grid .bio p{
     font-size: 3.25rem;
     line-height: 3.5rem;
-
   }
 
   .parcour p {
@@ -917,13 +915,10 @@ section figure {
 
   .en {
     opacity: 0;
-    transition: all .3s ease-in-out;
   }
-}
 
-@media screen and (max-width: 1200px) {
-  .nav-grid {
-    grid-template-columns: 1fr 3fr 1fr;
+  .serie-grid .column {
+    width: 75vw;
   }
 }
 

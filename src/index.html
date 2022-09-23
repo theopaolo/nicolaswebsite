@@ -118,7 +118,7 @@
       <div class="fr f-1 flex align-center h-full bg-dark justify-center">
         <div>
           <p>
-            FR — BIENVENUE SUR LE SITE INTERNET DE NICOLAS HERMANNins<br><br>
+            FR — BIENVENUE SUR LE SITE INTERNET DE NICOLAS HERMANN<br><br>
           </p>
           <ul>
             <li>- DOUBLE CLIQUEZ POUR OUVRIR LES IMAGES EN GRAND FORMAT</li>
@@ -173,13 +173,13 @@
     let langen =  document.querySelector('.en')
 
     langfr.addEventListener('mouseleave', function(event){
-      gsap.to(".fr", { opacity: 0, duration: 0 })
-      gsap.to(".en", { opacity: 1, duration: 0 })
+      gsap.set(".fr", { opacity: 0 })
+      gsap.set(".en", { opacity: 1 })
     });
 
     langen.addEventListener('mouseleave', function(event){
-      gsap.to(".fr", { opacity: 1, duration: 0 })
-      gsap.to(".en", { opacity: 0, duration: 0 })
+      gsap.set(".fr", { opacity: 1 })
+      gsap.set(".en", { opacity: 0 })
     });
 
     btnintro.forEach(function(btn){
