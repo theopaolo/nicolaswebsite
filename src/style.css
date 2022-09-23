@@ -132,6 +132,8 @@ button {
   height: 80vh;
   max-width: 1702px;
   pointer-events: none;
+  aspect-ratio: 3/2;
+  display: block;
  }
 
 .laniakea .slides {
@@ -545,10 +547,6 @@ h1:hover, li:hover, button:hover, a:hover {
   width: auto;
  }
 
- .mark .serie-grid .column {
-  width: 65vw;
- }
-
  .namecount {
   display: flex;
   flex-direction: column;
@@ -930,7 +928,7 @@ section figure {
     opacity: 0;
   }
 
-  .serie-grid .column {
+  .lightbox img, .serie-grid .column {
     width: 65vw;
   }
 
