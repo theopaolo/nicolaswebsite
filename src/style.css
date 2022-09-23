@@ -116,7 +116,7 @@ button {
 
 .nav-grid {
   display: grid;
-  grid-template-columns: 1fr 8fr 1fr;
+  grid-template-columns: 1fr 1.75fr 1fr;
   justify-content: center;
   align-items: center;
   justify-items: center;
@@ -535,7 +535,7 @@ h1:hover, li:hover, button:hover, a:hover {
  }
 
  .mark .serie-grid .column {
-  width: 100%;
+  width: 65vw;
  }
 
  .namecount {
@@ -591,6 +591,8 @@ h1:hover, li:hover, button:hover, a:hover {
 .block {display: block;}
 .d-nonde {display: none;}
 .w-full {width: 100%;}
+.w-auto {width: auto;}
+
 .h-full {height: 100%;}
 
 .mb-05 {margin-bottom: .5rem;}
@@ -918,8 +920,13 @@ section figure {
   }
 
   .serie-grid .column {
-    width: 75vw;
+    width: 65vw;
   }
+
+  .two-img .column {
+    width: auto !important;
+  }
+
 }
 
 @media screen and (max-width: 744px) {
