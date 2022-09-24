@@ -940,10 +940,7 @@ section figure {
     margin-right: 2rem;
   }
 
-   .column {
-    height: clamp(40vw, 50vw, 75vh);
-  }
-  .lightbox img {
+  .lightbox img, .column {
     height: clamp(40vw, 50vw, 75vh);
   }
 
@@ -1004,14 +1001,19 @@ section figure {
     height: unset;
   }
   .grid-col-2 {  grid-column: 1; }
+
   .soundbtn {
-    bottom: 10rem;
+    bottom: 25rem;
   }
   .column {
     width: auto;
   }
   .mark .serie-grid .column {
     width: auto;
+  }
+
+  .lightbox img, .column {
+    height: clamp(100vw, 45vw, 65vh);
   }
 }
 
