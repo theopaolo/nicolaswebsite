@@ -1003,7 +1003,7 @@ section figure {
   .grid-col-2 {  grid-column: 1; }
 
   .soundbtn {
-    bottom: 25rem;
+    bottom: 15rem;
   }
   .column {
     width: auto;
