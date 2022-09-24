@@ -1003,7 +1003,7 @@ section figure {
   .grid-col-2 {  grid-column: 1; }
 
   .soundbtn {
-    bottom: 15rem;
+    bottom: 12rem;
   }
   .column {
     width: auto;
@@ -1013,7 +1013,7 @@ section figure {
   }
 
   .lightbox img, .column {
-    height: clamp(100vw, 45vw, 65vh);
+    height: clamp(100vw, 45vw, 45vh);
   }
 }
 
