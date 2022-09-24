@@ -941,7 +941,7 @@ section figure {
   }
 
   .lightbox img, .column {
-    height: 40vh;
+    height: 75vh;
   }
 
 }
