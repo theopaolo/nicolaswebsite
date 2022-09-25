@@ -78,6 +78,8 @@ function nameCountHeight() {
     } else {
       document.querySelector(".namecount").style.height = "100%"
     }
+  } else {
+    document.querySelector(".namecount").style.height = "85.8vh"
   }
 }
 
