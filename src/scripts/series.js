@@ -74,12 +74,12 @@ next.addEventListener('click', ()=>{
 function nameCountHeight() {
   if(window.innerWidth < 768){
     if(slideIndex > 1) {
-      document.querySelector(".namecount").style.height = "85vh"
+      document.querySelector(".namecount").style.height = "80vh"
     } else {
       document.querySelector(".namecount").style.height = "100%"
     }
   } else {
-    document.querySelector(".namecount").style.height = "80vh"
+    document.querySelector(".namecount").style.height = "85.8vh"
   }
 }
 
