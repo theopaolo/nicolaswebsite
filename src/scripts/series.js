@@ -75,7 +75,8 @@ function nameCountHeight() {
   if(window.innerWidth < 768){
     if(slideIndex > 1) {
       document.querySelector(".namecount").style.height = "85vh"
-      console.log(slideIndex,  document.querySelector(".namecount"));
+    } else {
+      document.querySelector(".namecount").style.height = "100%"
     }
   }
 }
