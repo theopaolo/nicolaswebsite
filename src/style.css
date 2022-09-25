@@ -1008,9 +1008,11 @@ section figure {
   .column {
     width: auto;
   }
+
+/*
   .mark .serie-grid .column {
     width: auto;
-  }
+  } */
 
   .lightbox img, .column {
     height: clamp(100vw, 45vw, 45vh);
