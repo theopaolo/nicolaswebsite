@@ -1090,7 +1090,7 @@ html.is-animating .transition-slide {
   opacity: 0;
 } */
 
-.lazyload,
+/* .lazyload,
 .lazyloading {
 	opacity: 0;
 }
@@ -1098,4 +1098,4 @@ html.is-animating .transition-slide {
 .lazyloaded {
 	opacity: 1;
 	transition: opacity 300ms;
-}
+} */
