@@ -953,35 +953,31 @@ section figure {
     height: clamp(40vw, 50vw, 75vh);
   }
 
-  @media not all and (min-resolution:.001dpcm) {
-
-    .dyp-prev .column{
-      width: -webkit-max-content;
-      justify-self: end;
-    }
-
-    .dyp-prev .column img{
-      width: auto;
-    }
-
-    .two-img .column{
-      justify-self: end;
-      justify-self: baseline;
-    }
-
-    .two-img .column:first-child {
-      justify-self: end;
-    }
-
-    .two-img .column img{
-      width: auto;
-    }
-
-    .two-img + .slides .column img{
-      width: auto;
-    }
+  .dyp-prev .column{
+    width: -webkit-max-content;
+    justify-self: end;
   }
 
+  .dyp-prev .column img{
+    width: auto;
+  }
+
+  .two-img .column{
+    justify-self: end;
+    justify-self: baseline;
+  }
+
+  .two-img .column:first-child {
+    justify-self: end;
+  }
+
+  .two-img .column img{
+    width: auto;
+  }
+
+  .two-img + .slides .column img{
+    width: auto;
+  }
 
 }
 
@@ -1102,6 +1098,7 @@ html.is-animating .transition-slide {
 .lazyloading {
 	opacity: 0;
 }
+
 .lazyloaded {
 	opacity: 1;
 	transition: opacity 300ms;
