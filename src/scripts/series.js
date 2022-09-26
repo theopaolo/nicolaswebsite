@@ -7,7 +7,12 @@ let slides = document.querySelectorAll(".slides")
 let slideCount = slides.length
 let slideIndex = 1
 const gsap = window.gsap;
+import lozad from 'lozad'
 import 'lazysizes';
+
+const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+observer.observe();
+
 
 showSlides(slideIndex);
 

@@ -539,7 +539,7 @@ h1:hover, li:hover, button:hover, a:hover {
 .serie-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr); ;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
   margin-bottom: 1rem;
  }
 
@@ -648,7 +648,9 @@ h1:hover, li:hover, button:hover, a:hover {
 section figure {
   height: 100%;
 }
-
+section picture {
+  height: 100%;
+}
 .column {
   height: 80vh;
   width: 100%;
@@ -935,13 +937,7 @@ section figure {
   .two-img .column {
     width: auto !important;
   }
-
-  .two-img .column:first-of-type {
-    margin-right: 2rem;
-  }
-
   .dyp-prev .column{
-    margin-right: 2rem;
     width: auto;
   }
 
