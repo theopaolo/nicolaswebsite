@@ -49,7 +49,6 @@ function plusSlides(n) {
 
 allimgcount.innerHTML = slideCount
 firstall.innerHTML = slideCount
-
 function showSlides(n) {
   let i;
   if (n > slideCount) {slideIndex = 1}
@@ -79,14 +78,14 @@ next.addEventListener('click', ()=>{
 function nameCountHeight() {
   if(window.innerWidth < 768){
     if(slideIndex > 1) {
-      document.querySelector(".namecount").style.height = "85.8vh"
+      document.querySelector(".namecount").style.height = "80vh"
       document.body.classList.remove('firstSlide')
 
     } else {
       document.body.classList.add('firstSlide')
     }
   } else {
-    document.querySelector(".namecount").style.height = "85.8vh"
+    document.querySelector(".namecount").style.height = "80vh"
     document.body.classList.remove('firstSlide')
   }
 }
