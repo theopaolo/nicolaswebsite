@@ -186,8 +186,7 @@ h1:hover, li:hover, button:hover, a:hover {
   align-items: center;
   cursor: pointer;
   pointer-events: bounding-box;
-  position: absolute;
-  bottom: 1rem;
+  height: 14px;
 }
 
 .wave {
@@ -278,7 +277,7 @@ h1:hover, li:hover, button:hover, a:hover {
 .loading-bar
 {
   position:absolute;
-  top: 49%;
+  top: 49.7%;
   width: 100%;
   height: 4px;
   background: #ffffff;
@@ -290,11 +289,13 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 
 .loadpercent {
-  font-size: 9rem;
-  color: white;
+  color: var(--light-color);
   position: absolute;
-  right: 3rem;
-  bottom: 2rem;
+  bottom: 4rem;
+  right: 3.5rem;
+  text-transform: uppercase;
+  text-shadow: 0 0 2px #fff;
+  font-size: 12px;
 }
 
 .loading-bar.ended
@@ -332,7 +333,6 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .introduction button {
   color: var(--ligh-color);
-  border-bottom: 1px solid white;
 }
 
 /* ABOUT PAGE */
@@ -369,8 +369,13 @@ h1:hover, li:hover, button:hover, a:hover {
 }
 .parcour p, .parcour ul li, .parcour a {
   font-size: 16px;
-  line-height: 20px;
+  line-height: 1.35;
 }
+
+.parcour ul li, .parcour ul li a {
+  line-height: 16px;
+}
+
 .parcour li a{
   text-shadow: inherit;
 }
@@ -491,8 +496,8 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .close {
   padding: 9px;
-  width: 33px;
-  height: 33px;
+  width: 20px;
+  height: 20px;
   display: flex;
   justify-content: center;
 }
@@ -505,7 +510,7 @@ h1:hover, li:hover, button:hover, a:hover {
   display: block;
   position: absolute;
   content: ' ';
-  height: 33px;
+  height: 20px;
   width: 2px;
   background-color: var(--light-color);
 }
@@ -706,18 +711,21 @@ section picture {
 }
 
 .intro-text h2 {
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 4rem;
+  font-weight: 4  00;
+  font-size: 35px;
+  margin-bottom: 3rem;
   text-align: left;
   text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0,7px;
 }
 
 .intro-text p{
   max-width: 764px;
   margin-bottom: 2rem;
-  font-size: 18px;
-  line-height: 22px;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.1px;
   text-align: left;
 }
 
@@ -777,6 +785,13 @@ section picture {
   transition: all .3s ease-in-out;
 }
 
+.btn-close {
+  top: 0px;
+  right: -1rem;
+  left: unset;
+}
+
+
 .nav-active {
   transform: rotate(45deg);
 }
@@ -829,6 +844,14 @@ section picture {
   display: block !important;
 }
 
+.langs button {
+ margin-block-start: 2rem;
+}
+
+.langs p {
+  margin-block-end: 2rem;
+}
+
 @media screen and (min-width: 745px){
 
   .about-grid {
@@ -846,6 +869,8 @@ section picture {
   .about-grid .bio p{
     font-size: 3.25rem;
     line-height: 3.5rem;
+    margin-top: -8px;
+    letter-spacing: -0.1px;
   }
 
   .parcour p {
@@ -875,7 +900,7 @@ section picture {
   }
 
   .bio, .parcour {
-    padding: 3rem;
+    padding: 2rem;
   }
 
   .bio::-webkit-scrollbar,
@@ -901,8 +926,6 @@ section picture {
 
   .intro-text, .intro-text p{
     text-align: justify;
-    font-size: 16px;
-    line-height: 20px;
   }
 
   .slides {
@@ -914,6 +937,8 @@ section picture {
     height: 100%;
     box-sizing: border-box;
     padding-top: 0rem;
+    width: 90%;
+    justify-self: center;
   }
 
   .langs {
@@ -1000,13 +1025,24 @@ section picture {
     display: none;
   }
 
+  .langs {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+  }
+
   .langs div {
     opacity: 1 !important;
+    text-align: center;
+    align-self: center;
+    justify-self: center;
     padding: 1rem .5rem;
-    flex: 1;
-    align-items: flex-start;
-    text-align: left;
   }
+
+  .langs .fr {
+    width: 80%;
+  }
+
   .contact {
     margin-top: 2rem;
   }
@@ -1042,14 +1078,17 @@ section picture {
     width: auto;
   }
 
-/*
-  .mark .serie-grid .column {
-    width: auto;
-  } */
+  .bio, .parcour {
+    padding-left: 3.2rem;
+  }
+  .bio p {
+    font-size: 24px;
+  }
 
   .lightbox img, .column {
     height: clamp(100vw, 45vw, 45vh);
   }
+
 }
 
 .video-outer {
