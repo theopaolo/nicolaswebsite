@@ -42,12 +42,10 @@ window.addEventListener("keydown", function(event) {
 // Next/previous controls
 function plusSlides(n) {
   showSlides(slideIndex += n);
+  nameCountHeight()
 }
 
-// Thumbnail image controls
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
+
 allimgcount.innerHTML = slideCount
 
 function showSlides(n) {
@@ -79,13 +77,17 @@ next.addEventListener('click', ()=>{
 function nameCountHeight() {
   if(window.innerWidth < 768){
     if(slideIndex > 1) {
-      document.querySelector(".namecount").style.height = "80vh"
+      document.querySelector(".namecount").style.height = "85.8vh"
+      document.body.classList.remove('firstSlide')
+
     } else {
-      document.querySelector(".namecount").style.height = "100%"
+      document.body.classList.add('firstSlide')
     }
   } else {
     document.querySelector(".namecount").style.height = "85.8vh"
+    document.body.classList.remove('firstSlide')
   }
 }
 
 window.addEventListener('resize', nameCountHeight)
+window.addEventListener('load', nameCountHeight)

@@ -7,18 +7,24 @@ class MobileNav extends HTMLElement {
 		this.innerHTML =
 		`
 	<button class="nav-action">+</button>
-	<nav class="offscreen-nav">
-		<span class="f-1"><a href="./index.html">Nicolas Hermann</a></span>
-		<div class="flex f-3 dir-column">
-			<span class="mb-3">séries</span>
-			<a class="mb-1" href="lookout.html">Look out</a>
-			<a class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
-			<a class="mb-1" href="laniakea.html">Laniakea</a>
-			<a class="mb-1" href="mark.html">Mark</a>
-			<a class="mb-1" href="distortion.html">Distortion</a>
-		</div>
-		<a class="mb-8" href="./about.html">à propos</a>
-	</nav>
+
+
+      <nav class="offscreen-nav">
+        <div class="navwrap">
+          <span class="f-1"><a href="./index.html">Nicolas Hermann</a></span>
+          <div class="flex f-3 dir-column">
+            <span class="mb-3">séries</span>
+            <a class="mb-1" href="lookout.html">Look out</a>
+            <a class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
+            <a class="mb-1" href="laniakea.html">Laniakea</a>
+            <a class="mb-1" href="mark.html">Mark</a>
+            <a class="mb-1" href="distortion.html">Distortion</a>
+          </div>
+          <a href="./about.html">à propos</a>
+        </div>
+      </nav>
+
+
 		`;
 	}
 	connectedCallback () {
