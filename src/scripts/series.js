@@ -1,6 +1,7 @@
 let next = document.querySelector(".next")
 let prev = document.querySelector(".prev")
 let allimgcount = document.querySelector(".allcount")
+let firstall = document.querySelector(".firstall")
 let currentimgcount = document.querySelector(".currentcount")
 let namecount = document.querySelector(".namecount")
 let slides = document.querySelectorAll(".slides")
@@ -47,6 +48,7 @@ function plusSlides(n) {
 
 
 allimgcount.innerHTML = slideCount
+firstall.innerHTML = slideCount
 
 function showSlides(n) {
   let i;
