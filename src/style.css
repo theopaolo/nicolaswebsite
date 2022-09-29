@@ -712,13 +712,12 @@ section picture {
 }
 
 .intro-text h2 {
-  font-weight: 4  00;
+  font-weight: 400;
   font-size: 35px;
   margin-bottom: 3rem;
-  text-align: left;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 0,7px;
+  letter-spacing: 0.7px;
 }
 
 .intro-text p{
@@ -978,7 +977,7 @@ section picture {
   }
 
   .lightbox img, .column {
-    height: clamp(40vw, 50vw, 75vh);
+    height: clamp(40vw, 50vw, 68vh);
   }
 
   .dyp-prev .column{
@@ -1104,7 +1103,7 @@ section picture {
   }
 
   .lightbox img, .column {
-    height: clamp(100vw, 45vw, 45vh);
+    height: clamp(100vw, 45vw, 36vh);
   }
 
   .slides{
