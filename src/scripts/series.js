@@ -78,14 +78,14 @@ next.addEventListener('click', ()=>{
 function nameCountHeight() {
   if(window.innerWidth < 768){
     if(slideIndex > 1) {
-      document.querySelector(".namecount").style.height = "80vh"
+      document.querySelector(".namecount").style.height = "75vh"
       document.body.classList.remove('firstSlide')
 
     } else {
       document.body.classList.add('firstSlide')
     }
   } else {
-    document.querySelector(".namecount").style.height = "80vh"
+    document.querySelector(".namecount").style.height = "75vh"
     document.body.classList.remove('firstSlide')
   }
 }
