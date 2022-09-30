@@ -718,7 +718,7 @@ section picture {
   margin-bottom: 3rem;
   text-transform: uppercase;
   text-align: center;
-  letter-spacing: 0.7px;
+  letter-spacing: -0.7px;
 }
 
 .intro-text p{
@@ -877,7 +877,7 @@ section picture {
     font-size: 3.25rem;
     line-height: 3.5rem;
     margin-top: -8px;
-    letter-spacing: -0.1px;
+    letter-spacing: -0.15px;
   }
 
   .parcour p {
@@ -894,7 +894,7 @@ section picture {
 
   .about-grid .parcour p{
     font-size: 16px;
-    line-height: 24px;
+    letter-spacing: -0.15px;
     margin-bottom: 18px;
   }
 
