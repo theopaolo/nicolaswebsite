@@ -1037,7 +1037,7 @@ section picture {
   }
 
   .langs {
-    margin-top: 5%;
+    margin-top: 8%;
     height: 80%;
     display: grid;
     grid-template-rows: 1fr 1fr;
