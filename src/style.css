@@ -1071,6 +1071,7 @@ section picture {
   .namecount {
     height: 100%;
     padding: 3rem 0;
+    padding-top: 0;
     place-content: space-between;
     text-shadow: unset;
     position: absolute;
