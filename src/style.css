@@ -51,7 +51,7 @@ a {
   mix-blend-mode: difference;
   text-shadow: 0 0 2px #a1a1a1;
   cursor: pointer;
-  pointer-events: bounding-box;
+  pointer-events: visible;
 }
 
 .exp .namecount { height: 75vh;}
@@ -125,7 +125,7 @@ button {
  }
 
  .nav-grid ul {
-  pointer-events: bounding-box;
+  pointer-events: visible;
  }
 
  .nav-center {
@@ -186,7 +186,7 @@ h1:hover, li:hover, button:hover, a:hover {
   display: flex;
   align-items: center;
   cursor: pointer;
-  pointer-events: bounding-box;
+  pointer-events: visible;
   height: 14px;
 }
 
@@ -572,7 +572,7 @@ h1:hover, li:hover, button:hover, a:hover {
  }
 
 .namecount h1 {
-  pointer-events: bounding-box;
+  pointer-events: visible;
 }
 
 /* CLASS STYLES */
