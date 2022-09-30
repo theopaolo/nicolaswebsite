@@ -3,17 +3,10 @@ let prev = document.querySelector(".prev")
 let allimgcount = document.querySelector(".allcount")
 let firstall = document.querySelector(".firstall")
 let currentimgcount = document.querySelector(".currentcount")
-let namecount = document.querySelector(".namecount")
 let slides = document.querySelectorAll(".slides")
+
 let slideCount = slides.length
 let slideIndex = 1
-const gsap = window.gsap;
-import lozad from 'lozad'
-import 'lazysizes';
-
-const observer = lozad(); // lazy loads elements with default selector as '.lozad'
-observer.observe();
-
 
 showSlides(slideIndex);
 
@@ -46,13 +39,14 @@ function plusSlides(n) {
   nameCountHeight()
 }
 
-
 allimgcount.innerHTML = slideCount
 firstall.innerHTML = slideCount
+
 function showSlides(n) {
   let i;
   if (n > slideCount) {slideIndex = 1}
   if (n < 1) {slideIndex = slideCount}
+
   for (i = 0; i < slideCount; i++) {
     slides[i].style.display = "none";
   }

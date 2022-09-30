@@ -646,7 +646,7 @@ h1:hover, li:hover, button:hover, a:hover {
   overflow: hidden !important;
 }
 
-.d-none {
+.d-none, .not-visible {
   display: none;
 }
 
@@ -657,6 +657,7 @@ section figure {
 section picture {
   height: 100%;
 }
+
 .column {
   height: 75vh;
   width: 100%;
@@ -707,7 +708,7 @@ section picture {
 
 .intro-text div:first-of-type {
   z-index: 9;
-  padding-top: 9rem;
+  padding-top: 11rem;
   box-sizing: border-box;
 }
 
