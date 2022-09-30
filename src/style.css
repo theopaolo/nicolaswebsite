@@ -1024,6 +1024,7 @@ section picture {
 
   .introduction {
     flex-direction: column-reverse;
+    justify-content: flex-end;
     z-index: 99999;
   }
 
@@ -1036,7 +1037,8 @@ section picture {
   }
 
   .langs {
-    height: 71%;
+    margin-top: 5%;
+    height: 80%;
     display: grid;
     grid-template-rows: 1fr 1fr;
   }
