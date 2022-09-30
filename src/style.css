@@ -54,8 +54,6 @@ a {
   pointer-events: visible;
 }
 
-.exp .namecount { height: 75vh;}
-
 li {list-style: none;}
 
 button {
@@ -1081,7 +1079,7 @@ section picture {
   }
 
   .exp .namecount {
-    height: 75vh;
+    height: 78vh;
   }
 
   .gallery {
