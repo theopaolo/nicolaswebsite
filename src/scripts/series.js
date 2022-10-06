@@ -10,7 +10,7 @@ let slideIndex = 1
 
 showSlides(slideIndex);
 
-nameCountHeight()
+window.addEventListener("load", nameCountHeight)
 
 function nameCountHeight() {
   if(window.innerWidth < 768){
