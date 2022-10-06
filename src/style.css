@@ -1010,12 +1010,6 @@ section picture {
     display: none;
   }
 
-@media screen and (max-width: 768px) {
-  .namecount {
-    height: 75vh;
-  }
-}
-
 @media screen and (max-width: 744px) {
   .mob-hide {
     display: none;
@@ -1149,6 +1143,10 @@ section picture {
   .intro-text h2 {
     font-size: 24px;
   }
+}
+
+@media screen and (max-width: 768px) {
+  .namecount { height: 75vh; }
 }
 
 .video-outer {
