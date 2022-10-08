@@ -1,26 +1,29 @@
-let next = document.querySelector(".next")
-let prev = document.querySelector(".prev")
+let nextBtn = document.querySelector('.next')
+let prevBtn = document.querySelector('.prev')
+let slides = document.querySelectorAll(".slides")
+
+let slidesCount = slides.length
+let slidesIndex = 1
+
+// Counter
 let allimgcount = document.querySelector(".allcount")
 let firstall = document.querySelector(".firstall")
 let currentimgcount = document.querySelector(".currentcount")
-let slides = document.querySelectorAll(".slides")
 
-let slideCount = slides.length
-let slideIndex = 1
-
-showSlides(slideIndex);
+showSlides(slidesIndex);
 
 window.addEventListener("load", nameCountHeight)
 
 function nameCountHeight() {
   if(window.innerWidth < 768){
     document.body.classList.add('firstSlide')
-    if(slideIndex > 1) {
+    if(slidesIndex > 1) {
       document.body.classList.remove('firstSlide')
     }
   } else {
     document.body.classList.remove('firstSlide')
   }
+  console.log('NameCountHeight')
 }
 
 window.addEventListener('resize', nameCountHeight)
@@ -50,37 +53,37 @@ window.addEventListener("keydown", function(event) {
 
 // Next/previous controls
 function plusSlides(n) {
-  showSlides(slideIndex += n);
+  showSlides(slidesIndex += n);
   nameCountHeight()
 }
 
-allimgcount.innerHTML = slideCount
-firstall.innerHTML = slideCount
+allimgcount.innerHTML = slidesCount
+firstall.innerHTML = slidesCount
 
 function showSlides(n) {
   let i;
-  if (n > slideCount) {slideIndex = 1}
-  if (n < 1) {slideIndex = slideCount}
+  if (n > slidesCount) {slidesIndex = 1}
+  if (n < 1) {slidesIndex = slidesCount}
 
-  for (i = 0; i < slideCount; i++) {
+  for (i = 0; i < slidesCount; i++) {
     slides[i].style.display = "none";
   }
 
-  if(slides[slideIndex-1].classList.contains('center')) {
-    slides[slideIndex-1].style.display = "flex";
+  if(slides[slidesIndex-1].classList.contains('center')) {
+    slides[slidesIndex-1].style.display = "flex";
   } else {
-    slides[slideIndex-1].style.display = "grid";
+    slides[slidesIndex-1].style.display = "grid";
   }
-  currentimgcount.innerHTML = slideIndex
+  currentimgcount.innerHTML = slidesIndex
 }
 
-prev.addEventListener('click', ()=>{
-  showSlides(slideIndex += -1)
+prevBtn.addEventListener('click', ()=>{
+  showSlides(slidesIndex += -1)
   nameCountHeight()
 })
 
-next.addEventListener('click', ()=>{
-  showSlides(slideIndex += 1)
+nextBtn.addEventListener('click', ()=>{
+  showSlides(slidesIndex += 1)
   nameCountHeight()
 })
 

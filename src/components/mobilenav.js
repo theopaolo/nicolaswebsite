@@ -1,14 +1,11 @@
 // Extend the HTMLElement class to create the web component
 class MobileNav extends HTMLElement {
 	constructor () {
-
 		// Always call super first in constructor
 		super();
 		this.innerHTML =
 		`
 	<button class="nav-action">+</button>
-
-
       <nav class="offscreen-nav">
         <div class="navwrap">
           <span class="f-1"><a href="./index.html">Nicolas Hermann</a></span>
@@ -23,8 +20,6 @@ class MobileNav extends HTMLElement {
           <a href="./about.html">à propos</a>
         </div>
       </nav>
-
-
 		`;
 	}
 	connectedCallback () {
@@ -43,7 +38,6 @@ class MobileNav extends HTMLElement {
         gsap.to(offnav, {x: 0, duration: 1})
       }
     }
-
   }
 }
 
