@@ -15,6 +15,10 @@ showSlides(slidesIndex);
 window.addEventListener("load", nameCountHeight)
 
 function nameCountHeight() {
+  let overlay = document.querySelector('.overlay')
+  overlay.style.opacity = 0
+  setTimeout(() => {overlay.style.display = "none"}, 1000)
+
   if(window.innerWidth < 768){
     document.body.classList.add('firstSlide')
     if(slidesIndex > 1) {
@@ -23,7 +27,6 @@ function nameCountHeight() {
   } else {
     document.body.classList.remove('firstSlide')
   }
-  console.log('NameCountHeight')
 }
 
 window.addEventListener('resize', nameCountHeight)
