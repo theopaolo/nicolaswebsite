@@ -669,7 +669,7 @@ section picture {
 
 .intro-text h2 {
   font-weight: 400;
-  font-size: 35px;
+  font-size: 30px;
   margin-bottom: 3rem;
   text-transform: uppercase;
   text-align: center;
@@ -713,6 +713,10 @@ section picture {
   position: fixed;
   z-index: 999;
   bottom: 1rem;
+
+  top: 50%;
+  transform: translateY(-50%);
+
   -webkit-tap-highlight-color: transparent;
 }
 
