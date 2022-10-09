@@ -517,15 +517,6 @@ for(let i = 0; i < expbtn.length; i++){
 
 function resetcamera(){
   trackballcontrols.reset()
-  // gsap.to(camera.position, {
-  //   x:  Math.floor(Math.random() * (74 - 35 + 1)) + 35,
-  //   y: 0,
-  //   z: Math.floor(Math.random() * (75 - 35 + 1)) + 35,
-  //   duration: 1,
-  //   onUpdate: function(){
-  //     trackballcontrols.reset()
-  //  }
-  // })
 }
 
 
