@@ -1047,8 +1047,9 @@ section picture {
   .bio p {
     font-size: 24px;
   }
+
   .lightbox img, .column {
-    height: clamp(100vw, 45vw, 36vh);
+    height: clamp(100vw, 45vw, 28vh);
   }
 
   .namecount {
