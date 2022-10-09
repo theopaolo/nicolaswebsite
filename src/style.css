@@ -514,7 +514,7 @@ h1:hover, li:hover, button:hover, a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  height: 75vh;
+  height: 80vh;
   position: absolute;
   width: 100%;
   align-items: center;
