@@ -23,6 +23,7 @@ body
 }
 
 li a, button {
+  text-shadow: 0 0 2px #a1a1a1;
   mix-blend-mode: difference;
 }
 
@@ -58,6 +59,7 @@ button {
   border: unset;
   color: var(--main-color);
   text-transform: uppercase;
+  text-shadow: 0 0 2px white;
 }
 
 /* Dropdown */
@@ -165,6 +167,7 @@ button {
 h1:hover, li:hover, button:hover, a:hover {
   cursor: pointer;
   color: var(--light-color);
+  text-shadow: 0 0 2px white;
 }
 
 .webgl
@@ -348,6 +351,10 @@ h1:hover, li:hover, button:hover, a:hover {
   flex-direction: column;
 }
 
+.parcour ul li a:hover{
+  text-shadow: 0 0 2px #fff;
+}
+
 .bio, .parcour {
   padding: 2rem;
 }
@@ -366,10 +373,41 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .parcour ul li, .parcour ul li a {
   line-height: 16px;
+  text-shadow: inherit;
 }
 
 .parcour {
   background-color: var(--light-color);
+}
+
+.lighter-shadow {
+  text-shadow: unset;
+}
+
+.light-shadow {
+  text-shadow: 0px 0px 2px var(--light-color);
+  text-shadow: unset;
+
+}
+
+.light-shadow-4 {
+  text-shadow: 0 0 4px var(--light-color);
+  text-shadow: unset;
+}
+
+.dark-shadow-2 {
+  text-shadow: 0px 0px 2px var(--dark-color);
+  text-shadow: unset;
+}
+
+.blight-shadow {
+  text-shadow: 0px 0px 10px var(--light-color);
+  text-shadow: unset;
+}
+
+.dark-shadow {
+  text-shadow: 0px 0px 10px #666666;
+  text-shadow: unset;
 }
 
 .darkbg{
@@ -514,7 +552,7 @@ h1:hover, li:hover, button:hover, a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  height: 80vh;
+  height: 75vh;
   position: absolute;
   width: 100%;
   align-items: center;
@@ -523,7 +561,7 @@ h1:hover, li:hover, button:hover, a:hover {
   text-transform: uppercase;
   mix-blend-mode: difference;
   pointer-events: none;
-  padding: 1rem 0;
+  padding: 2rem 0;
  }
 
 .namecount h1 {
@@ -708,7 +746,7 @@ section picture {
 .next-prev {
   display: flex;
   flex-direction: row;
-  height: 75vh;
+  height: 65vh;
   width: 100%;
   position: fixed;
   z-index: 999;
@@ -785,6 +823,7 @@ section picture {
 }
 
 .offscreen-nav > * {
+  text-shadow: 0 0 2px #a1a1a1;
   mix-blend-mode: difference;
 }
 
@@ -970,7 +1009,32 @@ section picture {
     display: none;
   }
 
-@media screen and (max-width: 744px) {
+  .longtext .namecount {
+    display: none
+  }
+
+  .longtext .slides{
+    align-content: normal;
+  }
+
+  .longtext .slides h1{
+    text-align: center;
+    text-transform: uppercase;
+    align-self: end;
+    margin-bottom: 1rem;
+  }
+
+  .longtext .intro-text div:first-of-type {
+    height: auto;
+  }
+
+  .longtext .desk-hide {
+    display: block;
+    text-align: center;
+    align-self: baseline;
+    margin-top: 1rem;
+  }
+
   .overlay{
     height: 100vh;
     width: 100vw;
@@ -987,6 +1051,8 @@ section picture {
   .overlay-black {
     background: black;
   }
+
+@media screen and (max-width: 744px) {
 
   .mob-hide {
     display: none;
@@ -1015,6 +1081,14 @@ section picture {
     display: grid;
     grid-template-rows: 1fr 1fr;
   }
+
+  .light-shadow-4 {
+    text-shadow: unset;
+  }
+  .lighter-shadow {
+    text-shadow: unset;
+  }
+
   .langs div {
     opacity: 1 !important;
     text-align: center;

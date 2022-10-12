@@ -13,6 +13,19 @@ let currentimgcount = document.querySelector(".currentcount")
 showSlides(slidesIndex);
 
 window.addEventListener("load", nameCountHeight)
+window.addEventListener("load", longtext)
+window.addEventListener('resize', nameCountHeight)
+window.addEventListener('resize', longtext)
+
+function longtext(){
+  if(window.innerWidth > 768){
+    if (document.querySelector('.laniakea')) {
+      document.querySelector('.laniakea').classList.add('longtext')
+    }
+  }  else {
+    document.querySelector('.laniakea').classList.remove('longtext')
+  }
+}
 
 function nameCountHeight() {
   let overlay = document.querySelector('.overlay')
@@ -28,8 +41,6 @@ function nameCountHeight() {
     document.body.classList.remove('firstSlide')
   }
 }
-
-window.addEventListener('resize', nameCountHeight)
 
 // Next/previous keys controls
 window.addEventListener("keydown", function(event) {
