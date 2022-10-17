@@ -40,6 +40,12 @@ function nameCountHeight() {
   } else {
     document.body.classList.remove('firstSlide')
   }
+
+  if(slidesIndex > 1) {
+    document.querySelector('.laniakea').classList.remove('longtext')
+  } else {
+    longtext()
+  }
 }
 
 // Next/previous keys controls

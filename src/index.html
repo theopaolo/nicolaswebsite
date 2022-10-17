@@ -1,4 +1,4 @@
-<!DOCTYPE html>s
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -32,7 +32,7 @@
     <nav class="mob-hide nav-grid desk-nav">
       <ul>
         <li class="dropdown">
-          <a href="#" >séries</a>
+          <a href="#" data-trans="series">séries</a>
           <div class="dropdown-content dark-drop">
             <a href="lookout.html">Look out</a>
             <a href="salviadivinorum.html">Salvia Divinorum</a>
@@ -44,7 +44,7 @@
       </ul>
       <span class="nav-center"></span>
       <ul>
-        <li><a href="./about.html">à propos</a> </li>
+        <li><a href="./about.html" data-trans="about">à propos</a> </li>
       </ul>
     </nav>
 
@@ -57,7 +57,7 @@
     </audio>
   </div>
 
-<section class="videos">
+<!-- <section class="videos">
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/spectreeau.mp4" type='video/mp4' >
   </video>
@@ -88,7 +88,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/saturne.mp4" type='video/mp4' >
   </video>
-</section>
+</section> -->
 
   <canvas class="webgl"></canvas>
 
@@ -110,7 +110,7 @@
             <li>- RESET YOUR IMMERSION BY CLICKING ON "NICOLAS HERMANN"</li>
             <li>- FIND OUT MORE ABOUT HIS WORK BY CLICKING ON "SERIES"</li>
           </ul>
-          <button class="btnintro">→ enter</button>
+          <button class="btnintro" data-lang="en">→ enter</button>
         </div>
       </div>
       <div class="fr f-1 flex align-center h-full bg-dark justify-center">
@@ -123,7 +123,7 @@
             <li>- RÉINITIALISEZ VOTRE IMMERSION EN CLIQUANT SUR "NICOLAS HERMANN"</li>
             <li>- DÉCOUVREZ SON TRAVAIL PLUS EN PRÉCISION EN CLIQUANT SUR "SÉRIES"</li>
           </ul>
-          <button class="btnintro">→ entrer</button>
+          <button class="btnintro" data-lang="fr">→ entrer</button>
         </div>
       </div>
     </section>
@@ -167,6 +167,8 @@
     let btnintro = document.querySelectorAll('.btnintro');
     let langfr =  document.querySelector('.fr')
     let langen =  document.querySelector('.en')
+    let brnfr =  document.querySelector('.btnfr')
+    let btnen =  document.querySelector('.btnen')
 
     langfr.addEventListener('mouseleave', function(event){
       gsap.set(".fr", { opacity: 0 })
@@ -178,16 +180,21 @@
       gsap.set(".en", { opacity: 0 })
     });
 
-    btnintro.forEach(function(btn){
+    btnintro.forEach(function(btn, index){
       btn.addEventListener("click", introClick)
     })
 
+    for(let button of btnintro) {
+      button.addEventListener("click", function(){
+        sessionStorage.setItem("lang", this.dataset.lang)
+      })
+    }
+
     function hideIntro(){gsap.to(".introduction", {opacity: 0, display:"none", duration: 1})}
 
-    function introClick( ) {
+    function introClick() {
       sessionStorage.setItem("entersite", true)
       introp.classList.add("d-none");
-      console.log("intro Click");
     }
 
     window.addEventListener("DOMContentLoaded", function(){
@@ -197,6 +204,6 @@
       }
     })
   </script>
-
+  <script src="scripts/langNav.js"></script>
 </body>
 </html>
