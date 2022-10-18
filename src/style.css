@@ -1129,7 +1129,7 @@ section picture {
   }
 
   .lightbox img, .column {
-    height: clamp(100vw, 45vw, 28vh);
+    height: clamp(100vw, 45vw, 34vh);
   }
 
   .namecount {

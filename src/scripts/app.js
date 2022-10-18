@@ -5,6 +5,12 @@ const gsap = window.gsap;
 import Swup from 'swup';
 const swup = new Swup();
 
+function translate() {
+  console.log('translate');
+}
+swup.on('contentReplaced', translate);
+
+
 const raycaster = new THREE.Raycaster();
 
 function initScripts() {

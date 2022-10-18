@@ -32,7 +32,7 @@
     <nav class="mob-hide nav-grid desk-nav">
       <ul>
         <li class="dropdown">
-          <a href="#" data-trans="series">séries</a>
+          <a href="#" class="seriestrans">séries</a>
           <div class="dropdown-content dark-drop">
             <a href="lookout.html">Look out</a>
             <a href="salviadivinorum.html">Salvia Divinorum</a>
@@ -44,7 +44,7 @@
       </ul>
       <span class="nav-center"></span>
       <ul>
-        <li><a href="./about.html" data-trans="about">à propos</a> </li>
+        <li><a href="./about.html" class="abouttrans">à propos</a> </li>
       </ul>
     </nav>
 
@@ -188,6 +188,11 @@
       button.addEventListener("click", function(){
         sessionStorage.setItem("lang", this.dataset.lang)
       })
+    }
+
+    if(sessionStorage.getItem("lang") === "en"){
+      document.querySelector('.abouttrans').innerHTML = "about"
+      document.querySelector('.seriestrans').innerHTML = "series"
     }
 
     function hideIntro(){gsap.to(".introduction", {opacity: 0, display:"none", duration: 1})}
