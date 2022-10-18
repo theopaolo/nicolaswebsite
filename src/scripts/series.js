@@ -7,7 +7,7 @@ let slidesIndex = 1
 
 // Counter
 let allimgcount = document.querySelector(".allcount")
-let firstall = document.querySelector(".firstall")
+// let firstall = document.querySelector(".firstall")
 let currentimgcount = document.querySelector(".currentcount")
 
 showSlides(slidesIndex);
@@ -15,27 +15,27 @@ showSlides(slidesIndex);
 window.addEventListener("load", nameCountHeight)
 window.addEventListener('resize', nameCountHeight)
 
-window.addEventListener("load", longtext)
-window.addEventListener('resize', longtext)
+// window.addEventListener("load", longtext)
+// window.addEventListener('resize', longtext)
 
-function longtext(){
-  let laniakea = document.querySelector('.laniakea')
+// function longtext(){
+//   let laniakea = document.querySelector('.laniakea')
 
-  let desktopSize = window.innerWidth > 745
-  let mobileSize = window.innerWidth < 700
+//   let desktopSize = window.innerWidth > 745
+//   let mobileSize = window.innerWidth < 700
 
-  if(desktopSize){
-    if (laniakea) {
-      laniakea.classList.add('longtext')
-    }
-  }
+//   if(desktopSize){
+//     if (laniakea) {
+//       laniakea.classList.add('longtext')
+//     }
+//   }
 
-  if(mobileSize){
-    if (laniakea) {
-      laniakea.classList.remove('longtext')
-    }
-  }
-}
+//   if(mobileSize){
+//     if (laniakea) {
+//       laniakea.classList.remove('longtext')
+//     }
+//   }
+// }
 
 // function longtext(){
 //   if(window.innerWidth > 745){
@@ -89,11 +89,11 @@ window.addEventListener("keydown", function(event) {
 function plusSlides(n) {
   showSlides(slidesIndex += n);
   nameCountHeight()
-  longtext()
+  // longtext()
 }
 
 allimgcount.innerHTML = slidesCount
-firstall.innerHTML = slidesCount
+// firstall.innerHTML = slidesCount
 
 function showSlides(n) {
   let i;
@@ -121,4 +121,5 @@ nextBtn.addEventListener('click', ()=>{
   showSlides(slidesIndex += 1)
   nameCountHeight()
 })
+
 

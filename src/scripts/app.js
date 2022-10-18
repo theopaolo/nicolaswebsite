@@ -141,7 +141,7 @@ let imghorizon = [
   new URL('../static/webhorizontales/16.jpg?as=webp&width=750',import.meta.url),
   new URL('../static/webhorizontales/17.jpg?as=webp&width=750',import.meta.url),
   new URL('../static/webhorizontales/19.jpg?as=webp&width=750',import.meta.url),
-  new URL('../static/webhorizontales/20.jpg?as=webp&width=750',import.meta.url),
+  new URL('../static/webhorizontales/20.jpeg?as=webp&width=750',import.meta.url),
   new URL('../static/webhorizontales/21.jpg?as=webp&width=750',import.meta.url),
   new URL('../static/webhorizontales/22.jpg?as=webp&width=750',import.meta.url),
   new URL('../static/webhorizontales/24.jpg?as=webp&width=750',import.meta.url),
