@@ -552,7 +552,7 @@ h1:hover, li:hover, button:hover, a:hover {
   flex-direction: column;
   justify-content: space-between;
   align-content: center;
-  height: 75vh;
+  height: 88vh;
   position: absolute;
   width: 100%;
   align-items: center;
@@ -1016,6 +1016,11 @@ section picture {
 
   .longtext .slides{
     align-content: normal;
+  }
+
+  .longtext a, .longtext .counter {
+    color: gray;
+    text-shadow: 0 0 2px #a1a1a1;
   }
 
   .longtext .slides h1{

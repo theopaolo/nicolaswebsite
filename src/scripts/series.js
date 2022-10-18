@@ -13,38 +13,52 @@ let currentimgcount = document.querySelector(".currentcount")
 showSlides(slidesIndex);
 
 window.addEventListener("load", nameCountHeight)
-window.addEventListener("load", longtext)
 window.addEventListener('resize', nameCountHeight)
+
+window.addEventListener("load", longtext)
 window.addEventListener('resize', longtext)
 
 function longtext(){
-  if(window.innerWidth > 768){
-    if (document.querySelector('.laniakea')) {
-      document.querySelector('.laniakea').classList.add('longtext')
+  let laniakea = document.querySelector('.laniakea')
+
+  let desktopSize = window.innerWidth > 745
+  let mobileSize = window.innerWidth < 700
+
+  if(desktopSize){
+    if (laniakea) {
+      laniakea.classList.add('longtext')
     }
-  }  else {
-    document.querySelector('.laniakea').classList.remove('longtext')
+  }
+
+  if(mobileSize){
+    if (laniakea) {
+      laniakea.classList.remove('longtext')
+    }
   }
 }
+
+// function longtext(){
+//   if(window.innerWidth > 745){
+//     if (document.querySelector('.laniakea')) {
+//       document.querySelector('.laniakea').classList.add('longtext')
+//     }
+//   }  else {
+//     document.querySelector('.laniakea').classList.remove('longtext')
+//   }
+// }
 
 function nameCountHeight() {
   let overlay = document.querySelector('.overlay')
   overlay.style.opacity = 0
   setTimeout(() => {overlay.style.display = "none"}, 1000)
 
-  if(window.innerWidth < 768){
+  if(window.innerWidth < 745){
     document.body.classList.add('firstSlide')
     if(slidesIndex > 1) {
       document.body.classList.remove('firstSlide')
     }
   } else {
     document.body.classList.remove('firstSlide')
-  }
-
-  if(slidesIndex > 1) {
-    document.querySelector('.laniakea').classList.remove('longtext')
-  } else {
-    longtext()
   }
 }
 
@@ -75,6 +89,7 @@ window.addEventListener("keydown", function(event) {
 function plusSlides(n) {
   showSlides(slidesIndex += n);
   nameCountHeight()
+  longtext()
 }
 
 allimgcount.innerHTML = slidesCount
