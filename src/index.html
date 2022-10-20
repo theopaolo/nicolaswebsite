@@ -187,26 +187,41 @@
     for(let button of btnintro) {
       button.addEventListener("click", function(){
         sessionStorage.setItem("lang", this.dataset.lang)
+        if(sessionStorage.getItem("lang") === "en"){
+          document.querySelector('.abouttrans').innerHTML = "about"
+          document.querySelector('.seriestrans').innerHTML = "series"
+        } else {
+          document.querySelector('.abouttrans').innerHTML = "à propos"
+          document.querySelector('.seriestrans').innerHTML = "séries"
+        }
       })
     }
 
-    if(sessionStorage.getItem("lang") === "en"){
-      document.querySelector('.abouttrans').innerHTML = "about"
-      document.querySelector('.seriestrans').innerHTML = "series"
+    function translateNav(){
+      if(sessionStorage.getItem("lang") === "en"){
+        document.querySelector('.abouttrans').innerHTML = "about"
+        document.querySelector('.seriestrans').innerHTML = "series"
+      } else {
+        document.querySelector('.abouttrans').innerHTML = "à propos"
+        document.querySelector('.seriestrans').innerHTML = "séries"
+      }
     }
 
-    function hideIntro(){gsap.to(".introduction", {opacity: 0, display:"none", duration: 1})}
+    function hideIntro(){
+      gsap.to(".introduction", {opacity: 0, display:"none", duration: 1})
+    }
 
     function introClick() {
       sessionStorage.setItem("entersite", true)
       introp.classList.add("d-none");
+      translateNav()
     }
 
     window.addEventListener("DOMContentLoaded", function(){
-      console.log("Dom Loaded");
       if(sessionStorage.getItem("entersite") == "true"){
         introp.classList.add("d-none");
       }
+      translateNav()
     })
   </script>
 </body>

@@ -1,14 +1,12 @@
 import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
+import transAbout from './translateAbout.js'
 const gsap = window.gsap;
 
 import Swup from 'swup';
 const swup = new Swup();
 
-function translate() {
-  console.log('translate');
-}
-swup.on('contentReplaced', translate);
+swup.on('contentReplaced', transAbout);
 
 
 const raycaster = new THREE.Raycaster();
