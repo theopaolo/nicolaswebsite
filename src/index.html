@@ -199,6 +199,15 @@
 
     function navTranlater(){
       console.log("navTranlater");
+      if(sessionStorage.getItem("lang") === "en"){
+        document.querySelector('.abouttrans').innerHTML = "about"
+        document.querySelector('.seriestrans').innerHTML = "series"
+        console.log('to', sessionStorage.getItem("lang"));
+      } else {
+        document.querySelector('.abouttrans').innerHTML = "à propos"
+        document.querySelector('.seriestrans').innerHTML = "séries"
+        console.log('to else');
+      }
     }
 
     function hideIntro(){
