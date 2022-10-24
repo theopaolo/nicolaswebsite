@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
-import transAbout from './translateAbout.js'
+import transAbout from './translateabout.js'
 const gsap = window.gsap;
 
 import Swup from 'swup';
