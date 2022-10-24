@@ -217,7 +217,7 @@
     function introClick() {
       sessionStorage.setItem("entersite", true)
       introp.classList.add("d-none");
-      setTimeout(translateNav, 500);
+      setTimeout(translateNav(), 500);
     }
 
     window.addEventListener("DOMContentLoaded", function(){
