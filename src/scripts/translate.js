@@ -56,7 +56,7 @@ const distor = `
 
 <p>Buzzing from the energy I felt through the discovery of this city, I confronted the excitement, the fear, the vibration of novelty faced with my own mutation. The apocalyptic atmosphere of the festival promised the end of a world and the beginning of mine. I mingled with an eager, entranced crowd; they let go, and so did I. Just when I could feel my life was about to change again, I threw myself into this abyss.</p>
 
-<p">The 13 stills that make up this piece are just like the laser shows whose animation bring to light the minute movements that lead us all inexorably towards the end of the party. Everyone making their own journey, as did I.</p>
+<p>The 13 stills that make up this piece are just like the laser shows whose animation bring to light the minute movements that lead us all inexorably towards the end of the party. Everyone making their own journey, as did I.</p>
 `
 
 function translateText() {
