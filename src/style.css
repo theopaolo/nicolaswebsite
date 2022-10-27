@@ -567,6 +567,7 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .namecount h1 {
   pointer-events: visible;
+  font-weight: 400;
 }
 
 /* CLASS STYLES */
@@ -1118,12 +1119,15 @@ section picture {
   .soundbtn {
     bottom: 13.5rem;
   }
+
   .column {
     width: auto;
   }
+
   .bio, .parcour {
     padding-left: 3.2rem;
   }
+
   .bio p {
     font-size: 24px;
   }
