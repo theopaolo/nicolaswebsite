@@ -1,29 +1,36 @@
 // Extend the HTMLElement class to create the web component
 class MobileNav extends HTMLElement {
-	constructor () {
-		// Always call super first in constructor
-		super();
-		this.innerHTML =
-		`
-	<button class="nav-action">+</button>
+  constructor () {
+    let seriestrad = 'séries'
+    let abouttrad = 'à propos'
+    const lang = sessionStorage.getItem('lang')
+
+    if (lang === 'en') {
+      seriestrad = "series"
+      abouttrad = "about"
+    }
+    super();
+    this.innerHTML =`
+  <button class="nav-action">+</button>
       <nav class="offscreen-nav">
         <div class="navwrap">
           <span class="f-1"><a href="./index.html">Nicolas Hermann</a></span>
           <div class="flex f-3 dir-column">
-            <span class="mb-3">séries</span>
+            <span class='mb-3'>${seriestrad}</span>
             <a class="mb-1" href="lookout.html">Look out</a>
             <a class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
             <a class="mb-1" href="laniakea.html">Laniakea</a>
             <a class="mb-1" href="mark.html">Mark</a>
             <a class="mb-1" href="distortion.html">Distortion</a>
           </div>
-          <a href="./about.html">à propos</a>
+          <a href="./about.html">${abouttrad}</a>
         </div>
       </nav>
-		`;
-	}
-	connectedCallback () {
+    `;
+  }
+  connectedCallback () {
     // Navigation script
+
     let offnav = document.querySelector(".offscreen-nav")
     this.addEventListener('click', togglenav)
     function togglenav()  {
@@ -37,6 +44,7 @@ class MobileNav extends HTMLElement {
       if(offnav.classList.contains('nav-visible')){
         gsap.to(offnav, {x: 0, duration: 1})
       }
+
     }
   }
 }

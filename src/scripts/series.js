@@ -7,7 +7,7 @@ let slidesIndex = 1
 
 // Counter
 let allimgcount = document.querySelector(".allcount")
-// let firstall = document.querySelector(".firstall")
+let firstall = document.querySelector(".firstall")
 let currentimgcount = document.querySelector(".currentcount")
 
 showSlides(slidesIndex);
@@ -47,6 +47,11 @@ window.addEventListener('resize', nameCountHeight)
 //   }
 // }
 
+function scrollTop() {
+  window.scrollTo(0, 0);
+  console.log('scrollTop');
+}
+
 function nameCountHeight() {
   let overlay = document.querySelector('.overlay')
   overlay.style.opacity = 0
@@ -54,8 +59,12 @@ function nameCountHeight() {
 
   if(window.innerWidth < 745){
     document.body.classList.add('firstSlide')
+    console.log(slidesIndex);
     if(slidesIndex > 1) {
       document.body.classList.remove('firstSlide')
+    }
+    if(slidesIndex === 1 || slidesIndex === 2) {
+      scrollTop()
     }
   } else {
     document.body.classList.remove('firstSlide')
@@ -93,7 +102,11 @@ function plusSlides(n) {
 }
 
 allimgcount.innerHTML = slidesCount
-// firstall.innerHTML = slidesCount
+
+
+  if(firstall) {
+    firstall.innerHTML = slidesCount
+  }
 
 function showSlides(n) {
   let i;

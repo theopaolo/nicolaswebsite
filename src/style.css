@@ -355,12 +355,12 @@ h1:hover, li:hover, button:hover, a:hover {
   text-shadow: 0 0 2px #fff;
 }
 
-.bio, .parcour {
+.parcour {
   padding: 2rem;
 }
 
 .bio {
-  background-color: var(--light-color);
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 .bio p {
@@ -1106,8 +1106,9 @@ section picture {
   .langs .fr {
     width: 80%;
   }
+
   .contact {
-    margin-top: 2rem;
+    margin-top: 4rem;
   }
 
   .exp .namecount {
@@ -1133,7 +1134,11 @@ section picture {
   }
 
   .lightbox img, .column {
-    height: clamp(100vw, 45vw, 34vh);
+    height: clamp(100vw, 45vw, 40vh);
+  }
+
+  .mark .lightbox img, .column {
+    height: clamp(100vw, 45vw, 35vh);
   }
 
   .namecount {
