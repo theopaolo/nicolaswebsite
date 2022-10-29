@@ -73,7 +73,7 @@ function nameCountHeight() {
     if(slidesIndex > 1) {
       document.body.classList.remove('firstSlide')
     }
-    if(slidesIndex === 1 || slidesIndex === 2) {
+    if(slidesIndex === 2) {
       scrollTop()
     }
   } else {
