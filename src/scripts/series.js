@@ -15,6 +15,16 @@ showSlides(slidesIndex);
 window.addEventListener("load", nameCountHeight)
 window.addEventListener('resize', nameCountHeight)
 
+let twoimgs = document.querySelectorAll(".two-img")
+if(window.innerWidth < 768) {
+  if(twoimgs.length > 0) {
+    twoimgs.forEach( function(el) {
+      el.parentNode.removeChild(el);
+      console.log('remove two img');
+    })
+  }
+}
+
 // window.addEventListener("load", longtext)
 // window.addEventListener('resize', longtext)
 
