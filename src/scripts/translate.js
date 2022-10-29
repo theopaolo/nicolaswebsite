@@ -27,7 +27,7 @@ const lookout = `
 
 <p>In the darkness, before the closed eyes of an entire planet, in the midst of statues and debris, flabbergasted, I felt like my flash was revealing the scars of our extinction. Walking alone in the streets of Athens, I was surrounded by the vestiges of a daily life brutally abandoned, just like that of Pompeii. It all resembled a postapocalyptic film set, just like those that haunted me: La jetée (Chris Marker), 12 Monkeys (Terry Gilliam), The Road (John Hillcoat), Take Shelter (Jeff Nichols). I wanted to explore the idea of a ghost town. But what ghost is spookier than that of the future?</p>
 
-<p>“This report (the 6th IPCC report) should send a shiver down the spine of everyone who reads it. It sets out where we are now and where we are headed and climate change: in a hole, and still digging.” Dave Reay, climate change scientist</p>
+<p class="text-small">“This report (the 6th IPCC report) should send a shiver down the spine of everyone who reads it. It sets out where we are now and where we are headed and climate change: in a hole, and still digging.” Dave Reay, climate change scientist</p>
 `
 
 const mark = `
