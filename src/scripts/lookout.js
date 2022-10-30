@@ -2,32 +2,33 @@ let nextBtn = document.querySelector('.next')
 let prevBtn = document.querySelector('.prev')
 let slides = document.querySelectorAll(".slides")
 
-let slidesCount = slides.length
-let slidesIndex = 1
-
 // Counter
-let allimgcount = document.querySelector(".allcount")
 let firstall = document.querySelector(".firstall")
+let allimgcount = document.querySelector(".allcount")
 let currentimgcount = document.querySelector(".currentcount")
 let twoimgs = document.querySelectorAll(".two-img")
+let slidesIndex = 1
 
 if(window.innerWidth < 768) {
-  if(twoimgs.length > 0) {
-    twoimgs.forEach( function(el) {
-      el.parentNode.removeChild(el);
-    })
-  }
+  twoimgs.forEach( function(el) {
+    el.parentNode.removeChild(el);
+  })
 }
+
+function numofslides(){
+  let mesSlides = document.querySelectorAll(".slides")
+  return mesSlides.length
+}
+
+let slidesCount = numofslides()
+allimgcount.innerHTML = slidesCount
+
+setTimeout(() => {
+  slidesCount = numofslides()
+  firstall.innerHTML = slidesCount
+}, 500)
 
 showSlides(slidesIndex);
-
-window.addEventListener("load", nameCountHeight)
-window.addEventListener('resize', nameCountHeight)
-
-function scrollTop() {
-  window.scrollTo(0, 0);
-  console.log('scrollTop');
-}
 
 function nameCountHeight() {
   let overlay = document.querySelector('.overlay')
@@ -36,7 +37,6 @@ function nameCountHeight() {
 
   if(window.innerWidth < 745){
     document.body.classList.add('firstSlide')
-    console.log(slidesIndex);
     if(slidesIndex > 1) {
       document.body.classList.remove('firstSlide')
     }
@@ -48,12 +48,19 @@ function nameCountHeight() {
   }
 }
 
+window.addEventListener("load", nameCountHeight)
+window.addEventListener('resize', nameCountHeight)
+
+function scrollTop() {
+  window.scrollTo(0, 0);
+  console.log('scrollTop');
+}
+
 // Next/previous keys controls
 window.addEventListener("keydown", function(event) {
   if (event.defaultPrevented) {
     return; // Do nothing if event already handled
   }
-
   switch(event.code) {
 
     case "ArrowLeft":
@@ -66,7 +73,6 @@ window.addEventListener("keydown", function(event) {
       plusSlides(1)
       break;
   }
-
   // Consume the event so it doesn't get handled twice
   event.preventDefault();
 }, true);
@@ -75,30 +81,26 @@ window.addEventListener("keydown", function(event) {
 function plusSlides(n) {
   showSlides(slidesIndex += n);
   nameCountHeight()
-  // longtext()
 }
-
-allimgcount.innerHTML = slidesCount
-
-
-  if(firstall) {
-    firstall.innerHTML = slidesCount
-  }
 
 function showSlides(n) {
   let i;
-  if (n > slidesCount) {slidesIndex = 1}
-  if (n < 1) {slidesIndex = slidesCount}
+  let newSlides = document.querySelectorAll(".slides")
+
+  if (n > slidesCount) { slidesIndex = 1 }
+
+  if (n < 1) { slidesIndex = slidesCount }
 
   for (i = 0; i < slidesCount; i++) {
-    slides[i].style.display = "none";
+    newSlides[i].style.display = "none";
   }
 
-  if(slides[slidesIndex-1].classList.contains('center')) {
-    slides[slidesIndex-1].style.display = "flex";
+  if(newSlides[slidesIndex-1].classList.contains('center')) {
+    newSlides[slidesIndex-1].style.display = "flex";
   } else {
-    slides[slidesIndex-1].style.display = "grid";
+    newSlides[slidesIndex-1].style.display = "grid";
   }
+
   currentimgcount.innerHTML = slidesIndex
 }
 
@@ -111,3 +113,5 @@ nextBtn.addEventListener('click', ()=>{
   showSlides(slidesIndex += 1)
   nameCountHeight()
 })
+
+
