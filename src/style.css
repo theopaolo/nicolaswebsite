@@ -361,6 +361,8 @@ h1:hover, li:hover, button:hover, a:hover {
 
 .bio {
   padding: 4rem 2rem 2rem 2rem;
+  color: black;
+  background: white;
 }
 
 .bio p {
