@@ -547,6 +547,7 @@ h1:hover, li:hover, button:hover, a:hover {
 
  .serie-grid .column {
   width: auto;
+  padding-bottom: 2rem;
  }
 
  .namecount {
