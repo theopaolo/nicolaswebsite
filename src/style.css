@@ -812,7 +812,7 @@ section picture {
   justify-content: center;
   padding: 0rem 1rem;
   align-self: center;
-  padding: 0 0 3rem;
+  padding: 0 0 1rem;
 }
 
 .offscreen-nav {
@@ -1137,12 +1137,12 @@ section picture {
   }
 
   .mark .lightbox img, .column {
-    height: clamp(100vw, 45vw, 35vh);
+    height: clamp(100vw, 45vw, 60vh);
   }
 
   .namecount {
     height: 100%;
-    padding: 3rem 0;
+    padding: 1rem 0;
     padding-top: 0;
     place-content: space-between;
     position: absolute;
