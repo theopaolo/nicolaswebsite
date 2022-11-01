@@ -1065,6 +1065,14 @@ section picture {
 
 @media screen and (max-width: 744px) {
 
+  body {
+    background-color: #0d0d0d;
+  }
+
+  canvas {
+    transform: translateY(-1.5rem);
+  }
+
   .mob-hide {
     display: none;
   }
