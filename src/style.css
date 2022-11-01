@@ -812,7 +812,7 @@ section picture {
   justify-content: center;
   padding: 0rem 1rem;
   align-self: center;
-  padding: 0 0 1rem;
+  padding: 0 0 3rem;
 }
 
 .offscreen-nav {
@@ -1142,7 +1142,7 @@ section picture {
 
   .namecount {
     height: 100%;
-    padding: 1rem 0;
+    padding: 3rem 0;
     padding-top: 0;
     place-content: space-between;
     position: absolute;
