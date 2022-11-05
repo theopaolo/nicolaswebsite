@@ -828,11 +828,11 @@ section picture {
 }
 
 .nav-name {
-  top: 0;
+  top: 2rem;
 }
 
 .nav-about {
-  bottom: 3rem;
+  bottom: 0rem;
 }
 
 .offscreen-nav {
