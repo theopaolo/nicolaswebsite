@@ -814,6 +814,20 @@ section picture {
   padding: 0rem 1rem;
   align-self: center;
   padding: 0 0 3rem;
+  position: relative;
+}
+
+.nav-name, .nav-about {
+  position: absolute;
+  width: 100%;
+}
+
+.nav-name {
+  top: 0;
+}
+
+.nav-about {
+  bottom: 3rem;
 }
 
 .offscreen-nav {

@@ -9,13 +9,14 @@ class MobileNav extends HTMLElement {
       seriestrad = "series"
       abouttrad = "about"
     }
+
     super();
     this.innerHTML =`
   <button class="nav-action">+</button>
       <nav class="offscreen-nav">
         <div class="navwrap">
-          <span class="f-1"><a href="./index.html">Nicolas Hermann</a></span>
-          <div class="flex f-3 dir-column">
+          <span class="nav-name"><a href="./index.html">Nicolas Hermann</a></span>
+          <div class="flex dir-column">
             <span class='mb-3'>${seriestrad}</span>
             <a class="mb-1" href="lookout.html">Look out</a>
             <a class="mb-1" href="salviadivinorum.html">Salvia Divinorum</a>
@@ -23,17 +24,16 @@ class MobileNav extends HTMLElement {
             <a class="mb-1" href="mark.html">Mark</a>
             <a class="mb-1" href="distortion.html">Distortion</a>
           </div>
-          <a href="./about.html">${abouttrad}</a>
+          <a class="nav-about" href="./about.html">${abouttrad}</a>
         </div>
       </nav>
     `;
   }
   connectedCallback () {
     // Navigation script
-
-    let offnav = document.querySelector(".offscreen-nav")
-    this.addEventListener('click', togglenav)
-    function togglenav()  {
+      let offnav = document.querySelector(".offscreen-nav")
+      this.addEventListener('click', togglenav)
+      function togglenav()  {
 
       if(document.getElementById("about")) {
         document.getElementById("about").classList.toggle('no-scroll')
