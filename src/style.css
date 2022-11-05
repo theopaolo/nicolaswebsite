@@ -832,7 +832,7 @@ section picture {
 }
 
 .nav-about {
-  bottom: 0rem;
+  bottom: -1rem;
 }
 
 .offscreen-nav {
