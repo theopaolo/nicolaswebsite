@@ -820,6 +820,7 @@ section picture {
   justify-content: center;
   align-self: center;
   position: relative;
+  padding: 0 0 3rem;
 }
 
 .nav-name, .nav-about {
@@ -828,11 +829,11 @@ section picture {
 }
 
 .nav-name {
-  top: 1.88rem;
+  top: 0rem;
 }
 
 .nav-about {
-  bottom: -1.8rem;
+  bottom: 3rem;
 }
 
 .offscreen-nav {
