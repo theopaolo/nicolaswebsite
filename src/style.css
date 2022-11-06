@@ -806,6 +806,9 @@ section picture {
 .offscreen-nav {
   flex-direction: column;
   justify-content: center;
+}
+
+.nav-visible {
   display: grid !important;
   place-items: center;
 }
