@@ -806,6 +806,8 @@ section picture {
 .offscreen-nav {
   flex-direction: column;
   justify-content: center;
+  display: grid !important;
+  place-items: center;
 }
 
 .navwrap {
@@ -816,7 +818,6 @@ section picture {
   text-align: center;
   text-transform: uppercase;
   justify-content: center;
-  align-self: center;
   position: relative;
   padding: 0 0 3rem;
 }
