@@ -803,12 +803,10 @@ section picture {
   transform: rotate(45deg);
 }
 
-/* .offscreen-nav {
+.offscreen-nav {
   flex-direction: column;
   justify-content: center;
-  display: flex;
-  position: relative;
-} */
+}
 
 .navwrap {
   height: 70vh;
