@@ -1194,12 +1194,11 @@ section picture {
     width: 100vw;
   }
   /* Série slide grid */
-  .serie-grid .self-end{
-    justify-self: center;
-  }
+  .serie-grid .self-end,
   .serie-grid .self-start {
     justify-self: center;
   }
+
   .serie-grid {
     grid-template-columns: repeat(1, 1fr);
   }

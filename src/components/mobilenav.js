@@ -32,7 +32,9 @@ class MobileNav extends HTMLElement {
   connectedCallback () {
     // Navigation script
       let offnav = document.querySelector(".offscreen-nav")
+
       this.addEventListener('click', togglenav)
+
       function togglenav()  {
 
       if(document.getElementById("about")) {
@@ -40,7 +42,9 @@ class MobileNav extends HTMLElement {
       }
 
       this.classList.toggle('nav-active')
+
       offnav.classList.toggle('nav-visible')
+
       if(offnav.classList.contains('nav-visible')){
         gsap.to(offnav, {x: 0, duration: 1})
       }
@@ -53,4 +57,3 @@ class MobileNav extends HTMLElement {
 if ('customElements' in window) {
 	customElements.define('mobile-nav', MobileNav);
 }
-

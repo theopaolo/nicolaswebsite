@@ -68,7 +68,7 @@
     <source src="https://theopaolo.com/nhvideos/embryon.mp4" type='video/mp4' >
   </video>
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
-    <source src="https://theopaolo.com/nhvideos/bigbang.mp4" type='video/mp4' >
+    <source src="https://theopaolo.com/nhvideos/embryon.mp4" type='video/mp4' >
   </video>
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/birds.mp4" type='video/mp4' >
@@ -127,7 +127,6 @@
         </div>
       </div>
     </section>
-
   </div>
 
   <main id="swup" class="transition-fade">
@@ -184,18 +183,18 @@
       btn.addEventListener("click", introClick)
     })
 
-    for(let button of btnintro) {
-      button.addEventListener("click", function(){
-        sessionStorage.setItem("lang", this.dataset.lang)
-        if(sessionStorage.getItem("lang") === "en"){
-          document.querySelector('.abouttrans').innerHTML = "about"
-          document.querySelector('.seriestrans').innerHTML = "series"
-        } else {
-          document.querySelector('.abouttrans').innerHTML = "à propos"
-          document.querySelector('.seriestrans').innerHTML = "séries"
-        }
-      })
-    }
+      for(let button of btnintro) {
+        button.addEventListener("click", function(){
+          sessionStorage.setItem("lang", this.dataset.lang)
+          if(sessionStorage.getItem("lang") === "en"){
+            document.querySelector('.abouttrans').innerHTML = "about"
+            document.querySelector('.seriestrans').innerHTML = "series"
+          } else {
+            document.querySelector('.abouttrans').innerHTML = "à propos"
+            document.querySelector('.seriestrans').innerHTML = "séries"
+          }
+        })
+      }
 
     function navTranlater(){
       console.log("navTranlater");
