@@ -49,12 +49,11 @@ function initScripts() {
     })
   }
 }
-
 initScripts();
+
 swup.on('contentReplaced', initScripts);
 
 import { DstColorFactor, Raycaster } from 'three';
-
 
 /**
  * Base

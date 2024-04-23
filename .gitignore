@@ -41,3 +41,4 @@ node_modules/*
 jspm_packages/
 dist/*
 .DS_Store
+src/.DS_Store
