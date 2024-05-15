@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,9 +11,6 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-    <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="home-body">
   <div class="container exp">
@@ -57,7 +54,7 @@
     </audio>
   </div>
 
-<section class="videos">
+<!-- <section class="videos">
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/spectreeau.mp4" type='video/mp4' >
   </video>
@@ -88,7 +85,7 @@
   <video class="video" loop muted="muted" crossOrigin="anonymous" playsinline style="display: none;" >
     <source src="https://theopaolo.com/nhvideos/saturne.mp4" type='video/mp4' >
   </video>
-</section>
+</section> -->
 
   <canvas class="webgl"></canvas>
 
@@ -97,33 +94,33 @@
 
   <div class="introduction grid bg-dark absolute z-index-2">
     <div class="w-full h-full">
-      <img src="static/laniakea/Laniakea03.jpg" alt="Home image">
+      <canvas class="mini-sphere"></canvas>
     </div>
-    <section class="langs">
-      <div class="en f-1 flex align-center h-full bg-dark justify-center">
+    <section class="langs bg-dark">
+      <div class="en f-1 flex items-ends">
         <div>
-          <p> EN </p>
+          <p> ENNGLISH </p>
           <ul>
-            <li>- DOUBLE CLICK TO OPEN THE IMAGES IN LARGE FORMAT</li>
-            <li>- CLICK AND DRAG TO ROTATE THE SPHERE</li>
-            <li>- SCROLL TO ZOOM IN OR OUT</li>
-            <li>- RESET YOUR IMMERSION BY CLICKING ON "NICOLAS HERMANN"</li>
-            <li>- FIND OUT MORE ABOUT HIS WORK BY CLICKING ON "SERIES"</li>
+            <li>DOUBLE CLICK TO OPEN THE IMAGES IN LARGE FORMAT</li>
+            <li>CLICK AND DRAG TO ROTATE THE SPHERE</li>
+            <li>SCROLL TO ZOOM IN OR OUT</li>
+            <li>RESET YOUR IMMERSION BY CLICKING ON "NICOLAS HERMANN"</li>
+            <li>FIND OUT MORE ABOUT HIS WORK BY CLICKING ON "SERIES"</li>
           </ul>
-          <button class="btnintro" data-lang="en">→ enter</button>
+          <button class="btnintro" data-lang="en">enter</button>
         </div>
       </div>
-      <div class="fr f-1 flex align-center h-full bg-dark justify-center">
+      <div class="fr f-1 flex">
         <div>
-          <p> FR </p>
+          <p> FRANÇAIS </p>
           <ul>
-            <li>- DOUBLE CLIQUEZ POUR OUVRIR LES IMAGES EN GRAND FORMAT</li>
-            <li>- CLIQUEZ ET DÉPLACEZ POUR TOURNER LA SPHERE</li>
-            <li>- SCROLLEZ POUR ZOOMER OU DÉZOOMER</li>
-            <li>- RÉINITIALISEZ VOTRE IMMERSION EN CLIQUANT SUR "NICOLAS HERMANN"</li>
-            <li>- DÉCOUVREZ SON TRAVAIL PLUS EN PRÉCISION EN CLIQUANT SUR "SÉRIES"</li>
+            <li>DOUBLE CLIQUEZ POUR OUVRIR LES IMAGES EN GRAND FORMAT</li>
+            <li>CLIQUEZ ET DÉPLACEZ POUR TOURNER LA SPHERE</li>
+            <li>SCROLLEZ POUR ZOOMER OU DÉZOOMER</li>
+            <li>RÉINITIALISEZ VOTRE IMMERSION EN CLIQUANT SUR "NICOLAS HERMANN"</li>
+            <li>DÉCOUVREZ SON TRAVAIL PLUS EN PRÉCISION EN CLIQUANT SUR "SÉRIES"</li>
           </ul>
-          <button class="btnintro" data-lang="fr">→ entrer</button>
+          <button class="btnintro" data-lang="fr">entrer</button>
         </div>
       </div>
     </section>
@@ -139,27 +136,26 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
 
   <script>
-    let playbtn = document.querySelector('.soundbtn')
-    let audioElment = document.querySelector('audio')
+    const playbtn = document.querySelector('.soundbtn')
+    const audioElment = document.querySelector('audio')
     let audioPlaying = false;
 
     audioElment.pause();
-    playbtn.addEventListener("click", playPauseAudio)
 
-    function playPauseAudio(){
+    function playPauseAudio() {
       if(audioPlaying)
       {
         audioElment.pause()
         audioPlaying = false;
         playbtn.classList.remove("active")
-        console.log("ispaused",audioElment.paused);
       } else {
         audioElment.play()
         audioPlaying = true;
         playbtn.classList.add("active")
-        console.log("ispaused",audioElment.paused);
       }
     }
+
+    playbtn.addEventListener("click", playPauseAudio)
 
     // IntroScripts
     let introp = document.querySelector('.introduction')
@@ -168,16 +164,6 @@
     let langen =  document.querySelector('.en')
     let brnfr =  document.querySelector('.btnfr')
     let btnen =  document.querySelector('.btnen')
-
-    langfr.addEventListener('mouseleave', function(event){
-      gsap.set(".fr", { opacity: 0 })
-      gsap.set(".en", { opacity: 1 })
-    });
-
-    langen.addEventListener('mouseleave', function(event){
-      gsap.set(".fr", { opacity: 1 })
-      gsap.set(".en", { opacity: 0 })
-    });
 
     btnintro.forEach(function(btn, index){
       btn.addEventListener("click", introClick)
@@ -209,20 +195,22 @@
       }
     }
 
-    function hideIntro(){
-      gsap.to(".introduction", {opacity: s0, display:"none", duration: 1})
+    function hideIntro() {
+      gsap.to(".introduction", {
+        opacity: 0,
+        display: "none",
+        duration: .3,
+        onComplete: function() {
+          introp.classList.add("d-none");
+        }
+      });
     }
 
     function introClick() {
-      sessionStorage.setItem("entersite", true)
-      introp.classList.add("d-none");
-      setTimeout(navTranlater(), 500);
+      hideIntro();
     }
 
     window.addEventListener("DOMContentLoaded", function(){
-      if(sessionStorage.getItem("entersite") == "true"){
-        introp.classList.add("d-none");
-      }
       navTranlater()
     })
   </script>

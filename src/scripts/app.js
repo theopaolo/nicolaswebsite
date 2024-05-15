@@ -1,59 +1,17 @@
-import * as THREE from 'three'
-import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
+import * as THREE from 'three';
+import { initSwup } from './swupManager';
+import { initScripts } from './scriptManager';
 import transAbout from './translateabout.js'
+import { TrackballControls } from 'three/examples/jsm/controls/TrackballControls.js'
+import * as dat from 'dat.gui';
+
+initSwup(() => {
+  transAbout();
+  initScripts();
+});
+
 const gsap = window.gsap;
-
-import Swup from 'swup';
-const swup = new Swup();
-
-swup.on('contentReplaced', transAbout);
-
-
 const raycaster = new THREE.Raycaster();
-
-function initScripts() {
-  if (document.querySelector('.bio')) {
-    let bio = document.querySelector(".bio")
-    let parcour = document.querySelector(".parcour")
-
-    bio.addEventListener("mouseenter", ()=> {
-      if(bio.classList.contains("darkbg")) {
-        bio.classList.remove('darkbg')
-        // bio.classList.remove("blight-shadow")
-
-        parcour.classList.add("darkbg")
-        // parcour.classList.add("light-shadow")
-      } else {
-        bio.classList.add('darkbg')
-        // bio.classList.add('blight-shadow')
-
-        parcour.classList.remove("darkbg")
-        // parcour.classList.remove("light-shadow")
-      }
-    })
-
-    parcour.addEventListener("mouseenter", ()=> {
-      if(parcour.classList.contains("darkbg")) {
-        parcour.classList.remove("darkbg")
-        // parcour.classList.remove("light-shadow")
-
-        bio.classList.add('darkbg')
-        // bio.classList.add('blight-shadow')
-      } else {
-        parcour.classList.add("darkbg")
-        // parcour.classList.add("light-shadow")
-
-        bio.classList.remove('darkbg')
-        // bio.classList.remove("blight-shadow")
-      }
-    })
-  }
-}
-initScripts();
-
-swup.on('contentReplaced', initScripts);
-
-import { DstColorFactor, Raycaster } from 'three';
 
 /**
  * Base
@@ -63,6 +21,7 @@ const canvas = document.querySelector('canvas.webgl')
 
 // Scene
 const scene = new THREE.Scene()
+
 
 /**
  * Overlay
@@ -94,6 +53,14 @@ const overlayMaterial = new THREE.ShaderMaterial({
 
 const overlay = new THREE.Mesh(overlayGeometry, overlayMaterial)
 scene.add(overlay)
+
+// Funtion animate zoom in to x 50 of camera position
+
+function zoomIn() {
+  let tl = gsap.timeline();
+  tl.fromTo(camera.position, {x: 900, y: 500, z: 0, ease: "powe3.inOut"}, {x: 55, y: 0, z: 0, duration: 3, ease: "power3.inOut"})
+}
+
 /**
  * Loader
  */
@@ -113,6 +80,7 @@ const loadingManager = new THREE.LoadingManager(
       loadingPercent.classList.add('ended')
 
       loadingBarElement.style.transform = ''
+
     })
   },
 
@@ -121,7 +89,9 @@ const loadingManager = new THREE.LoadingManager(
   const progressRatio = itemsLoaded / itemsTotal;
   loadingBarElement.style.transform = `scaleX( ${progressRatio} )`
   loadingPercent.innerHTML = Math.round(progressRatio * 100) + "%"
+  zoomIn();
 })
+
 
 const textureLoader = new THREE.TextureLoader(loadingManager)
 
@@ -190,152 +160,108 @@ let imgverticale = [
 /**
  * Create Objects
  */
-let planeGeometry = new THREE.PlaneGeometry(3, 2);
-let planeGeoVerti = new THREE.PlaneGeometry(3, 4);
+let planeGeometry = new THREE.PlaneGeometry(3, 2, 1, 1);
+let planeGeoVerti = new THREE.PlaneGeometry(3, 4, 1, 1);
 
-let phi = 0
-let theta = 0
-let goldNum = 1.618033988749895
-let myVideos = document.querySelectorAll('.video')
 const imggroup = new THREE.Group();
 const imgObjects = []
 
+let goldNum = 1.618033988749895
+let myVideos = document.querySelectorAll('.video')
+
+const sharedMaterial = new THREE.MeshBasicMaterial();
+sharedMaterial.transparent = false;
+sharedMaterial.side = THREE.DoubleSide;
+
+function createTextureAndMaterial(imageUrl) {
+  const texture = textureLoader.load(imageUrl, texture => {
+      texture.generateMipmaps = false;
+      texture.wrapS = THREE.RepeatWrapping;
+      texture.repeat.x = -1;
+  });
+
+  return new THREE.MeshBasicMaterial({
+      map: texture,
+      transparent: sharedMaterial.transparent,
+      side: sharedMaterial.side
+  });
+}
+
 function fiboSphere(imgLght, iter, mesh, size) {
-  theta = 2 * Math.PI * iter / goldNum
-  phi = Math.acos(1-2 * (iter + 0.5)/imgLght)
-  let positionSphere = new THREE.Spherical(size, phi, theta)
+  const theta = 2 * Math.PI * iter / goldNum;
+  const phi = Math.acos(1 - 2 * (iter + 0.5) / imgLght);
+  const positionSphere = new THREE.Spherical(size, phi, theta);
 
   mesh.position.setFromSpherical(positionSphere);
-  mesh.lookAt(mesh.position.clone().setLength(3));
+  mesh.lookAt(new THREE.Vector3()); // Directly using the origin
 
-  // add mesh to a THREE.Group to be able to rotate and move the group
   imggroup.add(mesh);
 }
 
-function imgSphere(imgHorizon){
-  let imgLght = imgHorizon.length + 1
-  let i = 0
+function createSphere(imgArray, geometry, size) {
+  const imgLght = imgArray.length + 1;
 
-  for(let image of imgHorizon){
-    // Load images as texture
-    let imgText = textureLoader.load(image)
-    imgText.generateMipmaps = false
+  imgArray.forEach((image, i) => {
+      const material = createTextureAndMaterial(image);
+      const mesh = new THREE.Mesh(geometry, material);
 
-    // Create planeMaterial and map images texture
-    let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.transparent =  false
-    planeMaterial.side = THREE.DoubleSide
-    imgText.wrapS = THREE.RepeatWrapping;
-    imgText.repeat.x = - 1;
+      fiboSphere(imgLght, i + 1, mesh, size);
+      imgObjects.push(mesh);
+  });
 
-    let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
-
-    // Create sphere using finonacci
-    i += 1
-    fiboSphere(imgLght, i, planeMesh, 10)
-
-    // Add planes to imgObjects array for the rayCaster
-    imgObjects.push(planeMesh)
-  }
-
-  scene.add(imggroup)
+  scene.add(imggroup);
 }
 
-// Creage a sphere of image the the array of Horizontales imgs
-imgSphere(imghorizon)
-
-
-function vertiSphere(imgVerti){
-  let imgLght = imgVerti.length + 1
-  let i = 0
-
-  for(let image of imgVerti){
-    // Load images as texture
-    let imgText = textureLoader.load(image)
-    imgText.generateMipmaps = false
-    imgText.wrapS = THREE.RepeatWrapping;
-    imgText.repeat.x = - 1;
-
-    // Create planeMaterial and map images texture
-    let planeMaterial = new THREE.MeshBasicMaterial({ map: imgText })
-    planeMaterial.transparent =  false
-    planeMaterial.side = THREE.DoubleSide
-    let planeMesh  = new THREE.Mesh(planeGeoVerti, planeMaterial);
-
-    // Create sphere using finonacci
-    i += 1
-    fiboSphere(imgLght, i, planeMesh, 12)
-
-    // Add planes to imgObjects array for the rayCaster
-    imgObjects.push(planeMesh)
-  }
-
-  scene.add(imggroup)
-}
-vertiSphere(imgverticale)
+createSphere(imghorizon, planeGeometry, 10);
+createSphere(imgverticale, planeGeoVerti, 12);
 
 /*
 * Video Sphere
 */
-function vidSphere(elArr){
-  let y = 0
-  let imgLght = elArr.length
+function vidSphere(elArr) {
+  const imgLght = elArr.length;
 
-  for(let vid of elArr){
+  for (let i = 0; i < elArr.length; i++) {
+    const vid = elArr[i];
     vid.play();
-    let vidTexture = new THREE.VideoTexture(vid)
-    // Create planeMaterial and map images texture
-    let planeMaterial = new THREE.MeshBasicMaterial({ map: vidTexture })
-    planeMaterial.side = THREE.DoubleSide
-    let planeMesh  = new THREE.Mesh(planeGeometry, planeMaterial);
+    const vidTexture = new THREE.VideoTexture(vid);
+    const material = new THREE.MeshBasicMaterial({ map: vidTexture });
+    material.side = THREE.DoubleSide;
+    const mesh = new THREE.Mesh(planeGeometry, material);
 
-    y += 1
-
-    // Create sphere using fibonacci
-    fiboSphere(imgLght, y, planeMesh, 6)
+    fiboSphere(imgLght, i + 1, mesh, 6);
   }
 }
-vidSphere(myVideos)
 
+vidSphere(myVideos);
 
-/**
- * Sizes
- */
 const sizes = {
-  width: window.innerWidth,
-  height: window.innerHeight
+ width: window.innerWidth,
+ height: window.innerHeight
 }
 
 window.addEventListener('resize', () =>
 {
-    // Update sizes
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
+   // Update sizes
+   sizes.width = window.innerWidth
+   sizes.height = window.innerHeight
 
-    // Update camera
-    camera.aspect = sizes.width / sizes.height
-    camera.updateProjectionMatrix()
+   // Update camera
+   camera.aspect = sizes.width / sizes.height
+   camera.updateProjectionMatrix()
 
-    // Update renderer
-    renderer.setSize(sizes.width, sizes.height)
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    fovDistances()
+   // Update renderer
+   renderer.setSize(sizes.width, sizes.height)
+   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+
+   // fovDistances()
 })
 
-/**
- * Raycaster
-*/
-// const raycaster = new THREE.Raycaster();
 
-/**
- * Mouse
-*/
+/* Mouse */
 const mouse = new THREE.Vector2()
 
-
-/**
-* LIGHTBOX
-**/
+/*  LIGHTBOX */
 window.addEventListener('mousemove', (event) => {
   mouse.x = event.clientX / sizes.width * 2 - 1;
   mouse.y = - (event.clientY / sizes.height * 2 - 1);
@@ -350,11 +276,13 @@ canvas.addEventListener("touchstart", tapHandler);
 let tapedTwice = false;
 
 function tapHandler(event) {
+
   if(!tapedTwice) {
       tapedTwice = true;
       setTimeout( function() { tapedTwice = false; }, 300 );
       return false;
   }
+
   event.preventDefault();
   //action on double tap goes below
   if(currentIntersect) {
@@ -370,10 +298,8 @@ function tapHandler(event) {
     console.log("taped twice");
     } else {
       removeImage()
-      console.log("tap should close img");
     }
 }
-
 
 canvas.addEventListener('dblclick', (event) => {
   if(currentIntersect) {
@@ -387,24 +313,10 @@ canvas.addEventListener('dblclick', (event) => {
   }
 })
 
-// Broken, need to fix when click outside of image
-//canvas.addEventListener('click', (event) => {
-//   if(! "ontouchstart" in document.documentElement) {
-//   if(currentIntersect) {
-//     console.log("clicked");
-//   } else {
-//     removeImage()
-//     console.log("should close img");
-//   }
-//   }
-// })
-
-
 let imgbox = null
 let imgcreated = false
 
 function createImg(url) {
-
   if(imgcreated === false){
     let newimg = document.createElement('img');
     newimg.src = url;
@@ -424,7 +336,6 @@ function createImg(url) {
     } else {
       removeImage()
     }
-
 }
 
 function removeImage() {
@@ -440,91 +351,161 @@ function removeImage() {
   }
 }
 
+
 /**
   Camera
   Base camera
 **/
+
+
+// function fovDistances() {
+//   if(window.innerWidth < 768){
+//     fov = 55;
+//   } else {
+//     fov = 45;
+//   }
+// }
+
+// fovDistances()
+
 let fov = 45;
+const camera = new THREE.PerspectiveCamera(fov, window.innerWidth / window.innerHeight, 0.05, 1000);
+camera.position.set(50, 0, 0);
 
-function fovDistances() {
-  if(window.innerWidth < 768){
-    fov = 55;
-  } else {
-    fov = 45;
+// Constants
+// Constants
+let miniSizes = {
+  width: window.innerWidth / 2,
+  height: window.innerHeight
+};
+
+let miniSphere = document.querySelector('canvas.mini-sphere');
+let renderMniSphere = new THREE.WebGLRenderer({ canvas: miniSphere });
+renderMniSphere.setSize(miniSizes.width, miniSizes.height);
+renderMniSphere.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+// Setup camera and scene
+let minicamera = new THREE.PerspectiveCamera(55, miniSizes.width / miniSizes.height, 0.05, 1000);
+// minicamera.position.set(0, 0, 600);
+let miniScene = new THREE.Scene();
+
+// Material and group for spheres
+let pointmaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+let sphereGroup = new THREE.Group();
+miniScene.add(sphereGroup);
+
+// Constants for sphere positions
+let totalPoints = 200;
+let offset = 2 / (totalPoints - 1);
+let increment = Math.PI * (3 - Math.sqrt(5));
+
+function initializeRendererAndScene() {
+
+  miniScene = new THREE.Scene();
+  minicamera = new THREE.PerspectiveCamera(55, miniSizes.width / miniSizes.height, 0.05, 1000);
+  minicamera.position.set(0, 0, 600);
+  miniScene.add(minicamera);
+
+  recreateSpheres();
+}
+
+function recreateSpheres() {
+  sphereGroup = new THREE.Group();
+  for (let i = 0; i < totalPoints; i++) {
+    let y = i * offset - 1 + (offset / 2);
+    let r = Math.sqrt(1 - y * y);
+    let phi = i * increment;
+    let x = Math.cos(phi) * r;
+    let z = Math.sin(phi) * r;
+
+    const geometry = new THREE.SphereGeometry(1, 32, 32);
+    const sphere = new THREE.Mesh(geometry, pointmaterial);
+    sphere.position.set(x * 150, y * 150, z * 150);
+    sphereGroup.add(sphere);
   }
-} fovDistances()
+  miniScene.add(sphereGroup);
+}
 
-const camera = new THREE.PerspectiveCamera( fov, window.innerWidth / window.innerHeight, 0.05, 1000 );
-camera.position.set(50,0,0);
+
+  if (window.innerWidth > 740) {
+    initializeRendererAndScene();
+  }
+
+
+// Handle window resizing
+let resizeTimeout;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimeout);
+  resizeTimeout = setTimeout(() => {
+    let currentWidth = window.innerWidth;
+    miniSizes.width = currentWidth / 2;
+    miniSizes.height = window.innerHeight;
+
+    if (currentWidth <= 740) {
+      disposeResources();
+    } else {
+      if (!renderMniSphere) {
+        initializeRendererAndScene();
+      } else {
+        renderMniSphere.setSize(miniSizes.width, miniSizes.height);
+        minicamera.aspect = miniSizes.width / miniSizes.height;
+        minicamera.updateProjectionMatrix();
+      }
+    }
+  }, 100);
+});
+
+function disposeResources() {
+  if (renderMniSphere) {
+    renderMniSphere.dispose(); // Dispose of the renderer resources
+    renderMniSphere.domElement.parentNode.removeChild(renderMniSphere.domElement); // Remove the canvas from the DOM
+    renderMniSphere = null; // Dereference to clean up memory
+  }
+  sphereGroup.children.forEach(sphere => {
+    sphere.geometry.dispose();
+    sphere.material.dispose();
+  });
+  sphereGroup.clear(); // Clear all objects from the group
+}
+
 
 scene.add(camera)
 scene.background = new THREE.Color(0x0d0d0d);
 
 /**
- * Controls
- */
-// const controls = new OrbitControls(camera, canvas)
-// controls.enableDamping = true // le smooth des mouvements
-// controls.dampingFactor = 0.05;
-// controls.enablePan = false
-// controls.enableZoom = true
-
-// // controls.zoomSpeed = 1.2
-// controls.maxDistance = 1000
-// controls.update()
-
-/**
  * TrackBall Controls
  */
-  const trackballcontrols = new TrackballControls(camera, canvas)
+const trackballcontrols = new TrackballControls(camera, canvas)
 
-  trackballcontrols.staticMoving = false
-  trackballcontrols.dynamicDampingFactor = 0.05;
-  trackballcontrols.rotateSpeed = 0.2;
+trackballcontrols.staticMoving = false
+trackballcontrols.dynamicDampingFactor = 0.05;
+trackballcontrols.rotateSpeed = 0.2;
 
-  trackballcontrols.noPan = true
+trackballcontrols.noPan = true
 
-  trackballcontrols.zoomSpeed = 0.5;
+trackballcontrols.zoomSpeed = 0.5;
 
-  trackballcontrols.maxDistance = 100
-  trackballcontrols.minDistance = 0
+trackballcontrols.maxDistance = 100
+trackballcontrols.minDistance = 0
 
-  trackballcontrols.update()
-  console.log(trackballcontrols.checkDistances());
+trackballcontrols.update()
 
-  // if(window.innerWidth < 600) {
-  //   trackballcontrols.rotateSpeed = 0.1;
-  //   trackballcontrols.zoomSpeed = 0.1;
-  // }
 /**
- * Renderer
- */
-const renderer = new THREE.WebGLRenderer({
-    canvas: canvas
-})
+* Renderer
+*/
+const renderer = new THREE.WebGLRenderer({ canvas: canvas })
 
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
 
 /**
- * Animate
- */
-const clock = new THREE.Clock()
+* Animate
+*/
 let currentIntersect = null
-let expbtn = document.querySelectorAll('.expbtn')
 
-for(let i = 0; i < expbtn.length; i++){
-  expbtn[i].addEventListener("click", resetcamera)
-}
-
-function resetcamera(){
-  trackballcontrols.reset()
-}
-
-
-
-
+const expbtn = document.querySelector('.expbtn')
+expbtn.addEventListener("click", () => { trackballcontrols.reset() });
 
 const plusicon = `
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="14" height="14" viewBox="0 0 14 14">
@@ -541,6 +522,7 @@ const plusicon = `
   </g>
 </svg>
 `;
+
 const plusblob = new Blob([plusicon], {type: 'image/svg+xml'});
 const iconplus = URL.createObjectURL(plusblob);
 
@@ -552,25 +534,34 @@ const tick = () =>
     raycaster.setFromCamera(mouse, camera)
     const intersects = raycaster.intersectObjects(imgObjects)
 
-    if(intersects.length)
-    {
-        if(!currentIntersect)
-        currentIntersect = intersects[0]
-        document.body.style.cursor = "url(" + iconplus + "), auto";
-        console.log("not internsect");
-    }
-    else
-    {
-        if(currentIntersect)
-        document.body.style.cursor = "grab";
-        currentIntersect = null
+   if (intersects.length) {
+        if (!currentIntersect) {
+            currentIntersect = intersects[0];
+            document.body.style.cursor = "url('" + iconplus + "'), auto";
+            console.log("Intersection detected");
+        }
+    } else {
+        if (currentIntersect) {
+            document.body.style.cursor = "grab";
+            currentIntersect = null;
+            console.log("No intersection");
+        }
     }
 
+
+
     // Update controls
-    // controls.update()
     trackballcontrols.update()
     // Render
     renderer.render(scene, camera)
+
+    let currentWidth = window.innerWidth;
+    if (currentWidth >= 746) {
+        sphereGroup.rotation.y += 0.002;
+        if (renderMniSphere) {
+            renderMniSphere.render(miniScene, minicamera);
+        }
+    }
 
     // Call tick again on the next frame
     window.requestAnimationFrame(tick)
